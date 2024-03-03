@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿using System.ComponentModel.DataAnnotations;
 namespace Data.Models
 {
-    internal class Genres
-    {
+    public class Genres
+    {        
+        [Key]
+        public int  Genres_id { get; set; }
+        [Required]
+        public string Genres_name { get; set; }
     }
 }
