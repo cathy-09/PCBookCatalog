@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace Data.Models
 {
-    internal class BooksAuthors
+    public class BooksAuthors
     {
+        public int BookId { get; set; }
+        //public Book Book {get; set; }
+        public int AuthorId { get; set; }
+        public Authors Authors { get; set; }
     }
 }
