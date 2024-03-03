@@ -5,6 +5,9 @@ Database PCBookCatalogDb:
 
 
 Book class и business: Asen
+
 Nationality и Authors class и business: Katq
+
 Genres и Languages class и business: Mateo
+
 Book_Authors и Publishers class и business: Petio
