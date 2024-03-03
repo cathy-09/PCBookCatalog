@@ -13,5 +13,7 @@ namespace Data.Models
         public int  Genres_id { get; set; }
         [Required]
         public string Genres_name { get; set; }
+
+        //Mateo zdr ICollection Book
     }
 }
