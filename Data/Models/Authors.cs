@@ -7,12 +7,14 @@ using System.Threading.Tasks;
 
 namespace Data.Models
 {
-    public class Nationalities
+    public class Authors
     {
         [Key]
-        public int NationalityId { get; set; }
+        public int AuthorId { get; set; }
 
         [Required]
-        public string NationalityName { get; set; }
+        public string AuthorName { get; set; }
+        public ICollection<Nationalities> Nationalities { get; set; }
+
     }
 }
