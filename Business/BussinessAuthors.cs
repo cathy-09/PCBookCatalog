@@ -9,9 +9,17 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Business
 {
+    /// <summary>
+    /// Represents the set of functionality of the GUI elements at program startup
+    /// </summary>
     public class BussinessAuthors
     {
         private BookCatalogContext bookCatalogContext;
+
+        /// <summary>
+        /// Gets all authors from database
+        /// </summary>
+
         public List<Authors> GetAll()
         {
             using (bookCatalogContext = new BookCatalogContext())
@@ -19,6 +27,11 @@ namespace Business
                 return bookCatalogContext.Authors.Include(e => e.Nationalities).ToList();
             }
         }
+
+        /// <summary>
+        /// Gets an author by id from database
+        /// </summary>
+
         public Authors Get(int id)
         {
             using (bookCatalogContext = new BookCatalogContext())
@@ -26,6 +39,11 @@ namespace Business
                 return bookCatalogContext.Authors.Find(id);
             }
         }
+
+        /// <summary>
+        /// Adds an author to the current context
+        /// </summary>
+
         public void Add(Authors authors)
         {
             using (bookCatalogContext = new BookCatalogContext())
@@ -34,6 +52,11 @@ namespace Business
                 bookCatalogContext.SaveChanges();
             }
         }
+
+        /// <summary>
+        /// Updates an author to the current context
+        /// </summary>
+
         public void Update(Authors authors)
         {
             using (bookCatalogContext = new BookCatalogContext())
@@ -46,6 +69,11 @@ namespace Business
                 }
             }
         }
+
+        /// <summary>
+        /// Deletes an author to the current context
+        /// </summary>
+
         public void Delete(int id)
         {
             using (bookCatalogContext = new BookCatalogContext())
