@@ -4,14 +4,15 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 namespace Data.Models
 {
-    public class Genres
-    {        
+    public class languages
+    {
         [Key]
-        public int  Genres_id { get; set; }
+        public int Lnguages_id { get; set; }
         [Required]
-        public string Genres_name { get; set; }
+        public string Languages_code { get; set; }
+        [Required]
+        public int Lnguages_name { get; set; }
     }
 }
