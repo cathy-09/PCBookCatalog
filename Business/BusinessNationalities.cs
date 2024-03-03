@@ -9,24 +9,42 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Business
 {
+    /// <summary>
+    /// Represents the set of functionality of the GUI elements at program startup
+    /// </summary>
     public class BusinessNationalities
     {
         private BookCatalogContext bookCatalogContext;
-        public List<Nationalities> GetAll()
+
+        /// <summary>
+        /// Gets all nationalities from database
+        /// </summary>
+
+        public List<Nationalities> GetAllNationalities()
         {
             using (bookCatalogContext = new BookCatalogContext())
             {
                 return bookCatalogContext.Nationalities.ToList();
             }
         }
-        public Nationalities Get(int id)
+
+        /// <summary>
+        /// Gets a nationality by id from database
+        /// </summary>
+
+        public Nationalities GetNationaly(int id)
         {
             using (bookCatalogContext = new BookCatalogContext())
             {
                 return bookCatalogContext.Nationalities.Find(id);
             }
         }
-        public void Add(Nationalities nationalities)
+
+        /// <summary>
+        /// Adds a nationality to the current context
+        /// </summary>
+
+        public void AddNationality(Nationalities nationalities)
         {
             using (bookCatalogContext = new BookCatalogContext())
             {
@@ -34,7 +52,12 @@ namespace Business
                 bookCatalogContext.SaveChanges();
             }
         }
-        public void Update(Nationalities nationalities)
+
+        /// <summary>
+        /// Updates a nationality to the current context
+        /// </summary>
+
+        public void UpdateNationality(Nationalities nationalities)
         {
             using (bookCatalogContext = new BookCatalogContext())
             {
@@ -46,7 +69,12 @@ namespace Business
                 }
             }
         }
-        public void Delete(int id)
+
+        /// <summary>
+        /// Deletes a nationality to the current context
+        /// </summary>
+
+        public void DeleteNationality(int id)
         {
             using (bookCatalogContext = new BookCatalogContext())
             {
