@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -18,6 +19,7 @@ namespace Data
         public DbSet<Authors> Authors { get; set; }
         public DbSet<Genres> Genres { get; set; }
         public DbSet<Languages> Languages { get; set; }
+        public DbSet<Publishers> Publishers { get; set; }
         protected override void OnConfiguring
             (DbContextOptionsBuilder dbContextOptionsBuilder)
         {
