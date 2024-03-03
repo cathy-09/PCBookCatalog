@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 namespace Data.Models
 {
-    public class languages
+    public class Languages
     {
         [Key]
         public int Lnguages_id { get; set; }
