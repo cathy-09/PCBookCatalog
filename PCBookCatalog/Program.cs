@@ -1,11 +1,8 @@
-﻿namespace PCCatalogBook
+﻿namespace PCBookCatalog;
+class Program
 {
-    internal class Program
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello, World12312312123!");
-            Console.WriteLine("Zdr Petka");
-        }
+        Console.WriteLine("Hello, World!");
     }
 }
