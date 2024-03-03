@@ -14,5 +14,6 @@ namespace Data.Models
 
         [Required]
         public string NationalityName { get; set; }
+        public ICollection<Authors> Authors { get; set; }
     }
 }
