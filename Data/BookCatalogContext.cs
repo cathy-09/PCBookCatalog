@@ -20,7 +20,7 @@ namespace Data
         protected override void OnConfiguring
             (DbContextOptionsBuilder dbContextOptionsBuilder)
         {
-            string conectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=master;Integrated Security=True";
+            string conectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=BookCatalog;Integrated Security=True";
             dbContextOptionsBuilder.UseSqlServer(conectionString);
         }
     }
