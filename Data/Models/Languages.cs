@@ -14,5 +14,7 @@ namespace Data.Models
         public string Languages_code { get; set; }
         [Required]
         public int Languages_name { get; set; }
+
+        //Mateo zdr ICollection Book
     }
 }
