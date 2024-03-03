@@ -12,22 +12,20 @@ namespace Business
     public class BookAuthorsBusiness
     {
         private BookCatalogContext bookCatalogContext;
-        
-        //public List<Authors> GetAllBookAuthors() 
-        //{
-        //    using (bookCatalogContext = new BookCatalogContext())
-        //    {
-        //        //return bookCatalogContext.BooksAuthors.Include(e => e.Authors).ToList();
-        //        return ;
 
-        //    }
-        //}
-        //public BooksAuthors Get(int id)
-        //{
-        //    using (bookCatalogContext = new BookCatalogContext())
-        //    {
-        //        return bookCatalogContext.BooksAuthors.Find(id);
-        //    }
-        //}
+        public List<BooksAuthors> GetAllBooksAuthors()
+        {
+            using (bookCatalogContext = new BookCatalogContext())
+            {
+                return bookCatalogContext.BooksAuthors.Include(e => e.Authors).ToList();
+            }
+        }
+        public BooksAuthors GetBooksAuthors(int id)
+        {
+            using (bookCatalogContext = new BookCatalogContext())
+            {
+                return bookCatalogContext.BooksAuthors.Find(id);
+            }
+        }
     }
 }
