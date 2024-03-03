@@ -9,10 +9,12 @@ namespace Data.Models
     public class Languages
     {
         [Key]
-        public int Languages_id { get; set; }
+        public int LanguagesId { get; set; }
         [Required]
-        public string Languages_code { get; set; }
+        public string LanguagesCode { get; set; }
         [Required]
-        public int Languages_name { get; set; }
+        public int LanguagesName { get; set; }
+
+        //Mateo zdr ICollection Book
     }
 }
