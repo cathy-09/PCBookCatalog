@@ -17,6 +17,7 @@ namespace Data
         public DbSet<Nationalities> Nationalities { get; set; }
         public DbSet<Authors> Authors { get; set; }
         public DbSet<Genres> Genres { get; set; }
+        public DbSet<Languages> Languages { get; set; }
         protected override void OnConfiguring
             (DbContextOptionsBuilder dbContextOptionsBuilder)
         {
