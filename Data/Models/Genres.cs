@@ -10,9 +10,9 @@ namespace Data.Models
     public class Genres
     {        
         [Key]
-        public int  Genres_id { get; set; }
+        public int  GenresId { get; set; }
         [Required]
-        public string Genres_name { get; set; }
+        public string GenresName { get; set; }
 
         //Mateo zdr ICollection Book
     }
