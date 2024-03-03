@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿using System.ComponentModel.DataAnnotations;
 namespace Data.Models
 {
-    internal class languages
+    public class languages
     {
+        [Key]
+        public int Lnguages_id { get; set; }
+        [Required]
+        public string Languages_code { get; set; }
+        [Required]
+        public int Lnguages_name { get; set; }
     }
 }
