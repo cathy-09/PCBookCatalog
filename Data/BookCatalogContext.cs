@@ -20,6 +20,7 @@ namespace Data
         public DbSet<Genres> Genres { get; set; }
         public DbSet<Languages> Languages { get; set; }
         public DbSet<Publishers> Publishers { get; set; }
+        public DbSet<BooksAuthors> BooksAuthors { get; set; }
         protected override void OnConfiguring
             (DbContextOptionsBuilder dbContextOptionsBuilder)
         {
