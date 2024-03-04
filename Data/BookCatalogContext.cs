@@ -21,6 +21,7 @@ namespace Data
         public DbSet<Language> Languages { get; set; }
         public DbSet<Publisher> Publishers { get; set; }
         public DbSet<BookAuthor> BooksAuthors { get; set; }
+        public DbSet<Book> Books { get; set; }
         protected override void OnConfiguring
             (DbContextOptionsBuilder dbContextOptionsBuilder)
         {
