@@ -13,21 +13,21 @@ namespace Business
     {
         private BookCatalogContext bookCatalogContext;
 
-        public List<Genres> GetAll()
+        public List<Genre> GetAll()
         {
             using (bookCatalogContext = new BookCatalogContext())
             {
                 return bookCatalogContext.Genres.ToList();
             }
         }
-        public Genres Get(int id)
+        public Genre Get(int id)
         {
             using (bookCatalogContext = new BookCatalogContext())
             {
                 return bookCatalogContext.Genres.Find(id);
             }
         }
-        public void Add(Genres genres)
+        public void Add(Genre genres)
         {
             using (bookCatalogContext = new BookCatalogContext())
             {
@@ -35,11 +35,11 @@ namespace Business
                 bookCatalogContext.SaveChanges();
             }
         }
-        public void Update(Genres genres)
+        public void Update(Genre genres)
         {
             using (bookCatalogContext = new BookCatalogContext())
             {
-                Genres item = bookCatalogContext.Genres.Find(genres.GenresId);
+                Genre item = bookCatalogContext.Genres.Find(genres.GenresId);
                 if (item != null)
                 {
                     bookCatalogContext.Entry(item).CurrentValues.SetValues(genres);
@@ -52,7 +52,7 @@ namespace Business
         {
             using (bookCatalogContext = new BookCatalogContext())
             {
-                Genres genres = bookCatalogContext.Genres.Find(id);
+                Genre genres = bookCatalogContext.Genres.Find(id);
                 if (genres != null)
                 {
                     bookCatalogContext.Genres.Remove(genres);

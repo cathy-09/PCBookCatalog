@@ -13,21 +13,21 @@ namespace Business
     {
         private BookCatalogContext bookCatalogContext;
 
-        public List<BooksAuthors> GetAllBooksAuthors()
+        public List<BookAuthor> GetAllBooksAuthors()
         {
             using (bookCatalogContext = new BookCatalogContext())
             {
                 return bookCatalogContext.BooksAuthors.Include(e => e.Authors).ToList();
             }
         }
-        public BooksAuthors GetBooksAuthors(int id)
+        public BookAuthor GetBooksAuthors(int id)
         {
             using (bookCatalogContext = new BookCatalogContext())
             {
                 return bookCatalogContext.BooksAuthors.Find(id);
             }
         }
-        public void AddBooksAuthors(BooksAuthors booksAuthors)
+        public void AddBooksAuthors(BookAuthor booksAuthors)
         {
             using (bookCatalogContext = new BookCatalogContext())
             {
@@ -35,11 +35,11 @@ namespace Business
                 bookCatalogContext.SaveChanges();
             }
         }
-        public void UpdateBooksAuthors(BooksAuthors booksAuthors)
+        public void UpdateBooksAuthors(BookAuthor booksAuthors)
         {
             using (bookCatalogContext = new BookCatalogContext())
             {
-                BooksAuthors item = bookCatalogContext.BooksAuthors.Find(booksAuthors.BookId, booksAuthors.AuthorId);
+                BookAuthor item = bookCatalogContext.BooksAuthors.Find(booksAuthors.BookId, booksAuthors.AuthorId);
                 if (item != null)
                 {
                     bookCatalogContext.Entry(item).CurrentValues.SetValues(booksAuthors);
@@ -51,7 +51,7 @@ namespace Business
         {
             using (bookCatalogContext = new BookCatalogContext())
             {
-                BooksAuthors booksAuthors = bookCatalogContext.BooksAuthors.Find(id);
+                BookAuthor booksAuthors = bookCatalogContext.BooksAuthors.Find(id);
                 if (booksAuthors != null)
                 {
                     bookCatalogContext.BooksAuthors.Remove(booksAuthors);

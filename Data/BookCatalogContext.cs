@@ -15,12 +15,12 @@ namespace Data
         {
             Database.EnsureCreated();
         }
-        public DbSet<Nationalities> Nationalities { get; set; }
-        public DbSet<Authors> Authors { get; set; }
-        public DbSet<Genres> Genres { get; set; }
-        public DbSet<Languages> Languages { get; set; }
-        public DbSet<Publishers> Publishers { get; set; }
-        public DbSet<BooksAuthors> BooksAuthors { get; set; }
+        public DbSet<Nationality> Nationalities { get; set; }
+        public DbSet<Author> Authors { get; set; }
+        public DbSet<Genre> Genres { get; set; }
+        public DbSet<Language> Languages { get; set; }
+        public DbSet<Publisher> Publishers { get; set; }
+        public DbSet<BookAuthor> BooksAuthors { get; set; }
         protected override void OnConfiguring
             (DbContextOptionsBuilder dbContextOptionsBuilder)
         {

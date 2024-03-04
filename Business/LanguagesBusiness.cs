@@ -12,21 +12,21 @@ namespace Business
     {
         private BookCatalogContext bookCatalogContext;
 
-        public List<Languages> GetAll()
+        public List<Language> GetAll()
         {
             using (bookCatalogContext = new BookCatalogContext())
             {
                 return bookCatalogContext.Languages.ToList();
             }
         }
-        public Languages Get(int id)
+        public Language Get(int id)
         {
             using (bookCatalogContext = new BookCatalogContext())
             {
                 return bookCatalogContext.Languages.Find(id);
             }
         }
-        public void Add(Languages languages)
+        public void Add(Language languages)
         {
             using (bookCatalogContext = new BookCatalogContext())
             {
@@ -34,11 +34,11 @@ namespace Business
                 bookCatalogContext.SaveChanges();
             }
         }
-        public void Update(Languages languages)
+        public void Update(Language languages)
         {
             using (bookCatalogContext = new BookCatalogContext())
             {
-                Languages item = bookCatalogContext.Languages.Find(languages.LanguagesId);
+                Language item = bookCatalogContext.Languages.Find(languages.LanguagesId);
                 if (item != null)
                 {
                     bookCatalogContext.Entry(item).CurrentValues.SetValues(languages);
@@ -51,7 +51,7 @@ namespace Business
         {
             using (bookCatalogContext = new BookCatalogContext())
             {
-                Languages languages = bookCatalogContext.Languages.Find(id);
+                Language languages = bookCatalogContext.Languages.Find(id);
                 if (languages != null)
                 {
                     bookCatalogContext.Languages.Remove(languages);

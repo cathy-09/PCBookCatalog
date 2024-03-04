@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace Data.Models
 {
-    public class Genres
+    public class Genre
     {        
         [Key]
-        public int  GenresId { get; set; }
+        public int  GenreId { get; set; }
         [Required]
-        public string GenresName { get; set; }
+        public string GenreName { get; set; }
 
         //Mateo zdr ICollection Book
     }

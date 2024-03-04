@@ -20,7 +20,7 @@ namespace Business
         /// Gets all nationalities from database
         /// </summary>
 
-        public List<Nationalities> GetAllNationalities()
+        public List<Nationality> GetAllNationalities()
         {
             using (bookCatalogContext = new BookCatalogContext())
             {
@@ -32,7 +32,7 @@ namespace Business
         /// Gets a nationality by id from database
         /// </summary>
 
-        public Nationalities GetNationaly(int id)
+        public Nationality GetNationaly(int id)
         {
             using (bookCatalogContext = new BookCatalogContext())
             {
@@ -44,7 +44,7 @@ namespace Business
         /// Adds a nationality to the current context
         /// </summary>
 
-        public void AddNationality(Nationalities nationalities)
+        public void AddNationality(Nationality nationalities)
         {
             using (bookCatalogContext = new BookCatalogContext())
             {
@@ -57,11 +57,11 @@ namespace Business
         /// Updates a nationality to the current context
         /// </summary>
 
-        public void UpdateNationality(Nationalities nationalities)
+        public void UpdateNationality(Nationality nationalities)
         {
             using (bookCatalogContext = new BookCatalogContext())
             {
-                Nationalities item = bookCatalogContext.Nationalities.Find(nationalities.NationalityId);
+                Nationality item = bookCatalogContext.Nationalities.Find(nationalities.NationalityId);
                 if (item != null)
                 {
                     bookCatalogContext.Entry(item).CurrentValues.SetValues(nationalities);
@@ -78,7 +78,7 @@ namespace Business
         {
             using (bookCatalogContext = new BookCatalogContext())
             {
-                Nationalities nationalities = bookCatalogContext.Nationalities.Find(id);
+                Nationality nationalities = bookCatalogContext.Nationalities.Find(id);
                 if (nationalities != null)
                 {
                     bookCatalogContext.Nationalities.Remove(nationalities);

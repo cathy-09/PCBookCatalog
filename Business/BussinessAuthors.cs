@@ -20,7 +20,7 @@ namespace Business
         /// Gets all authors from database
         /// </summary>
 
-        public List<Authors> GetAll()
+        public List<Author> GetAll()
         {
             using (bookCatalogContext = new BookCatalogContext())
             {
@@ -32,7 +32,7 @@ namespace Business
         /// Gets an author by id from database
         /// </summary>
 
-        public Authors Get(int id)
+        public Author Get(int id)
         {
             using (bookCatalogContext = new BookCatalogContext())
             {
@@ -44,7 +44,7 @@ namespace Business
         /// Adds an author to the current context
         /// </summary>
 
-        public void Add(Authors authors)
+        public void Add(Author authors)
         {
             using (bookCatalogContext = new BookCatalogContext())
             {
@@ -57,11 +57,11 @@ namespace Business
         /// Updates an author to the current context
         /// </summary>
 
-        public void Update(Authors authors)
+        public void Update(Author authors)
         {
             using (bookCatalogContext = new BookCatalogContext())
             {
-                Authors item = bookCatalogContext.Authors.Find(authors.AuthorId);
+                Author item = bookCatalogContext.Authors.Find(authors.AuthorId);
                 if (item != null)
                 {
                     bookCatalogContext.Entry(item).CurrentValues.SetValues(authors);
@@ -78,7 +78,7 @@ namespace Business
         {
             using (bookCatalogContext = new BookCatalogContext())
             {
-                Authors authors = bookCatalogContext.Authors.Find(id);
+                Author authors = bookCatalogContext.Authors.Find(id);
                 if (authors != null)
                 {
                     bookCatalogContext.Authors.Remove(authors);

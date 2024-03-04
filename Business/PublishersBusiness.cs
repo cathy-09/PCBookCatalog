@@ -12,21 +12,21 @@ namespace Business
     {
         private BookCatalogContext bookCatalogContext;
 
-        public List<Publishers> GetAllPublishers()
+        public List<Publisher> GetAllPublishers()
         {
             using (bookCatalogContext = new BookCatalogContext())
             {
                 return bookCatalogContext.Publishers.ToList();
             }
         }
-        public Publishers GetPublishers(int id)
+        public Publisher GetPublishers(int id)
         {
             using (bookCatalogContext = new BookCatalogContext())
             {
                 return bookCatalogContext.Publishers.Find(id);
             }
         }
-        public void AddPublishers(Publishers publishers)
+        public void AddPublishers(Publisher publishers)
         {
             using (bookCatalogContext = new BookCatalogContext())
             {
@@ -34,11 +34,11 @@ namespace Business
                 bookCatalogContext.SaveChanges();
             }
         }
-        public void UpdatePublishers(Publishers publishers)
+        public void UpdatePublishers(Publisher publishers)
         {
             using (bookCatalogContext = new BookCatalogContext())
             {
-                Publishers item = bookCatalogContext.Publishers.Find(publishers.PublisherId);
+                Publisher item = bookCatalogContext.Publishers.Find(publishers.PublisherId);
                 if (item != null)
                 {
                     bookCatalogContext.Entry(item).CurrentValues.SetValues(publishers);
@@ -50,7 +50,7 @@ namespace Business
         {
             using (bookCatalogContext = new BookCatalogContext())
             {
-                Publishers publishers = bookCatalogContext.Publishers.Find(id);
+                Publisher publishers = bookCatalogContext.Publishers.Find(id);
                 if (publishers != null)
                 {
                     bookCatalogContext.Publishers.Remove(publishers);

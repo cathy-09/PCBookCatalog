@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Data.Models
 {
-    public class BooksAuthors
+    public class BookAuthor
     {
         public int BookId { get; set; }
         //public Book Book {get; set; }
         public int AuthorId { get; set; }
-        public Authors Authors { get; set; }
+        public Author Author { get; set; }
     }
 }

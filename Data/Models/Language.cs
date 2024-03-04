@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace Data.Models
 {
-    public class Languages
+    public class Language
     {
         [Key]
-        public int LanguagesId { get; set; }
+        public int LanguageId { get; set; }
         [Required]
-        public int LanguagesCode { get; set;}
+        public int LanguageCode { get; set;}
         [Required]
-        public int LanguagesName { get; set; }
+        public int LanguageName { get; set; }
 
     }
 }
