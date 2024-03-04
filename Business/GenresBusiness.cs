@@ -39,7 +39,7 @@ namespace Business
         {
             using (bookCatalogContext = new BookCatalogContext())
             {
-                Genre item = bookCatalogContext.Genres.Find(genres.GenresId);
+                Genre item = bookCatalogContext.Genres.Find(genres.GenreId);
                 if (item != null)
                 {
                     bookCatalogContext.Entry(item).CurrentValues.SetValues(genres);

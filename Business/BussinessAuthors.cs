@@ -24,7 +24,7 @@ namespace Business
         {
             using (bookCatalogContext = new BookCatalogContext())
             {
-                return bookCatalogContext.Authors.Include(e => e.Nationalities).ToList();
+                return bookCatalogContext.Authors.Include(e => e.Nationality).ToList();
             }
         }
 

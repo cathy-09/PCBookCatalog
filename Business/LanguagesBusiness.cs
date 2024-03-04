@@ -38,7 +38,7 @@ namespace Business
         {
             using (bookCatalogContext = new BookCatalogContext())
             {
-                Language item = bookCatalogContext.Languages.Find(languages.LanguagesId);
+                Language item = bookCatalogContext.Languages.Find(languages.LanguageId);
                 if (item != null)
                 {
                     bookCatalogContext.Entry(item).CurrentValues.SetValues(languages);
