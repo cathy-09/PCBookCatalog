@@ -10,16 +10,16 @@ namespace Data.Models
     public class Book
     {
         [Key]
-        public int BookId { get; set; }
+        public int Id { get; set; }
 
         [Required]
-        public string BookName { get; set; }
+        public string Name { get; set; }
         public int GenreId { get; set; }
         public Genre Genre { get; set; }
         public int PublisherId { get; set; }
         public Publisher Publisher { get; set; }
-        public double BookRating { get; set; }
-        public int BookPages { get; set; }
+        public double Rating { get; set; }
+        public int Pages { get; set; }
         public decimal Price { get; set; }
         public string ISBN { get; set; }
         public int PublicationYear { get; set; }

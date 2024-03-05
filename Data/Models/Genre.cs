@@ -14,6 +14,6 @@ namespace Data.Models
         [Required]
         public string GenreName { get; set; }
 
-        //Mateo zdr ICollection Book
+        public ICollection<Book> Books { get; set; }
     }
 }
