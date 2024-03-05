@@ -10,10 +10,10 @@ namespace Data.Models
     public class Nationality
     {
         [Key]
-        public int NationalityId { get; set; }
+        public int Id { get; set; }
 
         [Required]
-        public string NationalityName { get; set; }
+        public string Name { get; set; }
         public ICollection<Author> Authors { get; set; }
     }
 }
