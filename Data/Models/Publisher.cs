@@ -14,5 +14,7 @@ namespace Data.Models
         public int PublisherId { get; set; }
         [Required]
         public string PublisherName { get; set; }
+
+        public ICollection<Book> Books { get; set; }
     }
 }

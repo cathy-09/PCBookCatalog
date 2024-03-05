@@ -16,5 +16,7 @@ namespace Data.Models
         [Required]
         public int LanguageName { get; set; }
 
+        public ICollection<Book> Books { get; set; }
+
     }
 }
