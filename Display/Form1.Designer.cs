@@ -80,6 +80,7 @@
             btnExit.TabIndex = 2;
             btnExit.Text = "Изход";
             btnExit.UseVisualStyleBackColor = false;
+            btnExit.Click += btnExit_Click;
             // 
             // MainForm
             // 
