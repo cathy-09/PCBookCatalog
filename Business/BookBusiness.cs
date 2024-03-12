@@ -122,5 +122,24 @@ namespace Business
                     .ToList();
             }
         }
+
+        public Book GetCheapestBook()
+        {
+            using (BookCatalogContext bookCatalogContext = new BookCatalogContext())
+            {
+                Book cheapestBook = bookCatalogContext.Books
+                    .OrderBy(b => b.Price)
+                    .FirstOrDefault();
+                if (cheapestBook != null)
+                {
+                    return cheapestBook;
+                }
+                else
+                {
+                    throw new InvalidOperationException("No books found.");
+                }
+            }
+        }
+
     }
 }
