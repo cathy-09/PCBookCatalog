@@ -70,5 +70,15 @@ namespace Business
                 }
             }
         }
+
+        public List<Book> GetBooksByAuthor(string authorName)
+        {
+            using (BookCatalogContext bookCatalogContext = new BookCatalogContext())
+            {
+                return bookCatalogContext.Books
+                    .Where(b => b.Author.Name == authorName)
+                    .ToList();
+            }
+        }
     }
 }
