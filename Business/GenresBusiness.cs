@@ -20,6 +20,7 @@ namespace Business
                 return bookCatalogContext.Genres.ToList();
             }
         }
+
         public Genre Get(int id)
         {
             using (bookCatalogContext = new BookCatalogContext())
@@ -27,6 +28,7 @@ namespace Business
                 return bookCatalogContext.Genres.Find(id);
             }
         }
+
         public void Add(Genre genres)
         {
             using (bookCatalogContext = new BookCatalogContext())
@@ -35,6 +37,7 @@ namespace Business
                 bookCatalogContext.SaveChanges();
             }
         }
+
         public void Update(Genre genres)
         {
             using (bookCatalogContext = new BookCatalogContext())
@@ -48,6 +51,7 @@ namespace Business
             }
 
         }
+
         public void Delete(int id)
         {
             using (bookCatalogContext = new BookCatalogContext())

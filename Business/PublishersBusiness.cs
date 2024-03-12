@@ -19,6 +19,7 @@ namespace Business
                 return bookCatalogContext.Publishers.ToList();
             }
         }
+
         public Publisher GetPublishers(int id)
         {
             using (bookCatalogContext = new BookCatalogContext())
@@ -26,6 +27,7 @@ namespace Business
                 return bookCatalogContext.Publishers.Find(id);
             }
         }
+
         public void AddPublishers(Publisher publishers)
         {
             using (bookCatalogContext = new BookCatalogContext())
@@ -34,6 +36,7 @@ namespace Business
                 bookCatalogContext.SaveChanges();
             }
         }
+
         public void UpdatePublishers(Publisher publishers)
         {
             using (bookCatalogContext = new BookCatalogContext())
@@ -46,6 +49,7 @@ namespace Business
                 }
             }
         }
+
         public void DeletePublishers(int id)
         {
             using (bookCatalogContext = new BookCatalogContext())
@@ -58,5 +62,6 @@ namespace Business
                 }
             }
         }
+
     }
 }

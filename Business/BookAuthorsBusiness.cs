@@ -20,6 +20,7 @@ namespace Business
                 return bookCatalogContext.BooksAuthors.Include(e => e.Author).ToList();
             }
         }
+
         public BookAuthor GetBooksAuthors(int id)
         {
             using (bookCatalogContext = new BookCatalogContext())
@@ -27,6 +28,7 @@ namespace Business
                 return bookCatalogContext.BooksAuthors.Find(id);
             }
         }
+
         public void AddBooksAuthors(BookAuthor booksAuthors)
         {
             using (bookCatalogContext = new BookCatalogContext())
@@ -35,6 +37,7 @@ namespace Business
                 bookCatalogContext.SaveChanges();
             }
         }
+
         public void UpdateBooksAuthors(BookAuthor booksAuthors)
         {
             using (bookCatalogContext = new BookCatalogContext())
@@ -47,6 +50,7 @@ namespace Business
                 }
             }
         }
+
         public void DeleteBooksAuthors(int id)
         {
             using (bookCatalogContext = new BookCatalogContext())
@@ -59,5 +63,6 @@ namespace Business
                 }
             }
         }
+
     }
 }

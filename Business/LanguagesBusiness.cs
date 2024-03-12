@@ -19,6 +19,7 @@ namespace Business
                 return bookCatalogContext.Languages.ToList();
             }
         }
+
         public Language Get(int id)
         {
             using (bookCatalogContext = new BookCatalogContext())
@@ -26,6 +27,7 @@ namespace Business
                 return bookCatalogContext.Languages.Find(id);
             }
         }
+
         public void Add(Language languages)
         {
             using (bookCatalogContext = new BookCatalogContext())
@@ -34,6 +36,7 @@ namespace Business
                 bookCatalogContext.SaveChanges();
             }
         }
+
         public void Update(Language languages)
         {
             using (bookCatalogContext = new BookCatalogContext())
@@ -45,8 +48,8 @@ namespace Business
                     bookCatalogContext.SaveChanges();
                 }
             }
-
         }
+
         public void Delete(int id)
         {
             using (bookCatalogContext = new BookCatalogContext())
