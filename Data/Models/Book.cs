@@ -25,5 +25,6 @@ namespace Data.Models
         public int PublicationYear { get; set; }
         public int LanguageId { get; set; }
         public Language Language { get; set; }
+        public BookAuthor BookAuthor { get; set; }
     }
 }

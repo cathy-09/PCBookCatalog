@@ -71,12 +71,54 @@ namespace Business
             }
         }
 
-        public List<Book> GetBooksByAuthor(string authorName)
+        public List<Book> GetBooksByAuthor(string author)
         {
             using (BookCatalogContext bookCatalogContext = new BookCatalogContext())
             {
                 return bookCatalogContext.Books
-                    .Where(b => b.Author.Name == authorName)
+                    .Where(b => b.BookAuthor.Author.Name == author)
+                    .Include(e => e.Genre)
+                    .Include(e => e.Publisher)
+                    .Include(e => e.Language)
+                    .ToList();
+            }
+        }
+
+        public List<Book> GetBooksByGenre(string genre)
+        {
+            using (BookCatalogContext bookCatalogContext = new BookCatalogContext())
+            {
+                return bookCatalogContext.Books
+                    .Where(b => b.Genre.GenreName == genre)
+                    .Include(e => e.Genre)
+                    .Include(e => e.Publisher)
+                    .Include(e => e.Language)
+                    .ToList();
+            }
+        }
+
+        public List<Book> GetBooksByPublisher(string publisher)
+        {
+            using (BookCatalogContext bookCatalogContext = new BookCatalogContext())
+            {
+                return bookCatalogContext.Books
+                    .Where(b => b.Publisher.PublisherName == publisher)
+                    .Include(e => e.Genre)
+                    .Include(e => e.Publisher)
+                    .Include(e => e.Language)
+                    .ToList();
+            }
+        }
+
+        public List<Book> GetBooksByLanguage(string language)
+        {
+            using (BookCatalogContext bookCatalogContext = new BookCatalogContext())
+            {
+                return bookCatalogContext.Books
+                    .Where(b => b.Language.LanguageName == language)
+                    .Include(e => e.Genre)
+                    .Include(e => e.Publisher)
+                    .Include(e => e.Language)
                     .ToList();
             }
         }
