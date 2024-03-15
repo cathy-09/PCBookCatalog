@@ -18,7 +18,7 @@ namespace Display
         {
             InitializeComponent();
         }
-         
+
         private void BookCatalogForm_Load(object sender, EventArgs e)
         {
             UpdateGrid();
@@ -43,6 +43,19 @@ namespace Display
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void comboBoxChooseOption_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxChooseOption.Text == "Списък на книги")
+            {
+                UpdateGrid();
+            }
+            else
+            {
+                //bookBusiness.CustomSort();
+                UpdateGrid();
+            }
         }
     }
 }

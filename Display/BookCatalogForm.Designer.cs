@@ -75,6 +75,7 @@
             comboBoxChooseOption.Name = "comboBoxChooseOption";
             comboBoxChooseOption.Size = new Size(158, 23);
             comboBoxChooseOption.TabIndex = 3;
+            comboBoxChooseOption.SelectedIndexChanged += comboBoxChooseOption_SelectedIndexChanged;
             // 
             // BookCatalogForm
             // 
