@@ -28,5 +28,10 @@ namespace Data
             string conectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=BookCatalog;Integrated Security=True";
             dbContextOptionsBuilder.UseSqlServer(conectionString);
         }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<BookAuthor>()
+                .HasKey(ep => new { ep.BookId, ep.AuthorId });
+        }
     }
 }

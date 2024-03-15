@@ -15,5 +15,6 @@ namespace Data.Models
         [Required]
         public string Name { get; set; }
         public ICollection<Author> Authors { get; set; }
+        //public Author Author { get; set; }
     }
 }

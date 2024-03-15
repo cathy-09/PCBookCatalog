@@ -45,6 +45,7 @@
             btnCatalogNavigaton.TabIndex = 0;
             btnCatalogNavigaton.Text = "Разгледай каталога";
             btnCatalogNavigaton.UseVisualStyleBackColor = false;
+            btnCatalogNavigaton.Click += btnCatalogNavigaton_Click;
             // 
             // btnMakeChangeToTheCatalog
             // 
@@ -56,6 +57,7 @@
             btnMakeChangeToTheCatalog.TabIndex = 0;
             btnMakeChangeToTheCatalog.Text = "Обогати каталога";
             btnMakeChangeToTheCatalog.UseVisualStyleBackColor = false;
+            btnMakeChangeToTheCatalog.Click += btnMakeChangeToTheCatalog_Click;
             // 
             // label1
             // 

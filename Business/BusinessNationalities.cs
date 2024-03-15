@@ -61,7 +61,7 @@ namespace Business
         {
             using (bookCatalogContext = new BookCatalogContext())
             {
-                Nationality item = bookCatalogContext.Nationalities.Find(nationalities.NationalityId);
+                Nationality item = bookCatalogContext.Nationalities.Find(nationalities.Id);
                 if (item != null)
                 {
                     bookCatalogContext.Entry(item).CurrentValues.SetValues(nationalities);

@@ -11,5 +11,17 @@ namespace Display
         {
             this.Close();
         }
+
+        private void btnMakeChangeToTheCatalog_Click(object sender, EventArgs e)
+        {
+            ImproveOurCatalog improveOurCatalog = new ImproveOurCatalog();
+            improveOurCatalog.Show();
+        }
+
+        private void btnCatalogNavigaton_Click(object sender, EventArgs e)
+        {
+            BookCatalogForm bookCatalogForm = new BookCatalogForm();
+            bookCatalogForm.Show();
+        }
     }
 }

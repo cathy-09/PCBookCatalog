@@ -76,7 +76,7 @@ namespace Business
             using (BookCatalogContext bookCatalogContext = new BookCatalogContext())
             {
                 return bookCatalogContext.Books
-                    .Where(b => b.BookAuthor.Author.Name == author)
+                    .Where(b => b.Author.Name == author)
                     .Include(e => e.Genre)
                     .Include(e => e.Publisher)
                     .Include(e => e.Language)
@@ -140,6 +140,29 @@ namespace Business
                 }
             }
         }
+        public void InsertInitialData()
+        {
+            // Първа книга
+            Book book1 = new Book
+            {
+                Name = "The Magicians' Guild",
+                Author = new Author { Name =  "Trudi Canavan (Australian)" },
+                Genre = new Genre { GenreName = "Fantasy" },
+                Publisher = new Publisher { PublisherName = "MBG Books" },
+                Rating = 3.95,
+                Pages = 440,
+                Price = 15.90m,
+                ISBN = "9789542989011",
+                PublicationYear = 2011,
+                Language = new Language { LanguageName = "English" }
+            };
 
+            // Добавяне на книгите към базата данни
+            using (BookCatalogContext bookCatalogContext = new BookCatalogContext())
+            {
+                bookCatalogContext.Books.Add(book1);
+                bookCatalogContext.SaveChanges();
+            }
+        }
     }
 }
