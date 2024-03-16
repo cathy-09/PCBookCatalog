@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Business", "Business\Busine
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data", "Data\Data.csproj", "{300938A0-65E0-468C-9414-9447A9ACD449}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Display", "Display\Display.csproj", "{0DF3C587-977D-4AF2-BE43-7354FBB9635C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Display", "Display\Display.csproj", "{0DF3C587-977D-4AF2-BE43-7354FBB9635C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestLanguage", "TestLanguage\TestLanguage.csproj", "{250CC5AC-DD4F-4526-B09A-FABFD32B569D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{0DF3C587-977D-4AF2-BE43-7354FBB9635C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0DF3C587-977D-4AF2-BE43-7354FBB9635C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0DF3C587-977D-4AF2-BE43-7354FBB9635C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{250CC5AC-DD4F-4526-B09A-FABFD32B569D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{250CC5AC-DD4F-4526-B09A-FABFD32B569D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{250CC5AC-DD4F-4526-B09A-FABFD32B569D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{250CC5AC-DD4F-4526-B09A-FABFD32B569D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
