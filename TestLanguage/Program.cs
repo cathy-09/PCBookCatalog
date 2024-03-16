@@ -6,7 +6,7 @@ namespace TestLanguage
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            TestLanguage testLanguage = new TestLanguage();
         }
     }
 }
