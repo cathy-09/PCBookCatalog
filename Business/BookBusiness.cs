@@ -17,7 +17,7 @@ namespace Business
         {
             using (bookCatalogContext = new BookCatalogContext())
             {
-                
+
                 //var withGenre = bookCatalogContext.Books
                 //    .Include(e => e.Genre)
                 //    .ThenInclude(e => e.GenreName);
@@ -31,12 +31,12 @@ namespace Business
                 //    .Include(e => e.Language)
                 //    .ThenInclude(e => e.LanguageName);
                 //return withLanguage.ToList();
-                //return bookCatalogContext.Books
-                //    .Include(e => e.Genre)
-                //    .Include(e => e.Publisher)
-                //    .Include(e => e.Language)
-                //    .Include(e => e.Author)
-                //    .ToList();
+                return bookCatalogContext.Books
+                    .Include(e => e.Genre)
+                    .Include(e => e.Publisher)
+                    .Include(e => e.Language)
+                    .Include(e => e.Author)
+                    .ToList();
             }
         }
 
