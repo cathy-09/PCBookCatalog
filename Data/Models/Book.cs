@@ -27,5 +27,6 @@ namespace Data.Models
         //public int LanguageId { get; set; }
         public Language Language { get; set; }
         //public BookAuthor BookAuthor { get; set; }
+        public ICollection<BookAuthor> BookAuthors { get; set; }
     }
 }

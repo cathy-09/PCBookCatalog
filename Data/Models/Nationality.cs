@@ -20,6 +20,6 @@ namespace Data.Models
         public string Name { get; set; }
 
         public ICollection<Book> Books { get; set; }
-        //public Author Author { get; set; }
+        public Author Author { get; set; }
     }
 }

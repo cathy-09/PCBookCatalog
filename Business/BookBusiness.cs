@@ -17,7 +17,18 @@ namespace Business
         {
             using (bookCatalogContext = new BookCatalogContext())
             {
-
+                return bookCatalogContext.Books
+                .Include(b => b.BookAuthors)
+                .ThenInclude(ba => ba.Author)
+                .Include(b => b.Genre)
+                .Include(b => b.Publisher)
+                .Include(b => b.Language)
+                .ToList();
+                //bookCatalogContext.Books
+                //    .Include(f => f.BookAuthors)
+                //    .ThenInclude(a => a.Author)
+                //    .ToList();
+                //return bookCatalogContext.Books.Include(g => g.Genre).Include(b => b.Publisher).Include(c => c.Language).ToList();
                 //var withGenre = bookCatalogContext.Books
                 //    .Include(e => e.Genre)
                 //    .ThenInclude(e => e.GenreName);
@@ -31,12 +42,12 @@ namespace Business
                 //    .Include(e => e.Language)
                 //    .ThenInclude(e => e.LanguageName);
                 //return withLanguage.ToList();
-                return bookCatalogContext.Books
-                    .Include(e => e.Genre)
-                    .Include(e => e.Publisher)
-                    .Include(e => e.Language)
-                    .Include(e => e.Author)
-                    .ToList();
+                //return bookCatalogContext.Books
+                //.Include(e => e.Genre.GenreName)
+                //.Include(e => e.Publisher.PublisherName)
+                //.Include(e => e.Language.LanguageName)
+                //.Include(e => e.Author.Name)
+                //.ToList();
             }
         }
 

@@ -20,5 +20,6 @@ namespace Data.Models
         public int NationalityId { get; set; }
         public Nationality Nationality { get; set; }
         public ICollection<Book> Books { get; set; }
+        public ICollection<BookAuthor> BookAuthors { get; set; }
     }
 }
