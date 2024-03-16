@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Display", "Display\Display.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestLanguage", "TestLanguage\TestLanguage.csproj", "{250CC5AC-DD4F-4526-B09A-FABFD32B569D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestNationality", "TestNationality\TestNationality.csproj", "{89C582DA-6FAF-4388-B7FE-6C99F09D430B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{250CC5AC-DD4F-4526-B09A-FABFD32B569D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{250CC5AC-DD4F-4526-B09A-FABFD32B569D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{250CC5AC-DD4F-4526-B09A-FABFD32B569D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89C582DA-6FAF-4388-B7FE-6C99F09D430B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89C582DA-6FAF-4388-B7FE-6C99F09D430B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89C582DA-6FAF-4388-B7FE-6C99F09D430B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89C582DA-6FAF-4388-B7FE-6C99F09D430B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
