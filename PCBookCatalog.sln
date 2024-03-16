@@ -17,7 +17,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestNationality", "TestNati
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestAuthors", "TestAuthors\TestAuthors.csproj", "{8E3FA6CA-BB7F-4EDB-B9E0-077D6ACA7AC3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestGenres", "TestGenres\TestGenres.csproj", "{39645851-731A-441E-843D-85F5C1621D09}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestGenres", "TestGenres\TestGenres.csproj", "{39645851-731A-441E-843D-85F5C1621D09}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestPublisher", "TestPublisher\TestPublisher.csproj", "{8E70622A-4F75-4F20-A809-5030FC7A5A4D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +59,10 @@ Global
 		{39645851-731A-441E-843D-85F5C1621D09}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{39645851-731A-441E-843D-85F5C1621D09}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{39645851-731A-441E-843D-85F5C1621D09}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E70622A-4F75-4F20-A809-5030FC7A5A4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E70622A-4F75-4F20-A809-5030FC7A5A4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E70622A-4F75-4F20-A809-5030FC7A5A4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E70622A-4F75-4F20-A809-5030FC7A5A4D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
