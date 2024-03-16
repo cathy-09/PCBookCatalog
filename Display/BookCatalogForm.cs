@@ -32,6 +32,7 @@ namespace Display
         }
         private void btnGoBackToMainForm_Click(object sender, EventArgs e)
         {
+            this.Close();
             MainForm mainForm = new MainForm();
             mainForm.Show();
         }
@@ -47,7 +48,7 @@ namespace Display
 
         private void comboBoxChooseOption_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (comboBoxChooseOption.Text == "Списък на книги")
+            if (comboBoxChooseOption.Text.Equals("Списък на книги"))
             {
                 UpdateGrid();
             }

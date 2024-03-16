@@ -9,13 +9,16 @@ namespace Data.Models
 {
     public class Author
     {
+        public Author() {
+            this.Books = new HashSet<Book>();
+        }
         [Key]
-        public int Id { get; set; }
+        public int AuthorId { get; set; }
 
         [Required]
         public string Name { get; set; }
         public int NationalityId { get; set; }
         public Nationality Nationality { get; set; }
-        //public ICollection<BookAuthor> BooksAuthors { get; set; }
+        public ICollection<Book> Books { get; set; }
     }
 }

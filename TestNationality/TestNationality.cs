@@ -73,7 +73,7 @@ namespace TestNationality
             var nationality = businessNationalities.GetAllNationalities();
             foreach (var item in nationality)
             {
-                Console.WriteLine($"{item.Id} {item.Name}");
+                Console.WriteLine($"{item.NationalityId} {item.Name}");
             }
         }
         private void Update()
@@ -100,7 +100,7 @@ namespace TestNationality
             if (nationality != null)
             {
                 Console.WriteLine(new string('-', 40));
-                Console.WriteLine("ID: " + nationality.Id);
+                Console.WriteLine("ID: " + nationality.NationalityId);
                 Console.WriteLine("Name: " + nationality.Name);
                 Console.WriteLine(new string('-', 40));
             }

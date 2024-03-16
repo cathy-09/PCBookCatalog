@@ -61,7 +61,7 @@ namespace Business
         {
             using (bookCatalogContext = new BookCatalogContext())
             {
-                Author item = bookCatalogContext.Authors.Find(authors.Id);
+                Author item = bookCatalogContext.Authors.Find(authors.AuthorId);
                 if (item != null)
                 {
                     bookCatalogContext.Entry(item).CurrentValues.SetValues(authors);

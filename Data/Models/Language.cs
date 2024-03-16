@@ -9,6 +9,10 @@ namespace Data.Models
 {
     public class Language
     {
+        public Language()
+        {
+            this.Books = new HashSet<Book>();
+        }
         [Key]
         public int LanguageId { get; set; }
         [Required]

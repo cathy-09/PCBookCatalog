@@ -75,7 +75,7 @@ namespace TestAuthors
             var aurthors = bussinessAuthors.GetAll();
             foreach (var item in aurthors)
             {
-                Console.WriteLine($"{item.Id} {item.Name} {item.NationalityId}");
+                Console.WriteLine($"{item.AuthorId} {item.Name} {item.NationalityId}");
             }
         }
         private void Update()
@@ -104,7 +104,7 @@ namespace TestAuthors
             if (author != null)
             {
                 Console.WriteLine(new string('-', 40));
-                Console.WriteLine("ID: " + author.Id);
+                Console.WriteLine("ID: " + author.AuthorId);
                 Console.WriteLine("Name: " + author.Name);
                 Console.WriteLine("Nationality: " + author.NationalityId);
                 Console.WriteLine(new string('-', 40));

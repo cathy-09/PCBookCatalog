@@ -8,7 +8,11 @@ using System.Threading.Tasks;
 namespace Data.Models
 {
     public class Genre
-    {        
+    {
+        public Genre()
+        {
+            this.Books = new HashSet<Book>();
+        }
         [Key]
         public int  GenreId { get; set; }
         [Required]
