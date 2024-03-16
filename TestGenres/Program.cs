@@ -6,7 +6,7 @@ namespace TestGenres
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            TestGenres testGenres = new TestGenres();
         }
     }
 }
