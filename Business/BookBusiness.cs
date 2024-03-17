@@ -18,12 +18,10 @@ namespace Business
             using (bookCatalogContext = new BookCatalogContext())
             {
                 return bookCatalogContext.Books
-                .Include(b => b.BookAuthors)
-                .ThenInclude(ba => ba.Author)
-                .Include(b => b.Genres)
-                .ThenInclude(ba => ba.GenreName)
-                .Include(b => b.Publisher)
-                .Include(b => b.Language)
+                .Include(e => e.Genre)
+                .Include(e => e.Author)
+                .Include(e => e.Language)
+                .Include(e => e.Publisher)
                 .ToList();
                 //bookCatalogContext.Books
                 //    .Include(f => f.BookAuthors)
