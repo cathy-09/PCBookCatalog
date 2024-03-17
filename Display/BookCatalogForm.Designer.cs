@@ -45,6 +45,7 @@
             label1.Size = new Size(400, 22);
             label1.TabIndex = 0;
             label1.Text = "Разгледай всички книги, включени в каталога ни!";
+            label1.Click += label1_Click;
             // 
             // dataGridView1
             // 

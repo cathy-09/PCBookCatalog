@@ -1,5 +1,4 @@
-﻿using Business;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,8 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Business;
 
-namespace Display
+namespace Display1
 {
     public partial class BookCatalogForm : Form
     {
