@@ -23,10 +23,5 @@ namespace Display
             BookCatalogForm bookCatalogForm = new BookCatalogForm();
             bookCatalogForm.Show();
         }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

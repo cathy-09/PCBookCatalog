@@ -30,12 +30,7 @@ namespace Display1
             dataGridView1.ReadOnly = true;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
-        private void btnGoBackToMainForm_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            MainForm mainForm = new MainForm();
-            mainForm.Show();
-        }
+
         private void InsertInitialData()
         {
             bookBusiness.InsertInitialData();
@@ -62,6 +57,11 @@ namespace Display1
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnGoBackToMainForm_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

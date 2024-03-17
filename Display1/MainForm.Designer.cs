@@ -45,7 +45,7 @@
             btnExit.TabIndex = 6;
             btnExit.Text = "Изход";
             btnExit.UseVisualStyleBackColor = false;
-            btnExit.Click += btnExit_Click_1;
+            btnExit.Click += btnExit_Click;
             // 
             // label1
             // 
@@ -59,7 +59,6 @@
             label1.TabIndex = 5;
             label1.Text = resources.GetString("label1.Text");
             label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            label1.Click += label1_Click_1;
             // 
             // btnMakeChangeToTheCatalog
             // 
@@ -71,7 +70,7 @@
             btnMakeChangeToTheCatalog.TabIndex = 3;
             btnMakeChangeToTheCatalog.Text = "Обогати каталога";
             btnMakeChangeToTheCatalog.UseVisualStyleBackColor = false;
-            btnMakeChangeToTheCatalog.Click += btnMakeChangeToTheCatalog_Click_1;
+            btnMakeChangeToTheCatalog.Click += btnMakeChangeToTheCatalog_Click;
             // 
             // btnCatalogNavigaton
             // 
@@ -83,7 +82,7 @@
             btnCatalogNavigaton.TabIndex = 4;
             btnCatalogNavigaton.Text = "Разгледай каталога";
             btnCatalogNavigaton.UseVisualStyleBackColor = false;
-            btnCatalogNavigaton.Click += btnCatalogNavigaton_Click_1;
+            btnCatalogNavigaton.Click += btnCatalogNavigaton_Click;
             // 
             // MainForm
             // 

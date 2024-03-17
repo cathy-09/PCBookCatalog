@@ -17,6 +17,11 @@ namespace Display1
             InitializeComponent();
         }
 
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -24,44 +29,14 @@ namespace Display1
 
         private void btnMakeChangeToTheCatalog_Click(object sender, EventArgs e)
         {
-            ImproveOurCatalog improveOurCatalog = new ImproveOurCatalog();
-            improveOurCatalog.Show();
+            ImproveOurCatalog catalog = new ImproveOurCatalog();
+            catalog.Show();
         }
 
         private void btnCatalogNavigaton_Click(object sender, EventArgs e)
         {
-            BookCatalogForm bookCatalogForm = new BookCatalogForm();
-            bookCatalogForm.Show();
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnExit_Click_1(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void btnCatalogNavigaton_Click_1(object sender, EventArgs e)
-        {
-            BookCatalogForm bookCatalogForm = new BookCatalogForm();
-            bookCatalogForm.Show();
-        }
-
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnMakeChangeToTheCatalog_Click_1(object sender, EventArgs e)
-        {
+            BookCatalogForm bookForm = new BookCatalogForm();
+            bookForm.Show();
         }
     }
 }

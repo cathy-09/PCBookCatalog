@@ -56,23 +56,23 @@
             label2 = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
             groupBoxGenre = new System.Windows.Forms.GroupBox();
+            pictureBoxGenre = new System.Windows.Forms.PictureBox();
             buttonDeleteGenre = new System.Windows.Forms.Button();
             buttonUpdateGenre = new System.Windows.Forms.Button();
             buttonInsertGenre = new System.Windows.Forms.Button();
             buttonSaveGenre = new System.Windows.Forms.Button();
             textBoxGenreName = new System.Windows.Forms.TextBox();
             label = new System.Windows.Forms.Label();
-            pictureBoxGenre = new System.Windows.Forms.PictureBox();
             groupBoxLanguage = new System.Windows.Forms.GroupBox();
             pictureBoxLanguage = new System.Windows.Forms.PictureBox();
             buttonDeleteLanguage = new System.Windows.Forms.Button();
             buttonUpdateLanguage = new System.Windows.Forms.Button();
             buttonInsertLanguage = new System.Windows.Forms.Button();
             buttonSaveLanguage = new System.Windows.Forms.Button();
-            textBoxNameLanguage = new System.Windows.Forms.TextBox();
-            label10 = new System.Windows.Forms.Label();
-            label11 = new System.Windows.Forms.Label();
             textBoxCodeLanguage = new System.Windows.Forms.TextBox();
+            textBoxNameLanguage = new System.Windows.Forms.TextBox();
+            label11 = new System.Windows.Forms.Label();
+            label10 = new System.Windows.Forms.Label();
             groupBoxPublisher = new System.Windows.Forms.GroupBox();
             pictureBoxPublisher = new System.Windows.Forms.PictureBox();
             buttonDeletePublisher = new System.Windows.Forms.Button();
@@ -81,16 +81,16 @@
             buttonSavePublisher = new System.Windows.Forms.Button();
             textBoxNamePublisher = new System.Windows.Forms.TextBox();
             label13 = new System.Windows.Forms.Label();
-            groupBox1 = new System.Windows.Forms.GroupBox();
+            groupBoxAuthors = new System.Windows.Forms.GroupBox();
+            textBoxAuthorNationality = new System.Windows.Forms.TextBox();
+            label14 = new System.Windows.Forms.Label();
             pictureBox1 = new System.Windows.Forms.PictureBox();
             button1 = new System.Windows.Forms.Button();
             button2 = new System.Windows.Forms.Button();
             button3 = new System.Windows.Forms.Button();
             button4 = new System.Windows.Forms.Button();
-            textBox1 = new System.Windows.Forms.TextBox();
+            textBoxAuthorName = new System.Windows.Forms.TextBox();
             label12 = new System.Windows.Forms.Label();
-            textBox2 = new System.Windows.Forms.TextBox();
-            label14 = new System.Windows.Forms.Label();
             groupBoxNationality = new System.Windows.Forms.GroupBox();
             pictureBoxNationality = new System.Windows.Forms.PictureBox();
             buttonDeleteNationality = new System.Windows.Forms.Button();
@@ -107,7 +107,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBoxLanguage).BeginInit();
             groupBoxPublisher.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxPublisher).BeginInit();
-            groupBox1.SuspendLayout();
+            groupBoxAuthors.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             groupBoxNationality.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxNationality).BeginInit();
@@ -126,10 +126,13 @@
             // comboBoxFilter
             // 
             comboBoxFilter.FormattingEnabled = true;
+            comboBoxFilter.Items.AddRange(new object[] { "Книги", "Жанрове", "Националности", "Автори", "Езици", "Издателства" });
             comboBoxFilter.Location = new System.Drawing.Point(745, 12);
             comboBoxFilter.Name = "comboBoxFilter";
             comboBoxFilter.Size = new System.Drawing.Size(259, 23);
             comboBoxFilter.TabIndex = 1;
+            comboBoxFilter.SelectedIndexChanged += comboBoxFilter_SelectedIndexChanged;
+            comboBoxFilter.Click += comboBoxFilter_Click;
             // 
             // groupBoxBook
             // 
@@ -161,9 +164,10 @@
             groupBoxBook.Location = new System.Drawing.Point(0, 0);
             groupBoxBook.Name = "groupBoxBook";
             groupBoxBook.Size = new System.Drawing.Size(440, 484);
-            groupBoxBook.TabIndex = 2;
+            groupBoxBook.TabIndex = 12;
             groupBoxBook.TabStop = false;
             groupBoxBook.Text = "Книги";
+            groupBoxBook.Visible = false;
             groupBoxBook.Enter += groupBoxBook_Enter;
             // 
             // btnDeleteBook
@@ -397,7 +401,18 @@
             groupBoxGenre.TabIndex = 3;
             groupBoxGenre.TabStop = false;
             groupBoxGenre.Text = "Жанрове";
+            groupBoxGenre.Visible = false;
             groupBoxGenre.Enter += groupBox1_Enter;
+            // 
+            // pictureBoxGenre
+            // 
+            pictureBoxGenre.Image = (System.Drawing.Image)resources.GetObject("pictureBoxGenre.Image");
+            pictureBoxGenre.Location = new System.Drawing.Point(17, 105);
+            pictureBoxGenre.Name = "pictureBoxGenre";
+            pictureBoxGenre.Size = new System.Drawing.Size(402, 240);
+            pictureBoxGenre.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            pictureBoxGenre.TabIndex = 10;
+            pictureBoxGenre.TabStop = false;
             // 
             // buttonDeleteGenre
             // 
@@ -454,20 +469,9 @@
             label.TabIndex = 0;
             label.Text = "Жанр:";
             // 
-            // pictureBoxGenre
-            // 
-            pictureBoxGenre.Image = (System.Drawing.Image)resources.GetObject("pictureBoxGenre.Image");
-            pictureBoxGenre.Location = new System.Drawing.Point(17, 105);
-            pictureBoxGenre.Name = "pictureBoxGenre";
-            pictureBoxGenre.Size = new System.Drawing.Size(402, 240);
-            pictureBoxGenre.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            pictureBoxGenre.TabIndex = 10;
-            pictureBoxGenre.TabStop = false;
-            // 
             // groupBoxLanguage
             // 
             groupBoxLanguage.BackColor = System.Drawing.Color.White;
-            groupBoxLanguage.Controls.Add(groupBoxGenre);
             groupBoxLanguage.Controls.Add(pictureBoxLanguage);
             groupBoxLanguage.Controls.Add(buttonDeleteLanguage);
             groupBoxLanguage.Controls.Add(buttonUpdateLanguage);
@@ -478,12 +482,13 @@
             groupBoxLanguage.Controls.Add(label11);
             groupBoxLanguage.Controls.Add(label10);
             groupBoxLanguage.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            groupBoxLanguage.Location = new System.Drawing.Point(0, 0);
+            groupBoxLanguage.Location = new System.Drawing.Point(12, 12);
             groupBoxLanguage.Name = "groupBoxLanguage";
             groupBoxLanguage.Size = new System.Drawing.Size(440, 484);
             groupBoxLanguage.TabIndex = 4;
             groupBoxLanguage.TabStop = false;
             groupBoxLanguage.Text = "Езици";
+            groupBoxLanguage.Visible = false;
             // 
             // pictureBoxLanguage
             // 
@@ -531,6 +536,14 @@
             buttonSaveLanguage.Text = "Save";
             buttonSaveLanguage.UseVisualStyleBackColor = true;
             // 
+            // textBoxCodeLanguage
+            // 
+            textBoxCodeLanguage.Location = new System.Drawing.Point(140, 92);
+            textBoxCodeLanguage.Multiline = true;
+            textBoxCodeLanguage.Name = "textBoxCodeLanguage";
+            textBoxCodeLanguage.Size = new System.Drawing.Size(279, 23);
+            textBoxCodeLanguage.TabIndex = 9;
+            // 
             // textBoxNameLanguage
             // 
             textBoxNameLanguage.Location = new System.Drawing.Point(79, 55);
@@ -538,16 +551,6 @@
             textBoxNameLanguage.Name = "textBoxNameLanguage";
             textBoxNameLanguage.Size = new System.Drawing.Size(340, 23);
             textBoxNameLanguage.TabIndex = 9;
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label10.Location = new System.Drawing.Point(17, 55);
-            label10.Name = "label10";
-            label10.Size = new System.Drawing.Size(52, 22);
-            label10.TabIndex = 0;
-            label10.Text = "Език:";
             // 
             // label11
             // 
@@ -559,19 +562,21 @@
             label11.TabIndex = 0;
             label11.Text = "Код на езика:";
             // 
-            // textBoxCodeLanguage
+            // label10
             // 
-            textBoxCodeLanguage.Location = new System.Drawing.Point(140, 92);
-            textBoxCodeLanguage.Multiline = true;
-            textBoxCodeLanguage.Name = "textBoxCodeLanguage";
-            textBoxCodeLanguage.Size = new System.Drawing.Size(279, 23);
-            textBoxCodeLanguage.TabIndex = 9;
+            label10.AutoSize = true;
+            label10.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            label10.Location = new System.Drawing.Point(17, 55);
+            label10.Name = "label10";
+            label10.Size = new System.Drawing.Size(52, 22);
+            label10.TabIndex = 0;
+            label10.Text = "Език:";
             // 
             // groupBoxPublisher
             // 
             groupBoxPublisher.BackColor = System.Drawing.Color.White;
+            groupBoxPublisher.Controls.Add(groupBoxGenre);
             groupBoxPublisher.Controls.Add(pictureBoxPublisher);
-            groupBoxPublisher.Controls.Add(groupBoxLanguage);
             groupBoxPublisher.Controls.Add(buttonDeletePublisher);
             groupBoxPublisher.Controls.Add(buttonUpdatePublisher);
             groupBoxPublisher.Controls.Add(buttonInsertPublisher);
@@ -579,12 +584,13 @@
             groupBoxPublisher.Controls.Add(textBoxNamePublisher);
             groupBoxPublisher.Controls.Add(label13);
             groupBoxPublisher.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            groupBoxPublisher.Location = new System.Drawing.Point(0, 0);
+            groupBoxPublisher.Location = new System.Drawing.Point(12, 12);
             groupBoxPublisher.Name = "groupBoxPublisher";
             groupBoxPublisher.Size = new System.Drawing.Size(440, 484);
             groupBoxPublisher.TabIndex = 5;
             groupBoxPublisher.TabStop = false;
             groupBoxPublisher.Text = "Издателства";
+            groupBoxPublisher.Visible = false;
             // 
             // pictureBoxPublisher
             // 
@@ -650,26 +656,44 @@
             label13.TabIndex = 0;
             label13.Text = "Издателство:";
             // 
-            // groupBox1
+            // groupBoxAuthors
             // 
-            groupBox1.BackColor = System.Drawing.Color.White;
-            groupBox1.Controls.Add(groupBoxPublisher);
-            groupBox1.Controls.Add(textBox2);
-            groupBox1.Controls.Add(label14);
-            groupBox1.Controls.Add(pictureBox1);
-            groupBox1.Controls.Add(button1);
-            groupBox1.Controls.Add(button2);
-            groupBox1.Controls.Add(button3);
-            groupBox1.Controls.Add(button4);
-            groupBox1.Controls.Add(textBox1);
-            groupBox1.Controls.Add(label12);
-            groupBox1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            groupBox1.Location = new System.Drawing.Point(0, 0);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new System.Drawing.Size(440, 484);
-            groupBox1.TabIndex = 6;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "Автори";
+            groupBoxAuthors.BackColor = System.Drawing.Color.White;
+            groupBoxAuthors.Controls.Add(textBoxAuthorNationality);
+            groupBoxAuthors.Controls.Add(label14);
+            groupBoxAuthors.Controls.Add(pictureBox1);
+            groupBoxAuthors.Controls.Add(button1);
+            groupBoxAuthors.Controls.Add(button2);
+            groupBoxAuthors.Controls.Add(button3);
+            groupBoxAuthors.Controls.Add(button4);
+            groupBoxAuthors.Controls.Add(textBoxAuthorName);
+            groupBoxAuthors.Controls.Add(label12);
+            groupBoxAuthors.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            groupBoxAuthors.Location = new System.Drawing.Point(12, 12);
+            groupBoxAuthors.Name = "groupBoxAuthors";
+            groupBoxAuthors.Size = new System.Drawing.Size(440, 484);
+            groupBoxAuthors.TabIndex = 10;
+            groupBoxAuthors.TabStop = false;
+            groupBoxAuthors.Text = "Автори";
+            groupBoxAuthors.Visible = false;
+            // 
+            // textBoxAuthorNationality
+            // 
+            textBoxAuthorNationality.Location = new System.Drawing.Point(150, 93);
+            textBoxAuthorNationality.Multiline = true;
+            textBoxAuthorNationality.Name = "textBoxAuthorNationality";
+            textBoxAuthorNationality.Size = new System.Drawing.Size(269, 23);
+            textBoxAuthorNationality.TabIndex = 12;
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            label14.Location = new System.Drawing.Point(17, 93);
+            label14.Name = "label14";
+            label14.Size = new System.Drawing.Size(127, 22);
+            label14.TabIndex = 11;
+            label14.Text = "Националност:";
             // 
             // pictureBox1
             // 
@@ -717,13 +741,13 @@
             button4.Text = "Save";
             button4.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // textBoxAuthorName
             // 
-            textBox1.Location = new System.Drawing.Point(86, 54);
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.Size = new System.Drawing.Size(333, 23);
-            textBox1.TabIndex = 9;
+            textBoxAuthorName.Location = new System.Drawing.Point(86, 54);
+            textBoxAuthorName.Multiline = true;
+            textBoxAuthorName.Name = "textBoxAuthorName";
+            textBoxAuthorName.Size = new System.Drawing.Size(333, 23);
+            textBoxAuthorName.TabIndex = 9;
             // 
             // label12
             // 
@@ -735,28 +759,9 @@
             label12.TabIndex = 0;
             label12.Text = "Автор:";
             // 
-            // textBox2
-            // 
-            textBox2.Location = new System.Drawing.Point(150, 93);
-            textBox2.Multiline = true;
-            textBox2.Name = "textBox2";
-            textBox2.Size = new System.Drawing.Size(269, 23);
-            textBox2.TabIndex = 12;
-            // 
-            // label14
-            // 
-            label14.AutoSize = true;
-            label14.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label14.Location = new System.Drawing.Point(17, 93);
-            label14.Name = "label14";
-            label14.Size = new System.Drawing.Size(127, 22);
-            label14.TabIndex = 11;
-            label14.Text = "Националност:";
-            // 
             // groupBoxNationality
             // 
             groupBoxNationality.BackColor = System.Drawing.Color.White;
-            groupBoxNationality.Controls.Add(groupBox1);
             groupBoxNationality.Controls.Add(pictureBoxNationality);
             groupBoxNationality.Controls.Add(buttonDeleteNationality);
             groupBoxNationality.Controls.Add(buttonUpdateNationality);
@@ -771,6 +776,7 @@
             groupBoxNationality.TabIndex = 7;
             groupBoxNationality.TabStop = false;
             groupBoxNationality.Text = "Националности";
+            groupBoxNationality.Visible = false;
             // 
             // pictureBoxNationality
             // 
@@ -842,9 +848,12 @@
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             BackColor = System.Drawing.Color.MistyRose;
             ClientSize = new System.Drawing.Size(1016, 508);
+            Controls.Add(groupBoxPublisher);
+            Controls.Add(groupBoxLanguage);
             Controls.Add(groupBoxNationality);
             Controls.Add(comboBoxFilter);
             Controls.Add(dataGridViewTables);
+            Controls.Add(groupBoxAuthors);
             Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
             Name = "ImproveOurCatalog";
             Text = "ImproveOurCatalog";
@@ -861,8 +870,8 @@
             groupBoxPublisher.ResumeLayout(false);
             groupBoxPublisher.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxPublisher).EndInit();
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
+            groupBoxAuthors.ResumeLayout(false);
+            groupBoxAuthors.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             groupBoxNationality.ResumeLayout(false);
             groupBoxNationality.PerformLayout();
@@ -933,15 +942,15 @@
         private System.Windows.Forms.Button buttonSavePublisher;
         private System.Windows.Forms.TextBox textBoxNamePublisher;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBoxAuthors;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxAuthorName;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBoxAuthorNationality;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.GroupBox groupBoxNationality;
         private System.Windows.Forms.PictureBox pictureBoxNationality;
