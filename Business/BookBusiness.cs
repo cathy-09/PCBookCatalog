@@ -20,7 +20,8 @@ namespace Business
                 return bookCatalogContext.Books
                 .Include(b => b.BookAuthors)
                 .ThenInclude(ba => ba.Author)
-                .Include(b => b.Genre)
+                .Include(b => b.Genres)
+                .ThenInclude(ba => ba.GenreName)
                 .Include(b => b.Publisher)
                 .Include(b => b.Language)
                 .ToList();
