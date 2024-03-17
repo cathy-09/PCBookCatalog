@@ -39,7 +39,7 @@
             // 
             btnExit.BackColor = System.Drawing.Color.Lavender;
             btnExit.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            btnExit.Location = new System.Drawing.Point(547, 344);
+            btnExit.Location = new System.Drawing.Point(565, 312);
             btnExit.Name = "btnExit";
             btnExit.Size = new System.Drawing.Size(260, 66);
             btnExit.TabIndex = 6;
@@ -53,29 +53,31 @@
             label1.AutoSize = true;
             label1.BackColor = System.Drawing.Color.WhiteSmoke;
             label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label1.Location = new System.Drawing.Point(-6, 41);
+            label1.Location = new System.Drawing.Point(12, 9);
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(812, 286);
             label1.TabIndex = 5;
             label1.Text = resources.GetString("label1.Text");
             label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            label1.Click += label1_Click_1;
             // 
             // btnMakeChangeToTheCatalog
             // 
             btnMakeChangeToTheCatalog.BackColor = System.Drawing.Color.Lavender;
             btnMakeChangeToTheCatalog.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            btnMakeChangeToTheCatalog.Location = new System.Drawing.Point(270, 344);
+            btnMakeChangeToTheCatalog.Location = new System.Drawing.Point(288, 312);
             btnMakeChangeToTheCatalog.Name = "btnMakeChangeToTheCatalog";
             btnMakeChangeToTheCatalog.Size = new System.Drawing.Size(260, 66);
             btnMakeChangeToTheCatalog.TabIndex = 3;
             btnMakeChangeToTheCatalog.Text = "Обогати каталога";
             btnMakeChangeToTheCatalog.UseVisualStyleBackColor = false;
+            btnMakeChangeToTheCatalog.Click += btnMakeChangeToTheCatalog_Click_1;
             // 
             // btnCatalogNavigaton
             // 
             btnCatalogNavigaton.BackColor = System.Drawing.Color.Lavender;
             btnCatalogNavigaton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            btnCatalogNavigaton.Location = new System.Drawing.Point(-6, 344);
+            btnCatalogNavigaton.Location = new System.Drawing.Point(12, 312);
             btnCatalogNavigaton.Name = "btnCatalogNavigaton";
             btnCatalogNavigaton.Size = new System.Drawing.Size(260, 66);
             btnCatalogNavigaton.TabIndex = 4;
@@ -87,13 +89,14 @@
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(827, 450);
+            ClientSize = new System.Drawing.Size(836, 393);
             Controls.Add(btnExit);
             Controls.Add(label1);
             Controls.Add(btnMakeChangeToTheCatalog);
             Controls.Add(btnCatalogNavigaton);
             Name = "MainForm";
             Text = "MainForm";
+            Load += MainForm_Load;
             ResumeLayout(false);
             PerformLayout();
         }

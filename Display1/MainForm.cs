@@ -49,5 +49,19 @@ namespace Display1
             BookCatalogForm bookCatalogForm = new BookCatalogForm();
             bookCatalogForm.Show();
         }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnMakeChangeToTheCatalog_Click_1(object sender, EventArgs e)
+        {
+        }
     }
 }

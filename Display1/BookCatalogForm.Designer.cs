@@ -39,7 +39,7 @@
             // 
             comboBoxChooseOption.FormattingEnabled = true;
             comboBoxChooseOption.Items.AddRange(new object[] { "Списък на книги", "Сортирани по заглавие книги" });
-            comboBoxChooseOption.Location = new System.Drawing.Point(803, 1);
+            comboBoxChooseOption.Location = new System.Drawing.Point(975, 5);
             comboBoxChooseOption.Name = "comboBoxChooseOption";
             comboBoxChooseOption.Size = new System.Drawing.Size(158, 23);
             comboBoxChooseOption.TabIndex = 7;
@@ -47,7 +47,7 @@
             // btnGoBackToMainForm
             // 
             btnGoBackToMainForm.BackColor = System.Drawing.Color.Lavender;
-            btnGoBackToMainForm.Location = new System.Drawing.Point(-160, 413);
+            btnGoBackToMainForm.Location = new System.Drawing.Point(12, 417);
             btnGoBackToMainForm.Name = "btnGoBackToMainForm";
             btnGoBackToMainForm.Size = new System.Drawing.Size(1121, 38);
             btnGoBackToMainForm.TabIndex = 6;
@@ -58,7 +58,7 @@
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new System.Drawing.Point(-160, 29);
+            dataGridView1.Location = new System.Drawing.Point(12, 33);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowTemplate.Height = 25;
             dataGridView1.Size = new System.Drawing.Size(1121, 377);
@@ -69,7 +69,7 @@
             label1.AutoSize = true;
             label1.BackColor = System.Drawing.Color.White;
             label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label1.Location = new System.Drawing.Point(195, 0);
+            label1.Location = new System.Drawing.Point(367, 4);
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(400, 22);
             label1.TabIndex = 4;
@@ -79,7 +79,7 @@
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(968, 450);
+            ClientSize = new System.Drawing.Size(1143, 461);
             Controls.Add(comboBoxChooseOption);
             Controls.Add(btnGoBackToMainForm);
             Controls.Add(dataGridView1);
