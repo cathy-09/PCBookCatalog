@@ -46,5 +46,15 @@ namespace Display1
         {
 
         }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonUpdateGenre_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BookCatalogForm));
             comboBoxChooseOption = new System.Windows.Forms.ComboBox();
             btnGoBackToMainForm = new System.Windows.Forms.Button();
             dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -85,6 +86,7 @@
             Controls.Add(btnGoBackToMainForm);
             Controls.Add(dataGridView1);
             Controls.Add(label1);
+            Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
             Name = "BookCatalogForm";
             Text = "BookCatalogForm";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();

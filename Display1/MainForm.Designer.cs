@@ -95,6 +95,7 @@
             Controls.Add(label1);
             Controls.Add(btnMakeChangeToTheCatalog);
             Controls.Add(btnCatalogNavigaton);
+            Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
             Name = "MainForm";
             Text = "MainForm";
             Load += MainForm_Load;
