@@ -34,7 +34,7 @@
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(506, 212);
+            ClientSize = new System.Drawing.Size(636, 447);
             Name = "ImproveOurCatalog";
             Text = "ImproveOurCatalog";
             ResumeLayout(false);

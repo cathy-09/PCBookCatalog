@@ -79,6 +79,7 @@
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            BackColor = System.Drawing.Color.MistyRose;
             ClientSize = new System.Drawing.Size(1143, 461);
             Controls.Add(comboBoxChooseOption);
             Controls.Add(btnGoBackToMainForm);

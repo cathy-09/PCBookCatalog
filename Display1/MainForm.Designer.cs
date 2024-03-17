@@ -89,6 +89,7 @@
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            BackColor = System.Drawing.Color.MistyRose;
             ClientSize = new System.Drawing.Size(836, 393);
             Controls.Add(btnExit);
             Controls.Add(label1);
