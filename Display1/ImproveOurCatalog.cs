@@ -19,15 +19,35 @@ namespace Display1
         private BusinessNationalities businessNationalities = new BusinessNationalities();
         private LanguagesBusiness languagesBusiness = new LanguagesBusiness();
         private PublishersBusiness publishersBusiness = new PublishersBusiness();
-        public ImproveOurCatalog()
+        private MainForm mainForm;
+
+        public ImproveOurCatalog(MainForm mainForm)
         {
             InitializeComponent();
-            groupBoxGenre.Visible = false;
-            groupBoxNationality.Visible = false;
-            groupBoxAuthors.Visible = false;
             groupBoxBook.Visible = false;
+
+            groupBoxGenre.Visible = false;
+            groupBoxGenre.Size = groupBoxBook.Size;
+            groupBoxGenre.Location = groupBoxBook.Location;
+
+            groupBoxNationality.Visible = false;
+            groupBoxNationality.Size = groupBoxBook.Size;
+            groupBoxNationality.Location = groupBoxBook.Location;
+
+            groupBoxAuthors.Visible = false;
+            groupBoxAuthors.Size = groupBoxBook.Size;
+            groupBoxAuthors.Location = groupBoxBook.Location;
+
             groupBoxLanguage.Visible = false;
+            groupBoxLanguage.Size = groupBoxBook.Size;
+            groupBoxLanguage.Location = groupBoxBook.Location;
+
             groupBoxPublisher.Visible = false;
+            groupBoxPublisher.Size = groupBoxBook.Size;
+            groupBoxPublisher.Location = groupBoxBook.Location;
+
+            this.mainForm = mainForm;
+            mainForm.Visible = false;
         }
 
         private void UpdateGrid(string grid)
@@ -103,6 +123,31 @@ namespace Display1
             }
         }
 
+        private void comboBoxFilter_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            switch (comboBoxFilter.Text)
+            {
+                case "Жанрове":
+                    UpdateGrid("Genres");
+                    break;
+                case "Националности":
+                    UpdateGrid("Nationalities");
+                    break;
+                case "Автори":
+                    UpdateGrid("Authors");
+                    break;
+                case "Книги":
+                    UpdateGrid("Books");
+                    break;
+                case "Издателства":
+                    UpdateGrid("Publishers");
+                    break;
+                case "Езици":
+                    UpdateGrid("Languages");
+                    break;
+            }
+        }
+
         private void dataGridViewTables_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -148,29 +193,15 @@ namespace Display1
 
         }
 
-        private void comboBoxFilter_SelectedIndexChanged(object sender, EventArgs e)
+        private void ImproveOurCatalog_Load_1(object sender, EventArgs e)
         {
-            switch (comboBoxFilter.Text)
-            {
-                case "Жанрове":
-                    UpdateGrid("Genres");
-                    break;
-                case "Националности":
-                    UpdateGrid("Nationalities");
-                    break;
-                case "Автори":
-                    UpdateGrid("Authors");
-                    break;
-                case "Книги":
-                    UpdateGrid("Books");
-                    break;
-                case "Издателства":
-                    UpdateGrid("Publishers");
-                    break;
-                case "Езици":
-                    UpdateGrid("Languages");
-                    break;
-            }
+
+        }
+
+        private void btnGoBackToMainForm_Click(object sender, EventArgs e)
+        {
+            mainForm.Visible = true;
+            Close();
         }
     }
 }

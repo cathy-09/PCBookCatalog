@@ -14,15 +14,20 @@ namespace Display1
     public partial class BookCatalogForm : Form
     {
         private BookBusiness bookBusiness = new BookBusiness();
-        public BookCatalogForm()
+        private MainForm mainForm;
+
+        public BookCatalogForm(MainForm mainForm)
         {
             InitializeComponent();
+            this.mainForm = mainForm;
+            mainForm.Visible = false;
         }
 
         private void BookCatalogForm_Load(object sender, EventArgs e)
         {
             UpdateGrid();
             //InsertInitialData();
+            
         }
         private void UpdateGrid()
         {
@@ -31,17 +36,7 @@ namespace Display1
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
 
-        private void InsertInitialData()
-        {
-            bookBusiness.InsertInitialData();
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void comboBoxChooseOption_SelectedIndexChanged(object sender, EventArgs e)
+        private void comboBoxChooseOption_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             if (comboBoxChooseOption.Text.Equals("Списък на книги"))
             {
@@ -53,15 +48,32 @@ namespace Display1
                 UpdateGrid();
             }
         }
+        private void InsertInitialData()
+        {
+            bookBusiness.InsertInitialData();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
 
         private void label1_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void btnGoBackToMainForm_Click(object sender, EventArgs e)
+        private void btnGoBackToMainForm_Click_1(object sender, EventArgs e)
         {
-            this.Close();
+            mainForm.Visible = true;
+            Close();
         }
+
+        private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        
     }
 }

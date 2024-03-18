@@ -22,21 +22,21 @@ namespace Display1
 
         }
 
-        private void btnExit_Click(object sender, EventArgs e)
+        private void btnCatalogNavigaton_Click_1(object sender, EventArgs e)
         {
-            this.Close();
+            BookCatalogForm bookForm = new BookCatalogForm(this);
+            bookForm.Show();
         }
 
-        private void btnMakeChangeToTheCatalog_Click(object sender, EventArgs e)
+        private void btnMakeChangeToTheCatalog_Click_1(object sender, EventArgs e)
         {
-            ImproveOurCatalog catalog = new ImproveOurCatalog();
+            ImproveOurCatalog catalog = new ImproveOurCatalog(this);
             catalog.Show();
         }
 
-        private void btnCatalogNavigaton_Click(object sender, EventArgs e)
+        private void btnExit_Click_1(object sender, EventArgs e)
         {
-            BookCatalogForm bookForm = new BookCatalogForm();
-            bookForm.Show();
+            Close();
         }
     }
 }

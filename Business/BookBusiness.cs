@@ -18,10 +18,10 @@ namespace Business
             using (bookCatalogContext = new BookCatalogContext())
             {
                 return bookCatalogContext.Books
-                .Include(e => e.Genre)
-                .Include(e => e.Author)
-                .Include(e => e.Language)
-                .Include(e => e.Publisher)
+                .Include(e => e.Genre.GenreName)
+                .Include(e => e.Author.Name)
+                .Include(e => e.Language.LanguageName)
+                .Include(e => e.Publisher.PublisherName)
                 .ToList();
                 //bookCatalogContext.Books
                 //    .Include(f => f.BookAuthors)
@@ -102,9 +102,9 @@ namespace Business
             {
                 return bookCatalogContext.Books
                     .Where(b => b.Author.Name == author)
-                    .Include(e => e.Genre)
-                    .Include(e => e.Publisher)
-                    .Include(e => e.Language)
+                    .Include(e => e.Genre.GenreName)
+                    .Include(e => e.Publisher.PublisherName)
+                    .Include(e => e.Language.LanguageName)
                     .ToList();
             }
         }
@@ -115,9 +115,9 @@ namespace Business
             {
                 return bookCatalogContext.Books
                     .Where(b => b.Genre.GenreName == genre)
-                    .Include(e => e.Genre)
-                    .Include(e => e.Publisher)
-                    .Include(e => e.Language)
+                    .Include(e => e.Genre.GenreName)
+                    .Include(e => e.Publisher.PublisherName)
+                    .Include(e => e.Language.LanguageName)
                     .ToList();
             }
         }
@@ -128,9 +128,9 @@ namespace Business
             {
                 return bookCatalogContext.Books
                     .Where(b => b.Publisher.PublisherName == publisher)
-                    .Include(e => e.Genre)
-                    .Include(e => e.Publisher)
-                    .Include(e => e.Language)
+                    .Include(e => e.Genre.GenreName)
+                    .Include(e => e.Publisher.PublisherName)
+                    .Include(e => e.Language.LanguageName)
                     .ToList();
             }
         }
@@ -141,9 +141,9 @@ namespace Business
             {
                 return bookCatalogContext.Books
                     .Where(b => b.Language.LanguageName == language)
-                    .Include(e => e.Genre)
-                    .Include(e => e.Publisher)
-                    .Include(e => e.Language)
+                    .Include(e => e.Genre.GenreName)
+                    .Include(e => e.Publisher.PublisherName)
+                    .Include(e => e.Language.LanguageName)
                     .ToList();
             }
         }
