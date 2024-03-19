@@ -183,6 +183,7 @@
             this.btnDeleteBook.TabIndex = 9;
             this.btnDeleteBook.Text = "Delete";
             this.btnDeleteBook.UseVisualStyleBackColor = true;
+            this.btnDeleteBook.Click += new System.EventHandler(this.btnDeleteBook_Click);
             // 
             // textBoxLanguage
             // 

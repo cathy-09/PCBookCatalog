@@ -13,7 +13,7 @@ namespace Business
     {
         private BookCatalogContext bookCatalogContext;
 
-        public List<Book> GetAll ()
+        public List<BookPlaceholder> GetAll ()
         {
             using (bookCatalogContext = new BookCatalogContext())
             {
@@ -22,31 +22,21 @@ namespace Business
                 .Include(book => book.Author)
                 .Include(book => book.Language)
                 .Include(book => book.Publisher)
+                .Select(book => new BookPlaceholder
+                {
+                    Id = book.Id,
+                    Name = book.Name,
+                    Author = book.Author.Name,
+                    Genre = book.Genre.GenreName,
+                    Publisher = book.Publisher.PublisherName,
+                    Rating = book.Rating,
+                    Pages = book.Pages,
+                    Price = book.Price,
+                    ISBN = book.ISBN,
+                    PublicationYear = book.PublicationYear,
+                    Language = book.Language.LanguageName
+                })
                 .ToList();
-                //bookCatalogContext.Books
-                //    .Include(f => f.BookAuthors)
-                //    .ThenInclude(a => a.Author)
-                //    .ToList();
-                //return bookCatalogContext.Books.Include(g => g.Genre).Include(b => b.Publisher).Include(c => c.Language).ToList();
-                //var withGenre = bookCatalogContext.Books
-                //    .Include(e => e.Genre)
-                //    .ThenInclude(e => e.GenreName);
-                //var withPublisher = withGenre
-                //    .Include(e => e.Publisher)
-                //    .ThenInclude(e => e.PublisherName);
-                //var withAuthor = withPublisher
-                //    .Include(e => e.Author)
-                //    .ThenInclude(e => e.Name);
-                //var withLanguage = withAuthor
-                //    .Include(e => e.Language)
-                //    .ThenInclude(e => e.LanguageName);
-                //return withLanguage.ToList();
-                //return bookCatalogContext.Books
-                //.Include(e => e.Genre.GenreName)
-                //.Include(e => e.Publisher.PublisherName)
-                //.Include(e => e.Language.LanguageName)
-                //.Include(e => e.Author.Name)
-                //.ToList();
             }
         }
 

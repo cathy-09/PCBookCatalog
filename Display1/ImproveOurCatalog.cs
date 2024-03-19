@@ -203,5 +203,10 @@ namespace Display1
             mainForm.Visible = true;
             Close();
         }
+
+        private void btnDeleteBook_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
