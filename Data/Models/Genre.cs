@@ -9,15 +9,11 @@ namespace Data.Models
 {
     public class Genre
     {
-        public Genre()
-        {
-            this.Books = new HashSet<Book>();
-        }
         [Key]
         public int  GenreId { get; set; }
         [Required]
         public string GenreName { get; set; }
 
-        public ICollection<Book> Books { get; set; }
+        public ICollection<Book> Books { set { Books = value; } }
     }
 }

@@ -38,6 +38,7 @@
             // 
             // comboBoxChooseOption
             // 
+            this.comboBoxChooseOption.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxChooseOption.FormattingEnabled = true;
             this.comboBoxChooseOption.Items.AddRange(new object[] {
             "Списък на книги",

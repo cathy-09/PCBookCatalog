@@ -9,10 +9,6 @@ namespace Data.Models
 {
     public class Language
     {
-        public Language()
-        {
-            this.Books = new HashSet<Book>();
-        }
         [Key]
         public int LanguageId { get; set; }
         [Required]
@@ -20,7 +16,7 @@ namespace Data.Models
         [Required]
         public string LanguageName { get; set; }
 
-        public ICollection<Book> Books { get; set; }
+        public ICollection<Book> Books { set { Books = value; } }
 
     }
 }

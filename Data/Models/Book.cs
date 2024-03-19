@@ -32,6 +32,6 @@ namespace Data.Models
         public int LanguageId { set { languageId = value; } }
         public Language Language { get; set; }
         //public BookAuthor BookAuthor { get; set; }
-        public ICollection<BookAuthor> BookAuthors { set { this.BookAuthors = value; } }
+        public ICollection<BookAuthor> BookAuthors { set { BookAuthors = value; } }
     }
 }

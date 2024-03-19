@@ -10,15 +10,11 @@ namespace Data.Models
 {
     public class Publisher
     {
-        public Publisher()
-        {
-            this.Books = new HashSet<Book>();
-        }
         [Key]
         public int PublisherId { get; set; }
         [Required]
         public string PublisherName { get; set; }
 
-        public ICollection<Book> Books { get; set; }
+        public ICollection<Book> Books { set { Books = value; } }
     }
 }

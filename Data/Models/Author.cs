@@ -9,9 +9,6 @@ namespace Data.Models
 {
     public class Author
     {
-        public Author() {
-            this.Books = new HashSet<Book>();
-        }
         [Key]
         public int AuthorId { get; set; }
 
@@ -19,7 +16,7 @@ namespace Data.Models
         public string Name { get; set; }
         public int NationalityId { get; set; }
         public Nationality Nationality { get; set; }
-        public ICollection<Book> Books { get; set; }
-        public ICollection<BookAuthor> BookAuthors { get; set; }
+        public ICollection<Book> Books { set { Books = value; } }
+        public ICollection<BookAuthor> BookAuthors { set { BookAuthors = value; } }
     }
 }

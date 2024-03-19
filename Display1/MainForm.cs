@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Business;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Data;
+using Data.Models;
 
 namespace Display1
 {
@@ -19,7 +22,6 @@ namespace Display1
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-
         }
 
         private void btnCatalogNavigaton_Click_1(object sender, EventArgs e)
