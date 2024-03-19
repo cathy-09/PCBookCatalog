@@ -97,16 +97,16 @@ namespace TestBook
             var books = bookBusiness.GetAll();
             foreach (var item in books)
             {
-                Console.WriteLine($"{item.Id} {item.Name} {item.Author.Name} {item.Genre.GenreName}" +
-                    $" {item.Publisher.PublisherName} {item.Rating} {item.Pages} {item.Price} {item.ISBN}" +
-                    $" {item.PublicationYear} {item.Language.LanguageName}");
+                Console.WriteLine($"{item.Id} {item.Name} {item.Author} {item.Genre}" +
+                    $" {item.Publisher} {item.Rating} {item.Pages} {item.Price} {item.ISBN}" +
+                    $" {item.PublicationYear} {item.Language}");
             }
         }
         private void Update()
         {
             Console.WriteLine("Enter ID to update: ");
             int id = int.Parse(Console.ReadLine());
-            Book book = bookBusiness.Get(id);
+            Book book = bookBusiness.GetBook(id);
             if (book != null)
             {
                 //Book book = new Book();
@@ -143,7 +143,7 @@ namespace TestBook
         {
             Console.WriteLine("Enter ID to fetch: ");
             int id = int.Parse(Console.ReadLine());
-            Book book = bookBusiness.Get(id);
+            Book book = bookBusiness.GetBook(id);
             if (book != null)
             {
                 Console.WriteLine(new string('-', 40));
@@ -169,7 +169,7 @@ namespace TestBook
             Console.WriteLine("Done.");
         }
 
-        private void BubbleSortBookTitle(List<Book> books)
+        private void BubbleSortBookTitle(List<BookPlaceholder> books)
         {
             bool flag = true;
             while (flag)
@@ -179,7 +179,7 @@ namespace TestBook
                 {
                     if (books[i].Name.CompareTo(books[i + 1].Name) > 0)
                     {
-                        Book temp = books[i];
+                        BookPlaceholder temp = books[i];
                         books[i] = books[i + 1];
                         books[i + 1] = temp;
 
@@ -187,11 +187,11 @@ namespace TestBook
                     }
                 }
             }
-            foreach (Book book in books)
+            foreach (BookPlaceholder book in books)
             {
-                Console.WriteLine($"{book.Id} {book.Name} {book.Author.Name} {book.Genre.GenreName}" +
-                    $" {book.Publisher.PublisherName} {book.Rating} {book.Pages} {book.Price} {book.ISBN}" +
-                    $" {book.PublicationYear} {book.Language.LanguageName}");
+                Console.WriteLine($"{book.Id} {book.Name} {book.Author} {book.Genre}" +
+                    $" {book.Publisher} {book.Rating} {book.Pages} {book.Price} {book.ISBN}" +
+                    $" {book.PublicationYear} {book.Language}");
             }
         }
     }

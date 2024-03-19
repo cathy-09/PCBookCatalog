@@ -40,7 +40,33 @@ namespace Business
             }
         }
 
-        public Book Get (int id)
+        public BookPlaceholder toBookPlaceholder(Book book)
+        {
+            using (bookCatalogContext = new BookCatalogContext())
+            {
+                BookPlaceholder bookPlaceholder = new BookPlaceholder();
+                bookPlaceholder.Name = book.Name;
+                bookPlaceholder.ISBN = book.ISBN;
+                bookPlaceholder.Author = book.Author.Name;
+                bookPlaceholder.Genre = book.Genre.GenreName;
+                bookPlaceholder.Publisher = book.Publisher.PublisherName;
+                bookPlaceholder.Rating = book.Rating;
+                bookPlaceholder.Pages = book.Pages;
+                bookPlaceholder.Price = book.Price;
+                bookPlaceholder.Language = book.Language.LanguageName; 
+                return bookPlaceholder;
+            }
+        }
+
+        public BookPlaceholder GetBookPlaceholder (int id)
+        {
+            using (bookCatalogContext = new BookCatalogContext())
+            {
+                return bookCatalogContext.BookPlaceholders.Find(id);
+            }
+        }
+
+        public Book GetBook(int id)
         {
             using (bookCatalogContext = new BookCatalogContext())
             {

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Business;
+using Data.Models;
 
 namespace Display1
 {
@@ -27,7 +28,7 @@ namespace Display1
         {
             UpdateGrid();
             //InsertInitialData();
-            
+
         }
         private void UpdateGrid()
         {
@@ -44,8 +45,31 @@ namespace Display1
             }
             else
             {
-                //bookBusiness.CustomSort();
+                BubbleSortBookTitle();
                 UpdateGrid();
+            }
+        }
+        private void BubbleSortBookTitle()
+        {
+            if (dataGridView1.DataSource is List<Book> books && books.Count > 0)
+            {
+                bool flag = true;
+                while (flag)
+                {
+                    flag = false;
+                    for (int i = 0; i < books.Count - 1; i++)
+                    {
+                        if (books[i].Name.CompareTo(books[i + 1].Name) > 0)
+                        {
+                            Book temp = books[i];
+                            books[i] = books[i + 1];
+                            books[i + 1] = temp;
+
+                            flag = true;
+                        }
+                    }
+                }
+                dataGridView1.DataSource = books;
             }
         }
         private void InsertInitialData()
@@ -53,27 +77,10 @@ namespace Display1
             bookBusiness.InsertInitialData();
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnGoBackToMainForm_Click_1(object sender, EventArgs e)
         {
             mainForm.Visible = true;
             Close();
         }
-
-        private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        
     }
 }
