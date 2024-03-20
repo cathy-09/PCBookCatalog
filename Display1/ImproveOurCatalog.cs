@@ -233,19 +233,6 @@ namespace Display1
             dataGridViewTables.ClearSelection();
             dataGridViewTables.Enabled = true;
         }
-        private void ToggleSaveUpdateAuthor()
-        {
-            if (buttonUpdateAuthor.Visible)
-            {
-                buttonSaveAuthor.Visible = true;
-                buttonUpdateAuthor.Visible = false;
-            }
-            else
-            {
-                buttonSaveAuthor.Visible = false;
-                buttonUpdateAuthor.Visible = true;
-            }
-        }
         private void ToggleSaveUpdateBook()
         {
             if (buttonUpdateBook.Visible)
@@ -385,6 +372,185 @@ namespace Display1
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void buttonDeleteNationality_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewTables.SelectedRows.Count > 0)
+            {
+                var item = dataGridViewTables.SelectedRows[0].Cells;
+                var id = int.Parse(item[0].Value.ToString());
+                businessNationalities.DeleteNationality(id);
+                UpdateGridNationality();
+                ResetSelect();
+            }
+        }
+
+        private void buttonUpdateNationality_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewTables.SelectedRows.Count > 0)
+            {
+                var item = dataGridViewTables.SelectedRows[0].Cells;
+                var id = int.Parse(item[0].Value.ToString());
+                editIdNationality = id;
+                UpdateTextboxesNationality(id);
+                ToggleSaveUpdateNationality();
+                DisableSelect();
+            }
+        }
+
+        private void buttonInsertNationality_Click(object sender, EventArgs e)
+        {
+            var name = textBoxNameNationality.Text;
+
+            Nationality nationality = new Nationality();
+            nationality.Name = name;
+
+            businessNationalities.AddNationality(nationality);
+            UpdateGridNationality();
+            ClearTextBoxes();
+        }
+        private void ClearTextBoxesNationality()
+        {
+            textBoxNameNationality.Text = "";
+        }
+        private void UpdateGridNationality()
+        {
+            dataGridViewTables.DataSource = businessNationalities.GetAllNationalities();
+            dataGridViewTables.ReadOnly = true;
+            dataGridViewTables.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+        }
+        private void UpdateTextboxesNationality(int id)
+        {
+            Nationality update = businessNationalities.GetNationaly(id);
+            textBoxNameNationality.Text = update.Name;
+        }
+        private void ToggleSaveUpdateNationality()
+        {
+            if (buttonUpdateNationality.Visible)
+            {
+                buttonSaveNationality.Visible = true;
+                buttonUpdateNationality.Visible = false;
+            }
+            else
+            {
+                buttonSaveNationality.Visible = false;
+                buttonUpdateNationality.Visible = true;
+            }
+        }
+
+        private Nationality GetEditedNationality()
+        {
+            Nationality nationality = new Nationality();
+            nationality.NationalityId = editIdNationality;
+
+            var name = textBoxNameNationality.Text;
+            nationality.Name = name;
+
+            return nationality;
+        }
+
+        private void buttonSaveNationality_Click(object sender, EventArgs e)
+        {
+            Nationality editedNationality = GetEditedNationality();
+            businessNationalities.UpdateNationality(editedNationality);
+            UpdateGridNationality();
+            ResetSelect();
+            ToggleSaveUpdateNationality();
+        }
+
+        private void buttonDeleteAuthor_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewTables.SelectedRows.Count > 0)
+            {
+                var item = dataGridViewTables.SelectedRows[0].Cells;
+                var id = int.Parse(item[0].Value.ToString());
+                bussinessAuthors.Delete(id);
+                UpdateGridAuthor();
+                ResetSelect();
+            }
+        }
+
+        private void buttonUpdateAuthor_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewTables.SelectedRows.Count > 0)
+            {
+                var item = dataGridViewTables.SelectedRows[0].Cells;
+                var id = int.Parse(item[0].Value.ToString());
+                editIdAuthor = id;
+                UpdateTextboxesAuthor(id);
+                ToggleSaveUpdateAuthor();
+                DisableSelect();
+            }
+        }
+
+        private void buttonInsertAuthor_Click(object sender, EventArgs e)
+        {
+            var name = textBoxAuthorName.Text;
+            int authorNationality = 0;
+            int.TryParse(textBoxAuthorNationality.Text, out authorNationality);
+
+            Author author = new Author();
+            author.Name = name;
+            author.NationalityId = authorNationality;
+
+            bussinessAuthors.Add(author);
+            UpdateGridAuthor();
+            ClearTextBoxesAuthor();
+        }
+
+        private void buttonSaveAuthor_Click(object sender, EventArgs e)
+        {
+            Author editedAuthor = GetEditedAuthor();
+            bussinessAuthors.Update(editedAuthor);
+            UpdateGridAuthor();
+            ResetSelect();
+            ToggleSaveUpdateAuthor();
+        }
+        private void ClearTextBoxesAuthor()
+        {
+            textBoxAuthorName.Text = "";
+            textBoxAuthorNationality.Text = "";
+        }
+        private void UpdateGridAuthor()
+        {
+            dataGridViewTables.DataSource = bussinessAuthors.GetAll();
+            dataGridViewTables.ReadOnly = true;
+            dataGridViewTables.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridViewTables.Columns.Remove("Nationality");
+        }
+        private void UpdateTextboxesAuthor(int id)
+        {
+            Author update = bussinessAuthors.Get(id);
+            textBoxAuthorName.Text = update.Name;
+            textBoxAuthorNationality.Text = update.NationalityId.ToString();
+        }
+        private void ToggleSaveUpdateAuthor()
+        {
+            if (buttonUpdateAuthor.Visible)
+            {
+                buttonSaveAuthor.Visible = true;
+                buttonUpdateAuthor.Visible = false;
+            }
+            else
+            {
+                buttonSaveAuthor.Visible = false;
+                buttonUpdateAuthor.Visible = true;
+            }
+        }
+
+        private Author GetEditedAuthor()
+        {
+            Author author = new Author();
+            author.AuthorId = editIdAuthor;
+
+            var name = textBoxAuthorName.Text;
+            int authorNationality = 0;
+            int.TryParse(textBoxAuthorNationality.Text, out authorNationality);
+            author.Name = name;
+            author.NationalityId = authorNationality;
+
+            return author;
         }
     }
 }

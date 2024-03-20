@@ -32,6 +32,8 @@
             dataGridViewTables = new System.Windows.Forms.DataGridView();
             comboBoxFilter = new System.Windows.Forms.ComboBox();
             groupBoxBook = new System.Windows.Forms.GroupBox();
+            label15 = new System.Windows.Forms.Label();
+            textBoxPages = new System.Windows.Forms.TextBox();
             textBoxNationalityNameBook = new System.Windows.Forms.TextBox();
             buttonDeleteBook = new System.Windows.Forms.Button();
             textBoxLanguage = new System.Windows.Forms.TextBox();
@@ -55,6 +57,14 @@
             label3 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
+            groupBoxNationality = new System.Windows.Forms.GroupBox();
+            pictureBoxNationality = new System.Windows.Forms.PictureBox();
+            buttonDeleteNationality = new System.Windows.Forms.Button();
+            buttonUpdateNationality = new System.Windows.Forms.Button();
+            buttonInsertNationality = new System.Windows.Forms.Button();
+            buttonSaveNationality = new System.Windows.Forms.Button();
+            textBoxNameNationality = new System.Windows.Forms.TextBox();
+            label16 = new System.Windows.Forms.Label();
             dateTimePickerPublicationYear = new System.Windows.Forms.DateTimePicker();
             groupBoxGenre = new System.Windows.Forms.GroupBox();
             pictureBoxGenre = new System.Windows.Forms.PictureBox();
@@ -92,19 +102,11 @@
             buttonSaveAuthor = new System.Windows.Forms.Button();
             textBoxAuthorName = new System.Windows.Forms.TextBox();
             label12 = new System.Windows.Forms.Label();
-            groupBoxNationality = new System.Windows.Forms.GroupBox();
-            pictureBoxNationality = new System.Windows.Forms.PictureBox();
-            buttonDeleteNationality = new System.Windows.Forms.Button();
-            buttonUpdateNationality = new System.Windows.Forms.Button();
-            buttonInsertNationality = new System.Windows.Forms.Button();
-            buttonSavaNationality = new System.Windows.Forms.Button();
-            textBoxNameNationality = new System.Windows.Forms.TextBox();
-            label16 = new System.Windows.Forms.Label();
             btnGoBackToMainForm = new System.Windows.Forms.Button();
-            textBoxPages = new System.Windows.Forms.TextBox();
-            label15 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)dataGridViewTables).BeginInit();
             groupBoxBook.SuspendLayout();
+            groupBoxNationality.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxNationality).BeginInit();
             groupBoxGenre.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxGenre).BeginInit();
             groupBoxLanguage.SuspendLayout();
@@ -113,8 +115,6 @@
             ((System.ComponentModel.ISupportInitialize)pictureBoxPublisher).BeginInit();
             groupBoxAuthors.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            groupBoxNationality.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBoxNationality).BeginInit();
             SuspendLayout();
             // 
             // dataGridViewTables
@@ -173,6 +173,24 @@
             groupBoxBook.TabStop = false;
             groupBoxBook.Text = "Книги";
             groupBoxBook.Visible = false;
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            label15.Location = new System.Drawing.Point(17, 288);
+            label15.Name = "label15";
+            label15.Size = new System.Drawing.Size(90, 22);
+            label15.TabIndex = 21;
+            label15.Text = "Страници:";
+            // 
+            // textBoxPages
+            // 
+            textBoxPages.Location = new System.Drawing.Point(192, 288);
+            textBoxPages.Multiline = true;
+            textBoxPages.Name = "textBoxPages";
+            textBoxPages.Size = new System.Drawing.Size(227, 23);
+            textBoxPages.TabIndex = 20;
             // 
             // textBoxNationalityNameBook
             // 
@@ -385,6 +403,93 @@
             label1.TabIndex = 0;
             label1.Text = "Заглавие: ";
             // 
+            // groupBoxNationality
+            // 
+            groupBoxNationality.BackColor = System.Drawing.Color.White;
+            groupBoxNationality.Controls.Add(pictureBoxNationality);
+            groupBoxNationality.Controls.Add(buttonDeleteNationality);
+            groupBoxNationality.Controls.Add(buttonUpdateNationality);
+            groupBoxNationality.Controls.Add(buttonInsertNationality);
+            groupBoxNationality.Controls.Add(buttonSaveNationality);
+            groupBoxNationality.Controls.Add(textBoxNameNationality);
+            groupBoxNationality.Controls.Add(label16);
+            groupBoxNationality.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            groupBoxNationality.Location = new System.Drawing.Point(490, 105);
+            groupBoxNationality.Name = "groupBoxNationality";
+            groupBoxNationality.Size = new System.Drawing.Size(192, 46);
+            groupBoxNationality.TabIndex = 7;
+            groupBoxNationality.TabStop = false;
+            groupBoxNationality.Text = "Националности";
+            groupBoxNationality.Visible = false;
+            // 
+            // pictureBoxNationality
+            // 
+            pictureBoxNationality.Image = (System.Drawing.Image)resources.GetObject("pictureBoxNationality.Image");
+            pictureBoxNationality.Location = new System.Drawing.Point(18, 137);
+            pictureBoxNationality.Name = "pictureBoxNationality";
+            pictureBoxNationality.Size = new System.Drawing.Size(402, 240);
+            pictureBoxNationality.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            pictureBoxNationality.TabIndex = 10;
+            pictureBoxNationality.TabStop = false;
+            // 
+            // buttonDeleteNationality
+            // 
+            buttonDeleteNationality.Location = new System.Drawing.Point(17, 423);
+            buttonDeleteNationality.Name = "buttonDeleteNationality";
+            buttonDeleteNationality.Size = new System.Drawing.Size(128, 43);
+            buttonDeleteNationality.TabIndex = 9;
+            buttonDeleteNationality.Text = "Delete";
+            buttonDeleteNationality.UseVisualStyleBackColor = true;
+            buttonDeleteNationality.Click += buttonDeleteNationality_Click;
+            // 
+            // buttonUpdateNationality
+            // 
+            buttonUpdateNationality.Location = new System.Drawing.Point(151, 421);
+            buttonUpdateNationality.Name = "buttonUpdateNationality";
+            buttonUpdateNationality.Size = new System.Drawing.Size(128, 43);
+            buttonUpdateNationality.TabIndex = 7;
+            buttonUpdateNationality.Text = "Update";
+            buttonUpdateNationality.UseVisualStyleBackColor = true;
+            buttonUpdateNationality.Click += buttonUpdateNationality_Click;
+            // 
+            // buttonInsertNationality
+            // 
+            buttonInsertNationality.Location = new System.Drawing.Point(291, 423);
+            buttonInsertNationality.Name = "buttonInsertNationality";
+            buttonInsertNationality.Size = new System.Drawing.Size(128, 43);
+            buttonInsertNationality.TabIndex = 6;
+            buttonInsertNationality.Text = "Insert";
+            buttonInsertNationality.UseVisualStyleBackColor = true;
+            buttonInsertNationality.Click += buttonInsertNationality_Click;
+            // 
+            // buttonSaveNationality
+            // 
+            buttonSaveNationality.Location = new System.Drawing.Point(151, 421);
+            buttonSaveNationality.Name = "buttonSaveNationality";
+            buttonSaveNationality.Size = new System.Drawing.Size(128, 43);
+            buttonSaveNationality.TabIndex = 8;
+            buttonSaveNationality.Text = "Save";
+            buttonSaveNationality.UseVisualStyleBackColor = true;
+            buttonSaveNationality.Click += buttonSaveNationality_Click;
+            // 
+            // textBoxNameNationality
+            // 
+            textBoxNameNationality.Location = new System.Drawing.Point(150, 67);
+            textBoxNameNationality.Multiline = true;
+            textBoxNameNationality.Name = "textBoxNameNationality";
+            textBoxNameNationality.Size = new System.Drawing.Size(269, 23);
+            textBoxNameNationality.TabIndex = 9;
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            label16.Location = new System.Drawing.Point(17, 67);
+            label16.Name = "label16";
+            label16.Size = new System.Drawing.Size(127, 22);
+            label16.TabIndex = 0;
+            label16.Text = "Националност:";
+            // 
             // dateTimePickerPublicationYear
             // 
             dateTimePickerPublicationYear.CalendarFont = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -408,9 +513,9 @@
             groupBoxGenre.Controls.Add(textBoxGenreName);
             groupBoxGenre.Controls.Add(label);
             groupBoxGenre.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            groupBoxGenre.Location = new System.Drawing.Point(598, 12);
+            groupBoxGenre.Location = new System.Drawing.Point(584, 12);
             groupBoxGenre.Name = "groupBoxGenre";
-            groupBoxGenre.Size = new System.Drawing.Size(103, 46);
+            groupBoxGenre.Size = new System.Drawing.Size(127, 33);
             groupBoxGenre.TabIndex = 3;
             groupBoxGenre.TabStop = false;
             groupBoxGenre.Text = "Жанрове";
@@ -493,7 +598,7 @@
             groupBoxLanguage.Controls.Add(label11);
             groupBoxLanguage.Controls.Add(label10);
             groupBoxLanguage.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            groupBoxLanguage.Location = new System.Drawing.Point(505, 119);
+            groupBoxLanguage.Location = new System.Drawing.Point(490, 57);
             groupBoxLanguage.Name = "groupBoxLanguage";
             groupBoxLanguage.Size = new System.Drawing.Size(149, 38);
             groupBoxLanguage.TabIndex = 4;
@@ -594,7 +699,7 @@
             groupBoxPublisher.Controls.Add(textBoxNamePublisher);
             groupBoxPublisher.Controls.Add(label13);
             groupBoxPublisher.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            groupBoxPublisher.Location = new System.Drawing.Point(707, 51);
+            groupBoxPublisher.Location = new System.Drawing.Point(659, 57);
             groupBoxPublisher.Name = "groupBoxPublisher";
             groupBoxPublisher.Size = new System.Drawing.Size(152, 38);
             groupBoxPublisher.TabIndex = 5;
@@ -679,9 +784,9 @@
             groupBoxAuthors.Controls.Add(textBoxAuthorName);
             groupBoxAuthors.Controls.Add(label12);
             groupBoxAuthors.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            groupBoxAuthors.Location = new System.Drawing.Point(493, 12);
+            groupBoxAuthors.Location = new System.Drawing.Point(473, 12);
             groupBoxAuthors.Name = "groupBoxAuthors";
-            groupBoxAuthors.Size = new System.Drawing.Size(99, 102);
+            groupBoxAuthors.Size = new System.Drawing.Size(101, 39);
             groupBoxAuthors.TabIndex = 10;
             groupBoxAuthors.TabStop = false;
             groupBoxAuthors.Text = "Автори";
@@ -723,15 +828,17 @@
             buttonDeleteAuthor.TabIndex = 9;
             buttonDeleteAuthor.Text = "Delete";
             buttonDeleteAuthor.UseVisualStyleBackColor = true;
+            buttonDeleteAuthor.Click += buttonDeleteAuthor_Click;
             // 
             // buttonUpdateAuthor
             // 
-            buttonUpdateAuthor.Location = new System.Drawing.Point(154, 423);
+            buttonUpdateAuthor.Location = new System.Drawing.Point(154, 424);
             buttonUpdateAuthor.Name = "buttonUpdateAuthor";
             buttonUpdateAuthor.Size = new System.Drawing.Size(128, 43);
             buttonUpdateAuthor.TabIndex = 7;
             buttonUpdateAuthor.Text = "Update";
             buttonUpdateAuthor.UseVisualStyleBackColor = true;
+            buttonUpdateAuthor.Click += buttonUpdateAuthor_Click;
             // 
             // buttonInsertAuthor
             // 
@@ -741,6 +848,7 @@
             buttonInsertAuthor.TabIndex = 6;
             buttonInsertAuthor.Text = "Insert";
             buttonInsertAuthor.UseVisualStyleBackColor = true;
+            buttonInsertAuthor.Click += buttonInsertAuthor_Click;
             // 
             // buttonSaveAuthor
             // 
@@ -750,6 +858,7 @@
             buttonSaveAuthor.TabIndex = 8;
             buttonSaveAuthor.Text = "Save";
             buttonSaveAuthor.UseVisualStyleBackColor = true;
+            buttonSaveAuthor.Click += buttonSaveAuthor_Click;
             // 
             // textBoxAuthorName
             // 
@@ -769,89 +878,6 @@
             label12.TabIndex = 0;
             label12.Text = "Автор:";
             // 
-            // groupBoxNationality
-            // 
-            groupBoxNationality.BackColor = System.Drawing.Color.White;
-            groupBoxNationality.Controls.Add(pictureBoxNationality);
-            groupBoxNationality.Controls.Add(buttonDeleteNationality);
-            groupBoxNationality.Controls.Add(buttonUpdateNationality);
-            groupBoxNationality.Controls.Add(buttonInsertNationality);
-            groupBoxNationality.Controls.Add(buttonSavaNationality);
-            groupBoxNationality.Controls.Add(textBoxNameNationality);
-            groupBoxNationality.Controls.Add(label16);
-            groupBoxNationality.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            groupBoxNationality.Location = new System.Drawing.Point(728, 120);
-            groupBoxNationality.Name = "groupBoxNationality";
-            groupBoxNationality.Size = new System.Drawing.Size(184, 37);
-            groupBoxNationality.TabIndex = 7;
-            groupBoxNationality.TabStop = false;
-            groupBoxNationality.Text = "Националности";
-            groupBoxNationality.Visible = false;
-            // 
-            // pictureBoxNationality
-            // 
-            pictureBoxNationality.Image = (System.Drawing.Image)resources.GetObject("pictureBoxNationality.Image");
-            pictureBoxNationality.Location = new System.Drawing.Point(18, 137);
-            pictureBoxNationality.Name = "pictureBoxNationality";
-            pictureBoxNationality.Size = new System.Drawing.Size(402, 240);
-            pictureBoxNationality.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            pictureBoxNationality.TabIndex = 10;
-            pictureBoxNationality.TabStop = false;
-            // 
-            // buttonDeleteNationality
-            // 
-            buttonDeleteNationality.Location = new System.Drawing.Point(17, 423);
-            buttonDeleteNationality.Name = "buttonDeleteNationality";
-            buttonDeleteNationality.Size = new System.Drawing.Size(128, 43);
-            buttonDeleteNationality.TabIndex = 9;
-            buttonDeleteNationality.Text = "Delete";
-            buttonDeleteNationality.UseVisualStyleBackColor = true;
-            // 
-            // buttonUpdateNationality
-            // 
-            buttonUpdateNationality.Location = new System.Drawing.Point(154, 423);
-            buttonUpdateNationality.Name = "buttonUpdateNationality";
-            buttonUpdateNationality.Size = new System.Drawing.Size(128, 43);
-            buttonUpdateNationality.TabIndex = 7;
-            buttonUpdateNationality.Text = "Update";
-            buttonUpdateNationality.UseVisualStyleBackColor = true;
-            // 
-            // buttonInsertNationality
-            // 
-            buttonInsertNationality.Location = new System.Drawing.Point(291, 423);
-            buttonInsertNationality.Name = "buttonInsertNationality";
-            buttonInsertNationality.Size = new System.Drawing.Size(128, 43);
-            buttonInsertNationality.TabIndex = 6;
-            buttonInsertNationality.Text = "Insert";
-            buttonInsertNationality.UseVisualStyleBackColor = true;
-            // 
-            // buttonSavaNationality
-            // 
-            buttonSavaNationality.Location = new System.Drawing.Point(154, 423);
-            buttonSavaNationality.Name = "buttonSavaNationality";
-            buttonSavaNationality.Size = new System.Drawing.Size(128, 43);
-            buttonSavaNationality.TabIndex = 8;
-            buttonSavaNationality.Text = "Save";
-            buttonSavaNationality.UseVisualStyleBackColor = true;
-            // 
-            // textBoxNameNationality
-            // 
-            textBoxNameNationality.Location = new System.Drawing.Point(150, 67);
-            textBoxNameNationality.Multiline = true;
-            textBoxNameNationality.Name = "textBoxNameNationality";
-            textBoxNameNationality.Size = new System.Drawing.Size(269, 23);
-            textBoxNameNationality.TabIndex = 9;
-            // 
-            // label16
-            // 
-            label16.AutoSize = true;
-            label16.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label16.Location = new System.Drawing.Point(17, 67);
-            label16.Name = "label16";
-            label16.Size = new System.Drawing.Size(127, 22);
-            label16.TabIndex = 0;
-            label16.Text = "Националност:";
-            // 
             // btnGoBackToMainForm
             // 
             btnGoBackToMainForm.BackColor = System.Drawing.Color.Lavender;
@@ -862,24 +888,6 @@
             btnGoBackToMainForm.Text = "Върни се към Главната форма";
             btnGoBackToMainForm.UseVisualStyleBackColor = false;
             btnGoBackToMainForm.Click += btnGoBackToMainForm_Click;
-            // 
-            // textBoxPages
-            // 
-            textBoxPages.Location = new System.Drawing.Point(192, 288);
-            textBoxPages.Multiline = true;
-            textBoxPages.Name = "textBoxPages";
-            textBoxPages.Size = new System.Drawing.Size(227, 23);
-            textBoxPages.TabIndex = 20;
-            // 
-            // label15
-            // 
-            label15.AutoSize = true;
-            label15.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label15.Location = new System.Drawing.Point(17, 288);
-            label15.Name = "label15";
-            label15.Size = new System.Drawing.Size(90, 22);
-            label15.TabIndex = 21;
-            label15.Text = "Страници:";
             // 
             // ImproveOurCatalog
             // 
@@ -904,6 +912,9 @@
             ((System.ComponentModel.ISupportInitialize)dataGridViewTables).EndInit();
             groupBoxBook.ResumeLayout(false);
             groupBoxBook.PerformLayout();
+            groupBoxNationality.ResumeLayout(false);
+            groupBoxNationality.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxNationality).EndInit();
             groupBoxGenre.ResumeLayout(false);
             groupBoxGenre.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxGenre).EndInit();
@@ -916,9 +927,6 @@
             groupBoxAuthors.ResumeLayout(false);
             groupBoxAuthors.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            groupBoxNationality.ResumeLayout(false);
-            groupBoxNationality.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBoxNationality).EndInit();
             ResumeLayout(false);
         }
 
@@ -1000,7 +1008,7 @@
         private System.Windows.Forms.Button buttonDeleteNationality;
         private System.Windows.Forms.Button buttonUpdateNationality;
         private System.Windows.Forms.Button buttonInsertNationality;
-        private System.Windows.Forms.Button buttonSavaNationality;
+        private System.Windows.Forms.Button buttonSaveNationality;
         private System.Windows.Forms.TextBox textBoxNameNationality;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Button btnGoBackToMainForm;
