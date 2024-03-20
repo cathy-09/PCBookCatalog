@@ -552,5 +552,268 @@ namespace Display1
 
             return author;
         }
+
+        private void buttonDeleteLanguage_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewTables.SelectedRows.Count > 0)
+            {
+                var item = dataGridViewTables.SelectedRows[0].Cells;
+                var id = int.Parse(item[0].Value.ToString());
+                languagesBusiness.Delete(id);
+                UpdateGridLanguage();
+                ResetSelect();
+            }
+        }
+
+        private void buttonUpdateLanguage_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewTables.SelectedRows.Count > 0)
+            {
+                var item = dataGridViewTables.SelectedRows[0].Cells;
+                var id = int.Parse(item[0].Value.ToString());
+                editIdLanguage = id;
+                UpdateTextboxesLanguage(id);
+                ToggleSaveUpdateLanguage();
+                DisableSelect();
+            }
+        }
+
+        private void buttonSaveLanguage_Click(object sender, EventArgs e)
+        {
+            Language editedLanguage = GetEditedLanguage();
+            languagesBusiness.Update(editedLanguage);
+            UpdateGridLanguage();
+            ResetSelect();
+            ToggleSaveUpdateLanguage();
+        }
+
+        private void buttonInsertLanguage_Click(object sender, EventArgs e)
+        {
+            var name = textBoxNameLanguage.Text;
+            int code = 0;
+            int.TryParse(textBoxCodeLanguage.Text, out code);
+
+            Language language = new Language();
+            language.LanguageName = name;
+            language.LanguageCode = code;
+
+            languagesBusiness.Add(language);
+            UpdateGridLanguage();
+            ClearTextBoxesLanguage();
+        }
+        private void ClearTextBoxesLanguage()
+        {
+            textBoxNameLanguage.Text = "";
+            textBoxCodeLanguage.Text = "";
+        }
+        private void UpdateGridLanguage()
+        {
+            dataGridViewTables.DataSource = languagesBusiness.GetAll();
+            dataGridViewTables.ReadOnly = true;
+            dataGridViewTables.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+        }
+        private void UpdateTextboxesLanguage(int id)
+        {
+            Language update = languagesBusiness.Get(id);
+            textBoxNameLanguage.Text = update.LanguageName;
+            textBoxCodeLanguage.Text = update.LanguageCode.ToString();
+        }
+        private void ToggleSaveUpdateLanguage()
+        {
+            if (buttonUpdateLanguage.Visible)
+            {
+                buttonSaveLanguage.Visible = true;
+                buttonUpdateLanguage.Visible = false;
+            }
+            else
+            {
+                buttonSaveLanguage.Visible = false;
+                buttonUpdateLanguage.Visible = true;
+            }
+        }
+
+        private Language GetEditedLanguage()
+        {
+            Language language = new Language();
+            language.LanguageId = editIdLanguage;
+
+            var name = textBoxNameLanguage.Text;
+            int code = 0;
+            int.TryParse(textBoxCodeLanguage.Text, out code);
+            language.LanguageName = name;
+            language.LanguageCode = code;
+
+            return language;
+        }
+
+        private void buttonDeletePublisher_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewTables.SelectedRows.Count > 0)
+            {
+                var item = dataGridViewTables.SelectedRows[0].Cells;
+                var id = int.Parse(item[0].Value.ToString());
+                publishersBusiness.DeletePublishers(id);
+                UpdateGridPublisher();
+                ResetSelect();
+            }
+        }
+
+        private void buttonUpdatePublisher_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewTables.SelectedRows.Count > 0)
+            {
+                var item = dataGridViewTables.SelectedRows[0].Cells;
+                var id = int.Parse(item[0].Value.ToString());
+                editIdPublisher = id;
+                UpdateTextboxesPublisher(id);
+                ToggleSaveUpdatePublisher();
+                DisableSelect();
+            }
+        }
+
+        private void buttonSavePublisher_Click(object sender, EventArgs e)
+        {
+            Publisher editedPublisher = GetEditedPublisher();
+            publishersBusiness.UpdatePublishers(editedPublisher);
+            UpdateGridPublisher();
+            ResetSelect();
+            ToggleSaveUpdatePublisher();
+        }
+
+        private void buttonInsertPublisher_Click(object sender, EventArgs e)
+        {
+            var name = textBoxNamePublisher.Text;
+
+            Publisher publisher = new Publisher();
+            publisher.PublisherName = name;
+
+            publishersBusiness.AddPublishers(publisher);
+            UpdateGridPublisher();
+            ClearTextBoxesPublisher();
+        }
+        private void ClearTextBoxesPublisher()
+        {
+            textBoxNamePublisher.Text = "";
+        }
+        private void UpdateGridPublisher()
+        {
+            dataGridViewTables.DataSource = publishersBusiness.GetAllPublishers();
+            dataGridViewTables.ReadOnly = true;
+            dataGridViewTables.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+        }
+        private void UpdateTextboxesPublisher(int id)
+        {
+            Publisher update = publishersBusiness.GetPublishers(id);
+            textBoxNamePublisher.Text = update.PublisherName;
+        }
+        private void ToggleSaveUpdatePublisher()
+        {
+            if (buttonUpdatePublisher.Visible)
+            {
+                buttonSavePublisher.Visible = true;
+                buttonUpdatePublisher.Visible = false;
+            }
+            else
+            {
+                buttonSavePublisher.Visible = false;
+                buttonUpdatePublisher.Visible = true;
+            }
+        }
+
+        private Publisher GetEditedPublisher()
+        {
+            Publisher publisher = new Publisher();
+            publisher.PublisherId = editIdPublisher;
+
+            var name = textBoxNamePublisher.Text;
+            publisher.PublisherName = name;
+
+            return publisher;
+        }
+
+        private void buttonDeleteGenre_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewTables.SelectedRows.Count > 0)
+            {
+                var item = dataGridViewTables.SelectedRows[0].Cells;
+                var id = int.Parse(item[0].Value.ToString());
+                genresBusiness.Delete(id);
+                UpdateGridGenre();
+                ResetSelect();
+            }
+        }
+
+        private void buttonUpdateGenre_Click_1(object sender, EventArgs e)
+        {
+            if (dataGridViewTables.SelectedRows.Count > 0)
+            {
+                var item = dataGridViewTables.SelectedRows[0].Cells;
+                var id = int.Parse(item[0].Value.ToString());
+                editIdGenre = id;
+                UpdateTextboxesGenre(id);
+                ToggleSaveUpdateGenre();
+                DisableSelect();
+            }
+        }
+
+        private void buttonSaveGenre_Click(object sender, EventArgs e)
+        {
+            Genre editedGenre = GetEditedGenre();
+            genresBusiness.Update(editedGenre);
+            UpdateGridGenre();
+            ResetSelect();
+            ToggleSaveUpdateGenre();
+        }
+
+        private void buttonInsertGenre_Click(object sender, EventArgs e)
+        {
+            var name = textBoxGenreName.Text;
+
+            Genre genre = new Genre();
+            genre.GenreName = name;
+
+            genresBusiness.Add(genre);
+            UpdateGridGenre();
+            ClearTextBoxesGenre();
+        }
+        private void ClearTextBoxesGenre()
+        {
+            textBoxGenreName.Text = "";
+        }
+        private void UpdateGridGenre()
+        {
+            dataGridViewTables.DataSource = genresBusiness.GetAll();
+            dataGridViewTables.ReadOnly = true;
+            dataGridViewTables.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+        }
+        private void UpdateTextboxesGenre(int id)
+        {
+            Genre update = genresBusiness.Get(id);
+            textBoxGenreName.Text = update.GenreName;
+        }
+        private void ToggleSaveUpdateGenre()
+        {
+            if (buttonUpdateGenre.Visible)
+            {
+                buttonSaveGenre.Visible = true;
+                buttonUpdateGenre.Visible = false;
+            }
+            else
+            {
+                buttonSaveGenre.Visible = false;
+                buttonUpdateGenre.Visible = true;
+            }
+        }
+
+        private Genre GetEditedGenre()
+        {
+            Genre genre = new Genre();
+            genre.GenreId = editIdGenre;
+
+            var name = textBoxGenreName.Text;
+            genre.GenreName = name;
+
+            return genre;
+        }
     }
 }

@@ -513,9 +513,9 @@
             groupBoxGenre.Controls.Add(textBoxGenreName);
             groupBoxGenre.Controls.Add(label);
             groupBoxGenre.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            groupBoxGenre.Location = new System.Drawing.Point(584, 12);
+            groupBoxGenre.Location = new System.Drawing.Point(745, 283);
             groupBoxGenre.Name = "groupBoxGenre";
-            groupBoxGenre.Size = new System.Drawing.Size(127, 33);
+            groupBoxGenre.Size = new System.Drawing.Size(131, 39);
             groupBoxGenre.TabIndex = 3;
             groupBoxGenre.TabStop = false;
             groupBoxGenre.Text = "Жанрове";
@@ -539,6 +539,7 @@
             buttonDeleteGenre.TabIndex = 9;
             buttonDeleteGenre.Text = "Delete";
             buttonDeleteGenre.UseVisualStyleBackColor = true;
+            buttonDeleteGenre.Click += buttonDeleteGenre_Click;
             // 
             // buttonUpdateGenre
             // 
@@ -548,6 +549,7 @@
             buttonUpdateGenre.TabIndex = 7;
             buttonUpdateGenre.Text = "Update";
             buttonUpdateGenre.UseVisualStyleBackColor = true;
+            buttonUpdateGenre.Click += buttonUpdateGenre_Click_1;
             // 
             // buttonInsertGenre
             // 
@@ -557,6 +559,7 @@
             buttonInsertGenre.TabIndex = 6;
             buttonInsertGenre.Text = "Insert";
             buttonInsertGenre.UseVisualStyleBackColor = true;
+            buttonInsertGenre.Click += buttonInsertGenre_Click;
             // 
             // buttonSaveGenre
             // 
@@ -566,6 +569,7 @@
             buttonSaveGenre.TabIndex = 8;
             buttonSaveGenre.Text = "Save";
             buttonSaveGenre.UseVisualStyleBackColor = true;
+            buttonSaveGenre.Click += buttonSaveGenre_Click;
             // 
             // textBoxGenreName
             // 
@@ -598,7 +602,7 @@
             groupBoxLanguage.Controls.Add(label11);
             groupBoxLanguage.Controls.Add(label10);
             groupBoxLanguage.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            groupBoxLanguage.Location = new System.Drawing.Point(490, 57);
+            groupBoxLanguage.Location = new System.Drawing.Point(686, 172);
             groupBoxLanguage.Name = "groupBoxLanguage";
             groupBoxLanguage.Size = new System.Drawing.Size(149, 38);
             groupBoxLanguage.TabIndex = 4;
@@ -624,15 +628,17 @@
             buttonDeleteLanguage.TabIndex = 9;
             buttonDeleteLanguage.Text = "Delete";
             buttonDeleteLanguage.UseVisualStyleBackColor = true;
+            buttonDeleteLanguage.Click += buttonDeleteLanguage_Click;
             // 
             // buttonUpdateLanguage
             // 
-            buttonUpdateLanguage.Location = new System.Drawing.Point(154, 413);
+            buttonUpdateLanguage.Location = new System.Drawing.Point(154, 411);
             buttonUpdateLanguage.Name = "buttonUpdateLanguage";
             buttonUpdateLanguage.Size = new System.Drawing.Size(128, 43);
             buttonUpdateLanguage.TabIndex = 7;
             buttonUpdateLanguage.Text = "Update";
             buttonUpdateLanguage.UseVisualStyleBackColor = true;
+            buttonUpdateLanguage.Click += buttonUpdateLanguage_Click;
             // 
             // buttonInsertLanguage
             // 
@@ -642,6 +648,7 @@
             buttonInsertLanguage.TabIndex = 6;
             buttonInsertLanguage.Text = "Insert";
             buttonInsertLanguage.UseVisualStyleBackColor = true;
+            buttonInsertLanguage.Click += buttonInsertLanguage_Click;
             // 
             // buttonSaveLanguage
             // 
@@ -651,6 +658,7 @@
             buttonSaveLanguage.TabIndex = 8;
             buttonSaveLanguage.Text = "Save";
             buttonSaveLanguage.UseVisualStyleBackColor = true;
+            buttonSaveLanguage.Click += buttonSaveLanguage_Click;
             // 
             // textBoxCodeLanguage
             // 
@@ -699,9 +707,9 @@
             groupBoxPublisher.Controls.Add(textBoxNamePublisher);
             groupBoxPublisher.Controls.Add(label13);
             groupBoxPublisher.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            groupBoxPublisher.Location = new System.Drawing.Point(659, 57);
+            groupBoxPublisher.Location = new System.Drawing.Point(493, 227);
             groupBoxPublisher.Name = "groupBoxPublisher";
-            groupBoxPublisher.Size = new System.Drawing.Size(152, 38);
+            groupBoxPublisher.Size = new System.Drawing.Size(181, 41);
             groupBoxPublisher.TabIndex = 5;
             groupBoxPublisher.TabStop = false;
             groupBoxPublisher.Text = "Издателства";
@@ -725,6 +733,7 @@
             buttonDeletePublisher.TabIndex = 9;
             buttonDeletePublisher.Text = "Delete";
             buttonDeletePublisher.UseVisualStyleBackColor = true;
+            buttonDeletePublisher.Click += buttonDeletePublisher_Click;
             // 
             // buttonUpdatePublisher
             // 
@@ -734,6 +743,7 @@
             buttonUpdatePublisher.TabIndex = 7;
             buttonUpdatePublisher.Text = "Update";
             buttonUpdatePublisher.UseVisualStyleBackColor = true;
+            buttonUpdatePublisher.Click += buttonUpdatePublisher_Click;
             // 
             // buttonInsertPublisher
             // 
@@ -743,6 +753,7 @@
             buttonInsertPublisher.TabIndex = 6;
             buttonInsertPublisher.Text = "Insert";
             buttonInsertPublisher.UseVisualStyleBackColor = true;
+            buttonInsertPublisher.Click += buttonInsertPublisher_Click;
             // 
             // buttonSavePublisher
             // 
@@ -752,6 +763,7 @@
             buttonSavePublisher.TabIndex = 8;
             buttonSavePublisher.Text = "Save";
             buttonSavePublisher.UseVisualStyleBackColor = true;
+            buttonSavePublisher.Click += buttonSavePublisher_Click;
             // 
             // textBoxNamePublisher
             // 
@@ -894,7 +906,7 @@
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             BackColor = System.Drawing.Color.MistyRose;
-            ClientSize = new System.Drawing.Size(1016, 508);
+            ClientSize = new System.Drawing.Size(1016, 511);
             Controls.Add(groupBoxGenre);
             Controls.Add(groupBoxBook);
             Controls.Add(btnGoBackToMainForm);
