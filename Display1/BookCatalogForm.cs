@@ -20,6 +20,7 @@ namespace Display1
         public BookCatalogForm(MainForm mainForm)
         {
             InitializeComponent();
+            InsertInitialData();
             this.mainForm = mainForm;
             mainForm.Visible = false;
         }
@@ -27,8 +28,6 @@ namespace Display1
         private void BookCatalogForm_Load(object sender, EventArgs e)
         {
             UpdateGrid();
-            //InsertInitialData();
-
         }
         private void UpdateGrid()
         {
