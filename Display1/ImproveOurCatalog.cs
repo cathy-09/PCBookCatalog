@@ -261,16 +261,16 @@ namespace Display1
 
         private void UpdateTextBoxes(int id)
         {
-            BookPlaceholder kniga = bookBusiness.GetBookPlaceholder(id);
+            Book kniga = bookBusiness.GetBook(id);
             textBoxTitle.Text = kniga.Name;
-            textBoxAuthor.Text = kniga.Author;
-            textBoxPublishers.Text = kniga.Publisher;
-            textBoxGenre.Text = kniga.Genre;
             textBoxPrice.Text = kniga.Price.ToString();
+            textBoxPublishers.Text = kniga.PublisherName;
+            textBoxAuthor.Text = kniga.AuthorName;
+            textBoxGenre.Text = kniga.GenreName;
             textBoxRating.Text = kniga.Rating.ToString();
             textBoxISBN.Text = kniga.ISBN;
             textBoxPublicationYear.Text = kniga.PublicationYear.ToString();
-            textBoxLanguage.Text = kniga.Language;
+            textBoxLanguage.Text = kniga.LanguageName;
         }
 
         private void buttonSaveBook_Click(object sender, EventArgs e)
