@@ -825,10 +825,12 @@ namespace Display1
             Languages();
             Authors();
             Nationalities();
+            Publishers();
             improveOurCatalog.UpdateGridGenre();
             improveOurCatalog.UpdateGridLanguage();
             improveOurCatalog.UpdateGridAuthor();
             improveOurCatalog.UpdateGridNationality();
+            improveOurCatalog.UpdateGridPublisher();
         }
         private void Genres()
         {
@@ -893,7 +895,14 @@ namespace Display1
         }
         private void Publishers()
         {
-            //TODO.
+            Publisher publisherOne = new Publisher("LiterNet");
+            publishersBusiness.AddPublishers(publisherOne);
+            Publisher publisherTwo = new Publisher("Soft-press");
+            publishersBusiness.AddPublishers(publisherTwo);
+            Publisher publisherThree = new Publisher("Infodar");
+            publishersBusiness.AddPublishers(publisherThree);
+            Publisher publisherFour = new Publisher("Alexsoft");
+            publishersBusiness.AddPublishers(publisherFour);
         }
         private void Books()
         {
