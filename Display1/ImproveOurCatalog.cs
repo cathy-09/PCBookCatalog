@@ -260,40 +260,30 @@ namespace Display1
                 UpdateTextBoxes(id);
                 UpdateGridBook();
                 ResetSelect();
+                ToggleSaveUpdateBook();
             }
         }
 
         private void UpdateTextBoxes(int id)
         {
-            Book kniga = bookBusiness.GetBook(id);
+            Book kniga = bookBusiness.GetBook(id).First();
             textBoxTitle.Text = kniga.Name;
             textBoxPrice.Text = kniga.Price.ToString();
-            textBoxPublishers.Text = kniga.PublisherName;
-            textBoxAuthor.Text = kniga.AuthorName;
-            textBoxGenre.Text = kniga.GenreName;
+            textBoxPublishers.Text = kniga.Publisher.PublisherName;
+            textBoxPages.Text = kniga.Pages.ToString();
+            textBoxAuthor.Text = kniga.Author.Name;
+            textBoxGenre.Text = kniga.Genre.GenreName;
             textBoxRating.Text = kniga.Rating.ToString();
             textBoxISBN.Text = kniga.ISBN;
             textBoxPublicationYear.Text = kniga.PublicationYear.ToString();
-            textBoxLanguage.Text = kniga.LanguageName;
+            textBoxLanguage.Text = kniga.Language.LanguageName;
+            textBoxNationalityNameBook.Text = kniga.Author.Nationality.Name;
         }
 
         private void buttonSaveBook_Click(object sender, EventArgs e)
         {
-            BookPlaceholder editedBook = GetEditedBook();
-            Book finalBook = new Book()
-            {
-                Name = editedBook.Name,
-                Genre = new Genre { GenreName = editedBook.Genre },
-                Author = new Author { Name = editedBook.Author },
-                Publisher = new Publisher { PublisherName = editedBook.Publisher },
-                Rating = editedBook.Rating,
-                Pages = editedBook.Pages,
-                Price = editedBook.Price,
-                ISBN = editedBook.ISBN,
-                PublicationYear = editedBook.PublicationYear,
-                Language = new Language { LanguageName = editedBook.Language }
-            };
-            bookBusiness.Update(finalBook);
+            Book editedBook = GetEditedBook();
+            bookBusiness.Update(editedBook);
             UpdateGridBook();
             ResetSelect();
             ToggleSaveUpdateBook();
@@ -311,15 +301,16 @@ namespace Display1
             textBoxPublicationYear.Text = "";
             textBoxLanguage.Text = "";
         }
-        private BookPlaceholder GetEditedBook()
+        private Book GetEditedBook()
         {
-            BookPlaceholder book = new BookPlaceholder();
+            Book book = new Book();
             book.Id = editIdBook;
 
             var name = textBoxTitle.Text;
             var author = textBoxAuthor.Text;
             var publisher = textBoxPublishers.Text;
             var genre = textBoxGenre.Text;
+            var nationality = textBoxNationalityNameBook.Text;
             decimal price = 0;
             decimal.TryParse(textBoxPrice.Text, out price);
             int rating = 0;
@@ -329,14 +320,42 @@ namespace Display1
             int.TryParse(textBoxPublicationYear.Text, out yearOfPublishing);
             var language = textBoxLanguage.Text;
             book.Name = name;
-            book.Author = author;
-            book.Publisher = publisher;
-            book.Genre = genre;
+            if (!(bussinessAuthors.GetAll().Where(x => x.Name == author) == null))
+            {
+                book.Author = new Author { Name = author, Nationality = new Nationality { Name = nationality } };
+            }
+            else
+            {
+                book.Author = bussinessAuthors.GetAll().Where(x => x.Name == author).First();
+            }
+            if (publishersBusiness.GetAllPublishers().Where(x => x.PublisherName == publisher).First() == null)
+            {
+                book.Publisher = new Publisher { PublisherName = publisher };
+            }
+            else
+            {
+                book.Publisher = publishersBusiness.GetAllPublishers().Where(x => x.PublisherName == publisher).First();
+            }
+            if (genresBusiness.GetAll().Where(x => x.GenreName == genre).First() == null)
+            {
+                book.Genre = book.Genre = new Genre { GenreName = genre };
+            }
+            else
+            {
+                book.Genre = genresBusiness.GetAll().Where(x => x.GenreName == genre).First();
+            }
+            if (languagesBusiness.GetAll().Where(x => x.LanguageName == language).First() == null)
+            {
+                book.Language = book.Language = new Language { LanguageName = language };
+            }
+            else
+            {
+                book.Language = languagesBusiness.GetAll().Where(x => x.LanguageName == language).First();
+            }
             book.Price = price;
             book.Rating = rating;
             book.ISBN = isbn;
             book.PublicationYear = yearOfPublishing;
-            book.Language = language;
             return book;
         }
 

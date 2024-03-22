@@ -66,11 +66,18 @@ namespace Business
             }
         }
 
-        public Book GetBook(int id)
+        public List<Book> GetBook(int id)
         {
             using (bookCatalogContext = new BookCatalogContext())
             {
-                return bookCatalogContext.Books.Find(id);
+                return bookCatalogContext.Books
+                    .Where(x => x.Id == id)
+                    .Include(book => book.Genre)
+                    .Include(book => book.Author)
+                        .ThenInclude(author => author.Nationality)
+                    .Include(book => book.Language)
+                    .Include(book => book.Publisher)
+                    .ToList();
             }
         }
 
