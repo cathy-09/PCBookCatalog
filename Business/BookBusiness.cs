@@ -258,6 +258,12 @@ namespace Business
             using (BookCatalogContext bookCatalogContext = new BookCatalogContext())
             {
                 bookCatalogContext.Books.Add(book1);
+                bookCatalogContext.Books.Add(book2);
+                bookCatalogContext.Books.Add(book3);
+                bookCatalogContext.Books.Add(book4);
+                bookCatalogContext.Books.Add(book5);
+                bookCatalogContext.Books.Add(book6);
+                bookCatalogContext.Books.Add(book7);
                 bookCatalogContext.SaveChanges();
             }
         }
