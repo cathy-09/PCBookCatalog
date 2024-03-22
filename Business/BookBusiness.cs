@@ -160,7 +160,7 @@ namespace Business
             Book book1 = new Book
             {
                 Name = "The Magicians' Guild",
-                Author = new Author { Name =  "Trudi Canavan", Nationality = new Nationality { Name = "Australian" } },
+                Author = new Author { Name =  "Trudi Canavan (Australian)", Nationality = new Nationality { Name = "Australian" } },
                 Genre = new Genre { GenreName = "Fantasy" },
                 Publisher = new Publisher { PublisherName = "MBG Books" },
                 Rating = 3.95,
@@ -171,14 +171,94 @@ namespace Business
                 Language = new Language { LanguageName = "English" }
             };
 
+            Book book2 = new Book
+            {
+                Name = "Shatter Me",
+                Author = new Author { Name = "Tahereh Mafi(Iranian)", Nationality = new Nationality { Name = "Iranian" } },
+                Genre = new Genre { GenreName = "Dystopian fiction" },
+                Publisher = new Publisher { PublisherName = "Egmont" },
+                Rating = 3.86,
+                Pages = 328,
+                Price = 19.90m,
+                ISBN = "9789542713760",
+                PublicationYear = 2015,
+                Language = new Language { LanguageName = "English" }
+            };
+
+            Book book3 = new Book
+            {
+                Name = "Crime and Punishment",
+                Author = new Author { Name = "Fyodor Dostoevsky(Russian)", Nationality = new Nationality { Name = "Russian" } },
+                Genre = new Genre { GenreName = "classic" },
+                Publisher = new Publisher { PublisherName = "Zahariy Stoyanov" },
+                Rating = 4.27,
+                Pages = 512,
+                Price = 30.00m,
+                ISBN = "978954091017Х",
+                PublicationYear = 2011,
+                Language = new Language { LanguageName = "Russian" }
+            };
+
+            Book book4 = new Book
+            {
+                Name = "War and Peace",
+                Author = new Author { Name = "Leo Tolstoy(Russian)", Nationality = new Nationality { Name = "Russian" } },
+                Genre = new Genre { GenreName = "classic" },
+                Publisher = new Publisher { PublisherName = "Kryg" },
+                Rating = 4.16,
+                Pages = 516,
+                Price = 19.00m,
+                ISBN = "9786197625349",
+                PublicationYear = 2021,
+                Language = new Language { LanguageName = "Russian" }
+            };
+
+            Book book5 = new Book
+            {
+                Name = "Throne of Glass",
+                Author = new Author { Name = "Sarah J. Maas(American)", Nationality = new Nationality { Name = "American" } },
+                Genre = new Genre { GenreName = "fantasy" },
+                Publisher = new Publisher { PublisherName = "Egmont" },
+                Rating = 4.17,
+                Pages = 400,
+                Price = 19.90m,
+                ISBN = "9789542711667",
+                PublicationYear = 2020,
+                Language = new Language { LanguageName = "English" }
+            };
+
+            Book book6 = new Book
+            {
+                Name = "Vicious",
+                Author = new Author { Name = "V. E. Schwab(American)", Nationality = new Nationality { Name = "American" } },
+                Genre = new Genre { GenreName = "fantasy" },
+                Publisher = new Publisher { PublisherName = "Emas" },
+                Rating = 4.21,
+                Pages = 376,
+                Price = 19.00m,
+                ISBN = "9789543575084",
+                PublicationYear = 2021,
+                Language = new Language { LanguageName = "English" }
+            };
+
+            Book book7 = new Book
+            {
+                Name = "Six of Crows",
+                Author = new Author { Name = "Leigh Bardugo(American)", Nationality = new Nationality { Name = "American" } },
+                Genre = new Genre { GenreName = "fantasy" },
+                Publisher = new Publisher { PublisherName = "Egmont" },
+                Rating = 4.49,
+                Pages = 560,
+                Price = 19.90m,
+                ISBN = "9789542723028",
+                PublicationYear = 2019,
+                Language = new Language { LanguageName = "English" }
+            };
+
             using (BookCatalogContext bookCatalogContext = new BookCatalogContext())
             {
-                bool bookExists = bookCatalogContext.Books.Any(b => b.ISBN == book1.ISBN);
-                if (!bookExists)
-                {
-                    bookCatalogContext.Books.Add(book1);
-                    bookCatalogContext.SaveChanges();
-                }
+                bookCatalogContext.Books.Add(book1);
+                bookCatalogContext.SaveChanges();
             }
         }
     }
