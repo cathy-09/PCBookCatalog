@@ -28,10 +28,12 @@ namespace Display1
         private int editIdGenre = 0;
         private int editIdPublisher = 0;
         private MainForm mainForm;
+        public ImproveOurCatalog improveOurCatalog;
 
         public ImproveOurCatalog(MainForm mainForm)
         {
             InitializeComponent();
+
             groupBoxBook.Visible = false;
 
             groupBoxGenre.Visible = false;
@@ -819,6 +821,7 @@ namespace Display1
         private void buttonInsertData_Click(object sender, EventArgs e)
         {
             Genres();
+            improveOurCatalog.UpdateGridGenre();
         }
         private void Genres()
         {
@@ -828,7 +831,7 @@ namespace Display1
             genresBusiness.Add(genreTwo);
             Genre genreThree = new Genre("romance");
             genresBusiness.Add(genreThree);
-            Genre genreFour = new Genre("ccience Fiction");
+            Genre genreFour = new Genre("science fiction");
             genresBusiness.Add(genreFour);
             Genre genreFive = new Genre("dystopian fiction");
             genresBusiness.Add(genreFive);
