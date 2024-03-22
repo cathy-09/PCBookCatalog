@@ -138,32 +138,6 @@ namespace Business
             }
         }
 
-        public List<Book> GetBooksByPublisher(string publisher)
-        {
-            using (BookCatalogContext bookCatalogContext = new BookCatalogContext())
-            {
-                return bookCatalogContext.Books
-                    .Where(b => b.Publisher.PublisherName == publisher)
-                    .Include(e => e.Genre)
-                    .Include(e => e.Publisher)
-                    .Include(e => e.Language)
-                    .ToList();
-            }
-        }
-
-        public List<Book> GetBooksByLanguage(string language)
-        {
-            using (BookCatalogContext bookCatalogContext = new BookCatalogContext())
-            {
-                return bookCatalogContext.Books
-                    .Where(b => b.Language.LanguageName == language)
-                    .Include(e => e.Genre)
-                    .Include(e => e.Publisher)
-                    .Include(e => e.Language)
-                    .ToList();
-            }
-        }
-
         public Book GetCheapestBook()
         {
             using (BookCatalogContext bookCatalogContext = new BookCatalogContext())
