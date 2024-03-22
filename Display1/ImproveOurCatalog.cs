@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using static System.Windows.Forms.LinkLabel;
 
 namespace Display1
 {
@@ -821,7 +822,13 @@ namespace Display1
         private void buttonInsertData_Click(object sender, EventArgs e)
         {
             Genres();
+            Languages();
+            Authors();
+            Nationalities();
             improveOurCatalog.UpdateGridGenre();
+            improveOurCatalog.UpdateGridLanguage();
+            improveOurCatalog.UpdateGridAuthor();
+            improveOurCatalog.UpdateGridNationality();
         }
         private void Genres()
         {
@@ -844,15 +851,45 @@ namespace Display1
         }
         private void Languages()
         {
-            //TODO.
+            Language languageOne = new Language("english",44);
+            languagesBusiness.Add(languageOne);
+            Language languageTwo = new Language("russian", 7);
+            languagesBusiness.Add(languageTwo);
+            Language languageThree = new Language("bulgarian", 359);
+            languagesBusiness.Add(languageThree);
+            Language languageFour = new Language("french", 33);
+            languagesBusiness.Add(languageFour);
+            Language languageFive = new Language("germany", 49);
+            languagesBusiness.Add(languageFive);
         }
         private void Authors()
         {
-            //TODO.
+            Author authorOne = new Author("Laini Taylor",1);
+            bussinessAuthors.Add(authorOne);
+            Author authorTwo = new Author("Cassandra Clare", 1);
+            bussinessAuthors.Add(authorTwo);
+            Author authorThree = new Author("Jennifer Lynn Armentrout", 1);
+            bussinessAuthors.Add(authorThree);
+            Author authorFour = new Author("Chloe Gong", 1);
+            bussinessAuthors.Add(authorFour);
+            Author authorFive = new Author("Brandon Sanderson", 1);
+            bussinessAuthors.Add(authorFive);
+            Author authorSix = new Author("Yordan Radichkov", 1);
+            bussinessAuthors.Add(authorSix);
         }
         private void Nationalities()
         {
-            //TODO.
+            Nationality nationalitieOne = new Nationality("American");
+            businessNationalities.AddNationality(nationalitieOne);
+            Nationality nationalitieTwo = new Nationality("Bulgarian");
+            businessNationalities.AddNationality(nationalitieTwo);
+            Nationality nationalitieThree = new Nationality("New Zealand");
+            businessNationalities.AddNationality(nationalitieThree);
+            Nationality nationalitieFour = new Nationality("Iranian");
+            businessNationalities.AddNationality(nationalitieFour);
+            Nationality nationalitieFive = new Nationality("Russian");
+            businessNationalities.AddNationality(nationalitieFive);
+
         }
         private void Publishers()
         {
