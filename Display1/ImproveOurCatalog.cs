@@ -22,6 +22,7 @@ namespace Display1
         private BusinessNationalities businessNationalities = new BusinessNationalities();
         private LanguagesBusiness languagesBusiness = new LanguagesBusiness();
         private PublishersBusiness publishersBusiness = new PublishersBusiness();
+        private BookAuthorsBusiness booksAuthorsBusiness = new BookAuthorsBusiness();
         private int editIdBook = 0;
         private int editIdAuthor = 0;
         private int editIdNationality = 0;
@@ -826,11 +827,14 @@ namespace Display1
             Authors();
             Nationalities();
             Publishers();
+            BooksAuthors();
+            Books();
             improveOurCatalog.UpdateGridGenre();
             improveOurCatalog.UpdateGridLanguage();
             improveOurCatalog.UpdateGridAuthor();
             improveOurCatalog.UpdateGridNationality();
             improveOurCatalog.UpdateGridPublisher();
+            improveOurCatalog.UpdateGridBook();
         }
         private void Genres()
         {
@@ -906,11 +910,20 @@ namespace Display1
         }
         private void Books()
         {
-            //TODO.
+            bookBusiness.InsertInitialData();
         }
         private void BooksAuthors()
         {
-            //TODO.
+            BookAuthor bookAuthorOne = new BookAuthor(1,1);
+            booksAuthorsBusiness.AddBooksAuthors(bookAuthorOne);
+            BookAuthor bookAuthorTwo = new BookAuthor(2,2);
+            booksAuthorsBusiness.AddBooksAuthors(bookAuthorTwo);
+            BookAuthor bookAuthorThree = new BookAuthor(3,3);
+            booksAuthorsBusiness.AddBooksAuthors(bookAuthorThree);
+            BookAuthor bookAuthorFour = new BookAuthor(4,4);
+            booksAuthorsBusiness.AddBooksAuthors(bookAuthorFour);
+            BookAuthor bookAuthorFive = new BookAuthor(5,5);
+            booksAuthorsBusiness.AddBooksAuthors(bookAuthorFive);
         }
     }
 }
