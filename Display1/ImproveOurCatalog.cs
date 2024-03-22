@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using static System.Windows.Forms.LinkLabel;
 
 namespace Display1
 {
@@ -21,6 +22,7 @@ namespace Display1
         private BusinessNationalities businessNationalities = new BusinessNationalities();
         private LanguagesBusiness languagesBusiness = new LanguagesBusiness();
         private PublishersBusiness publishersBusiness = new PublishersBusiness();
+        private BookAuthorsBusiness booksAuthorsBusiness = new BookAuthorsBusiness();
         private int editIdBook = 0;
         private int editIdAuthor = 0;
         private int editIdNationality = 0;
@@ -28,10 +30,12 @@ namespace Display1
         private int editIdGenre = 0;
         private int editIdPublisher = 0;
         private MainForm mainForm;
+        public ImproveOurCatalog improveOurCatalog;
 
         public ImproveOurCatalog(MainForm mainForm)
         {
             InitializeComponent();
+
             groupBoxBook.Visible = false;
 
             groupBoxGenre.Visible = false;
@@ -815,5 +819,112 @@ namespace Display1
 
             return genre;
         }
+
+        private void buttonInsertData_Click(object sender, EventArgs e)
+        {
+            Genres();
+            Languages();
+            Authors();
+            Nationalities();
+            Publishers();
+            //BooksAuthors();
+            Books();
+            improveOurCatalog.UpdateGridGenre();
+            improveOurCatalog.UpdateGridLanguage();
+            improveOurCatalog.UpdateGridAuthor();
+            improveOurCatalog.UpdateGridNationality();
+            improveOurCatalog.UpdateGridPublisher();
+            improveOurCatalog.UpdateGridBook();
+        }
+        private void Genres()
+        {
+            Genre genreOne = new Genre("classic");
+            genresBusiness.Add(genreOne);
+            Genre genreTwo = new Genre("fiction");
+            genresBusiness.Add(genreTwo);
+            Genre genreThree = new Genre("romance");
+            genresBusiness.Add(genreThree);
+            Genre genreFour = new Genre("science fiction");
+            genresBusiness.Add(genreFour);
+            Genre genreFive = new Genre("dystopian fiction");
+            genresBusiness.Add(genreFive);
+            Genre genreSix = new Genre("drama");
+            genresBusiness.Add(genreSix);
+            Genre genreSeven = new Genre("satire");
+            genresBusiness.Add(genreSeven);
+            Genre genreEight = new Genre("fragmentary novel");
+            genresBusiness.Add(genreEight);
+        }
+        private void Languages()
+        {
+            Language languageOne = new Language("english", 44);
+            languagesBusiness.Add(languageOne);
+            Language languageTwo = new Language("russian", 7);
+            languagesBusiness.Add(languageTwo);
+            Language languageThree = new Language("bulgarian", 359);
+            languagesBusiness.Add(languageThree);
+            Language languageFour = new Language("french", 33);
+            languagesBusiness.Add(languageFour);
+            Language languageFive = new Language("germany", 49);
+            languagesBusiness.Add(languageFive);
+        }
+        private void Authors()
+        {
+            Author authorOne = new Author("Laini Taylor", 1);
+            bussinessAuthors.Add(authorOne);
+            Author authorTwo = new Author("Cassandra Clare", 1);
+            bussinessAuthors.Add(authorTwo);
+            Author authorThree = new Author("Jennifer Lynn Armentrout", 1);
+            bussinessAuthors.Add(authorThree);
+            Author authorFour = new Author("Chloe Gong", 1);
+            bussinessAuthors.Add(authorFour);
+            Author authorFive = new Author("Brandon Sanderson", 1);
+            bussinessAuthors.Add(authorFive);
+            Author authorSix = new Author("Yordan Radichkov", 1);
+            bussinessAuthors.Add(authorSix);
+        }
+        private void Nationalities()
+        {
+            Nationality nationalitieOne = new Nationality("American");
+            businessNationalities.AddNationality(nationalitieOne);
+            Nationality nationalitieTwo = new Nationality("Bulgarian");
+            businessNationalities.AddNationality(nationalitieTwo);
+            Nationality nationalitieThree = new Nationality("New Zealand");
+            businessNationalities.AddNationality(nationalitieThree);
+            Nationality nationalitieFour = new Nationality("Iranian");
+            businessNationalities.AddNationality(nationalitieFour);
+            Nationality nationalitieFive = new Nationality("Russian");
+            businessNationalities.AddNationality(nationalitieFive);
+
+        }
+        private void Publishers()
+        {
+            Publisher publisherOne = new Publisher("LiterNet");
+            publishersBusiness.AddPublishers(publisherOne);
+            Publisher publisherTwo = new Publisher("Soft-press");
+            publishersBusiness.AddPublishers(publisherTwo);
+            Publisher publisherThree = new Publisher("Infodar");
+            publishersBusiness.AddPublishers(publisherThree);
+            Publisher publisherFour = new Publisher("Alexsoft");
+            publishersBusiness.AddPublishers(publisherFour);
+        }
+        private void Books()
+        {
+            bookBusiness.InsertInitialData();
+        }
+        private void BooksAuthors()
+        {
+            BookAuthor bookAuthorOne = new BookAuthor(1, 1);
+            booksAuthorsBusiness.AddBooksAuthors(bookAuthorOne);
+            BookAuthor bookAuthorTwo = new BookAuthor(2, 2);
+            booksAuthorsBusiness.AddBooksAuthors(bookAuthorTwo);
+            BookAuthor bookAuthorThree = new BookAuthor(3, 3);
+            booksAuthorsBusiness.AddBooksAuthors(bookAuthorThree);
+            BookAuthor bookAuthorFour = new BookAuthor(4, 4);
+            booksAuthorsBusiness.AddBooksAuthors(bookAuthorFour);
+            BookAuthor bookAuthorFive = new BookAuthor(5, 5);
+            booksAuthorsBusiness.AddBooksAuthors(bookAuthorFive);
+        }
+        
     }
 }

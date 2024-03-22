@@ -10,6 +10,14 @@ namespace Data.Models
 {
     public class Publisher
     {
+        public Publisher()
+        {
+
+        }
+        public Publisher(string name)
+        {
+            this.PublisherName = name;
+        }
         [Key]
         public int PublisherId { get; set; }
         [Required]

@@ -138,32 +138,6 @@ namespace Business
             }
         }
 
-        public List<Book> GetBooksByPublisher(string publisher)
-        {
-            using (BookCatalogContext bookCatalogContext = new BookCatalogContext())
-            {
-                return bookCatalogContext.Books
-                    .Where(b => b.Publisher.PublisherName == publisher)
-                    .Include(e => e.Genre)
-                    .Include(e => e.Publisher)
-                    .Include(e => e.Language)
-                    .ToList();
-            }
-        }
-
-        public List<Book> GetBooksByLanguage(string language)
-        {
-            using (BookCatalogContext bookCatalogContext = new BookCatalogContext())
-            {
-                return bookCatalogContext.Books
-                    .Where(b => b.Language.LanguageName == language)
-                    .Include(e => e.Genre)
-                    .Include(e => e.Publisher)
-                    .Include(e => e.Language)
-                    .ToList();
-            }
-        }
-
         public Book GetCheapestBook()
         {
             using (BookCatalogContext bookCatalogContext = new BookCatalogContext())
@@ -197,9 +171,99 @@ namespace Business
                 Language = new Language { LanguageName = "English" }
             };
 
+            Book book2 = new Book
+            {
+                Name = "Shatter Me",
+                Author = new Author { Name = "Tahereh Mafi(Iranian)", Nationality = new Nationality { Name = "Iranian" } },
+                Genre = new Genre { GenreName = "Dystopian fiction" },
+                Publisher = new Publisher { PublisherName = "Egmont" },
+                Rating = 3.86,
+                Pages = 328,
+                Price = 19.90m,
+                ISBN = "9789542713760",
+                PublicationYear = 2015,
+                Language = new Language { LanguageName = "English" }
+            };
+
+            Book book3 = new Book
+            {
+                Name = "Crime and Punishment",
+                Author = new Author { Name = "Fyodor Dostoevsky(Russian)", Nationality = new Nationality { Name = "Russian" } },
+                Genre = new Genre { GenreName = "classic" },
+                Publisher = new Publisher { PublisherName = "Zahariy Stoyanov" },
+                Rating = 4.27,
+                Pages = 512,
+                Price = 30.00m,
+                ISBN = "978954091017Х",
+                PublicationYear = 2011,
+                Language = new Language { LanguageName = "Russian" }
+            };
+
+            Book book4 = new Book
+            {
+                Name = "War and Peace",
+                Author = new Author { Name = "Leo Tolstoy(Russian)", Nationality = new Nationality { Name = "Russian" } },
+                Genre = new Genre { GenreName = "classic" },
+                Publisher = new Publisher { PublisherName = "Kryg" },
+                Rating = 4.16,
+                Pages = 516,
+                Price = 19.00m,
+                ISBN = "9786197625349",
+                PublicationYear = 2021,
+                Language = new Language { LanguageName = "Russian" }
+            };
+
+            Book book5 = new Book
+            {
+                Name = "Throne of Glass",
+                Author = new Author { Name = "Sarah J. Maas(American)", Nationality = new Nationality { Name = "American" } },
+                Genre = new Genre { GenreName = "fantasy" },
+                Publisher = new Publisher { PublisherName = "Egmont" },
+                Rating = 4.17,
+                Pages = 400,
+                Price = 19.90m,
+                ISBN = "9789542711667",
+                PublicationYear = 2020,
+                Language = new Language { LanguageName = "English" }
+            };
+
+            Book book6 = new Book
+            {
+                Name = "Vicious",
+                Author = new Author { Name = "V. E. Schwab(American)", Nationality = new Nationality { Name = "American" } },
+                Genre = new Genre { GenreName = "fantasy" },
+                Publisher = new Publisher { PublisherName = "Emas" },
+                Rating = 4.21,
+                Pages = 376,
+                Price = 19.00m,
+                ISBN = "9789543575084",
+                PublicationYear = 2021,
+                Language = new Language { LanguageName = "English" }
+            };
+
+            Book book7 = new Book
+            {
+                Name = "Six of Crows",
+                Author = new Author { Name = "Leigh Bardugo(American)", Nationality = new Nationality { Name = "American" } },
+                Genre = new Genre { GenreName = "fantasy" },
+                Publisher = new Publisher { PublisherName = "Egmont" },
+                Rating = 4.49,
+                Pages = 560,
+                Price = 19.90m,
+                ISBN = "9789542723028",
+                PublicationYear = 2019,
+                Language = new Language { LanguageName = "English" }
+            };
+
             using (BookCatalogContext bookCatalogContext = new BookCatalogContext())
             {
                 bookCatalogContext.Books.Add(book1);
+                bookCatalogContext.Books.Add(book2);
+                bookCatalogContext.Books.Add(book3);
+                bookCatalogContext.Books.Add(book4);
+                bookCatalogContext.Books.Add(book5);
+                bookCatalogContext.Books.Add(book6);
+                bookCatalogContext.Books.Add(book7);
                 bookCatalogContext.SaveChanges();
             }
         }

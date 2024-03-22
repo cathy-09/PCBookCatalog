@@ -40,5 +40,11 @@ namespace Display1
         {
             Close();
         }
+
+        private void btnAdditional_Click(object sender, EventArgs e)
+        {
+            AdditionalFunctionalities additionalFunctionalities = new AdditionalFunctionalities(this);
+            additionalFunctionalities.Show();
+        }
     }
 }

@@ -9,6 +9,16 @@ namespace Data.Models
 {
     public class Author
     {
+        public Author()
+        {
+
+        }
+        public Author(string name, int id)
+        {
+            this.Name = name;
+            this.NationalityId = id;
+        }
+
         [Key]
         public int AuthorId { get; set; }
 

@@ -9,6 +9,15 @@ namespace Data.Models
 {
     public class Nationality
     {
+        public Nationality()
+        {
+
+        }
+        public Nationality(string name)
+        {
+            this.Name = name;
+        }
+
         [Key]
         public int NationalityId { get; set; }
 

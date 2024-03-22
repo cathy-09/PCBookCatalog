@@ -9,6 +9,16 @@ namespace Data.Models
 {
     public class Language
     {
+        public Language()
+        {
+
+        }
+        public Language(string name,int code)
+        {
+            this.LanguageName = name;
+            this.LanguageCode = code;
+        }
+
         [Key]
         public int LanguageId { get; set; }
         [Required]
