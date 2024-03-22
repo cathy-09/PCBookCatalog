@@ -9,6 +9,15 @@ namespace Data.Models
 {
     public class Genre
     {
+        public Genre()
+        {
+
+        }
+        public Genre(string name)
+        {
+            this.GenreName = name;
+        }
+
         [Key]
         public int  GenreId { get; set; }
         [Required]

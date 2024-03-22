@@ -818,11 +818,26 @@ namespace Display1
 
         private void buttonInsertData_Click(object sender, EventArgs e)
         {
-            //TODO.
+            Genres();
         }
         private void Genres()
-        { 
-            //TODO.
+        {
+            Genre genreOne = new Genre("classic");
+            genresBusiness.Add(genreOne);
+            Genre genreTwo = new Genre("fiction");
+            genresBusiness.Add(genreTwo);
+            Genre genreThree = new Genre("romance");
+            genresBusiness.Add(genreThree);
+            Genre genreFour = new Genre("ccience Fiction");
+            genresBusiness.Add(genreFour);
+            Genre genreFive = new Genre("dystopian fiction");
+            genresBusiness.Add(genreFive);
+            Genre genreSix = new Genre("drama");
+            genresBusiness.Add(genreSix);
+            Genre genreSeven = new Genre("satire");
+            genresBusiness.Add(genreSeven);
+            Genre genreEight = new Genre("fragmentary novel");
+            genresBusiness.Add(genreEight);
         }
         private void Languages()
         {
