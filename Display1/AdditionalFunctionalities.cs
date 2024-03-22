@@ -93,5 +93,11 @@ namespace Display1
             }
             textBoxBooksByGenre.Text = "";
         }
+
+        private void buttonAdditionalGoBackToMain_Click(object sender, EventArgs e)
+        {
+            mainForm.Visible = true;
+            Close();
+        }
     }
 }

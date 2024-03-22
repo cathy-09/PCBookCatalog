@@ -54,6 +54,7 @@
             buttonAdditionalGoBackToMain.TabIndex = 0;
             buttonAdditionalGoBackToMain.Text = "Върни се към главната форма";
             buttonAdditionalGoBackToMain.UseVisualStyleBackColor = false;
+            buttonAdditionalGoBackToMain.Click += buttonAdditionalGoBackToMain_Click;
             // 
             // groupBox1
             // 
