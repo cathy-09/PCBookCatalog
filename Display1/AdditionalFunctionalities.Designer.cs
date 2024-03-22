@@ -31,15 +31,15 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdditionalFunctionalities));
             buttonAdditionalGoBackToMain = new System.Windows.Forms.Button();
             groupBox1 = new System.Windows.Forms.GroupBox();
-            buttonGetCheapestBook = new System.Windows.Forms.Button();
-            dataGridViewAdditional = new System.Windows.Forms.DataGridView();
-            listBoxCheapestBook = new System.Windows.Forms.ListBox();
-            listBoxBooksByAuthor = new System.Windows.Forms.ListBox();
-            buttonBooksByAuthor = new System.Windows.Forms.Button();
+            textBoxBooksByGenre = new System.Windows.Forms.TextBox();
+            textBoxBooksByAuthor = new System.Windows.Forms.TextBox();
             listBoxBooksByGenre = new System.Windows.Forms.ListBox();
             buttonBooksByGenre = new System.Windows.Forms.Button();
-            textBoxBooksByAuthor = new System.Windows.Forms.TextBox();
-            textBoxBooksByGenre = new System.Windows.Forms.TextBox();
+            listBoxBooksByAuthor = new System.Windows.Forms.ListBox();
+            buttonBooksByAuthor = new System.Windows.Forms.Button();
+            listBoxCheapestBook = new System.Windows.Forms.ListBox();
+            buttonGetCheapestBook = new System.Windows.Forms.Button();
+            dataGridViewAdditional = new System.Windows.Forms.DataGridView();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewAdditional).BeginInit();
             SuspendLayout();
@@ -73,53 +73,19 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Допълнителни функционалности";
             // 
-            // buttonGetCheapestBook
+            // textBoxBooksByGenre
             // 
-            buttonGetCheapestBook.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            buttonGetCheapestBook.Location = new System.Drawing.Point(9, 19);
-            buttonGetCheapestBook.Name = "buttonGetCheapestBook";
-            buttonGetCheapestBook.Size = new System.Drawing.Size(296, 46);
-            buttonGetCheapestBook.TabIndex = 0;
-            buttonGetCheapestBook.Text = "Намери най-евтината книга";
-            buttonGetCheapestBook.UseVisualStyleBackColor = true;
-            buttonGetCheapestBook.Click += button2_Click;
+            textBoxBooksByGenre.Location = new System.Drawing.Point(9, 327);
+            textBoxBooksByGenre.Name = "textBoxBooksByGenre";
+            textBoxBooksByGenre.Size = new System.Drawing.Size(296, 23);
+            textBoxBooksByGenre.TabIndex = 8;
             // 
-            // dataGridViewAdditional
+            // textBoxBooksByAuthor
             // 
-            dataGridViewAdditional.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewAdditional.Location = new System.Drawing.Point(336, 13);
-            dataGridViewAdditional.Name = "dataGridViewAdditional";
-            dataGridViewAdditional.RowTemplate.Height = 25;
-            dataGridViewAdditional.Size = new System.Drawing.Size(452, 420);
-            dataGridViewAdditional.TabIndex = 2;
-            // 
-            // listBoxCheapestBook
-            // 
-            listBoxCheapestBook.FormattingEnabled = true;
-            listBoxCheapestBook.ItemHeight = 15;
-            listBoxCheapestBook.Location = new System.Drawing.Point(9, 71);
-            listBoxCheapestBook.Name = "listBoxCheapestBook";
-            listBoxCheapestBook.Size = new System.Drawing.Size(296, 49);
-            listBoxCheapestBook.TabIndex = 3;
-            // 
-            // listBoxBooksByAuthor
-            // 
-            listBoxBooksByAuthor.FormattingEnabled = true;
-            listBoxBooksByAuthor.ItemHeight = 15;
-            listBoxBooksByAuthor.Location = new System.Drawing.Point(9, 214);
-            listBoxBooksByAuthor.Name = "listBoxBooksByAuthor";
-            listBoxBooksByAuthor.Size = new System.Drawing.Size(296, 49);
-            listBoxBooksByAuthor.TabIndex = 5;
-            // 
-            // buttonBooksByAuthor
-            // 
-            buttonBooksByAuthor.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            buttonBooksByAuthor.Location = new System.Drawing.Point(9, 132);
-            buttonBooksByAuthor.Name = "buttonBooksByAuthor";
-            buttonBooksByAuthor.Size = new System.Drawing.Size(296, 46);
-            buttonBooksByAuthor.TabIndex = 4;
-            buttonBooksByAuthor.Text = "Намери книгите на автор (въведи име)";
-            buttonBooksByAuthor.UseVisualStyleBackColor = true;
+            textBoxBooksByAuthor.Location = new System.Drawing.Point(9, 184);
+            textBoxBooksByAuthor.Name = "textBoxBooksByAuthor";
+            textBoxBooksByAuthor.Size = new System.Drawing.Size(296, 23);
+            textBoxBooksByAuthor.TabIndex = 8;
             // 
             // listBoxBooksByGenre
             // 
@@ -139,20 +105,56 @@
             buttonBooksByGenre.TabIndex = 6;
             buttonBooksByGenre.Text = "Намери книгите по жанр (въведи жанр)";
             buttonBooksByGenre.UseVisualStyleBackColor = true;
+            buttonBooksByGenre.Click += buttonBooksByGenre_Click;
             // 
-            // textBoxBooksByAuthor
+            // listBoxBooksByAuthor
             // 
-            textBoxBooksByAuthor.Location = new System.Drawing.Point(9, 184);
-            textBoxBooksByAuthor.Name = "textBoxBooksByAuthor";
-            textBoxBooksByAuthor.Size = new System.Drawing.Size(296, 23);
-            textBoxBooksByAuthor.TabIndex = 8;
+            listBoxBooksByAuthor.FormattingEnabled = true;
+            listBoxBooksByAuthor.ItemHeight = 15;
+            listBoxBooksByAuthor.Location = new System.Drawing.Point(9, 214);
+            listBoxBooksByAuthor.Name = "listBoxBooksByAuthor";
+            listBoxBooksByAuthor.Size = new System.Drawing.Size(296, 49);
+            listBoxBooksByAuthor.TabIndex = 5;
             // 
-            // textBoxBooksByGenre
+            // buttonBooksByAuthor
             // 
-            textBoxBooksByGenre.Location = new System.Drawing.Point(9, 327);
-            textBoxBooksByGenre.Name = "textBoxBooksByGenre";
-            textBoxBooksByGenre.Size = new System.Drawing.Size(296, 23);
-            textBoxBooksByGenre.TabIndex = 8;
+            buttonBooksByAuthor.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            buttonBooksByAuthor.Location = new System.Drawing.Point(9, 132);
+            buttonBooksByAuthor.Name = "buttonBooksByAuthor";
+            buttonBooksByAuthor.Size = new System.Drawing.Size(296, 46);
+            buttonBooksByAuthor.TabIndex = 4;
+            buttonBooksByAuthor.Text = "Намери книгите на автор (въведи име)";
+            buttonBooksByAuthor.UseVisualStyleBackColor = true;
+            buttonBooksByAuthor.Click += buttonBooksByAuthor_Click;
+            // 
+            // listBoxCheapestBook
+            // 
+            listBoxCheapestBook.FormattingEnabled = true;
+            listBoxCheapestBook.ItemHeight = 15;
+            listBoxCheapestBook.Location = new System.Drawing.Point(9, 71);
+            listBoxCheapestBook.Name = "listBoxCheapestBook";
+            listBoxCheapestBook.Size = new System.Drawing.Size(296, 49);
+            listBoxCheapestBook.TabIndex = 3;
+            // 
+            // buttonGetCheapestBook
+            // 
+            buttonGetCheapestBook.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            buttonGetCheapestBook.Location = new System.Drawing.Point(9, 19);
+            buttonGetCheapestBook.Name = "buttonGetCheapestBook";
+            buttonGetCheapestBook.Size = new System.Drawing.Size(296, 46);
+            buttonGetCheapestBook.TabIndex = 0;
+            buttonGetCheapestBook.Text = "Намери най-евтината книга";
+            buttonGetCheapestBook.UseVisualStyleBackColor = true;
+            buttonGetCheapestBook.Click += buttonGetCheapestBook_Click;
+            // 
+            // dataGridViewAdditional
+            // 
+            dataGridViewAdditional.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewAdditional.Location = new System.Drawing.Point(336, 13);
+            dataGridViewAdditional.Name = "dataGridViewAdditional";
+            dataGridViewAdditional.RowTemplate.Height = 25;
+            dataGridViewAdditional.Size = new System.Drawing.Size(452, 420);
+            dataGridViewAdditional.TabIndex = 2;
             // 
             // AdditionalFunctionalities
             // 
