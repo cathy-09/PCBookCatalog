@@ -187,6 +187,7 @@
             // 
             // textBoxPages
             // 
+            textBoxPages.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             textBoxPages.Location = new System.Drawing.Point(192, 288);
             textBoxPages.Multiline = true;
             textBoxPages.Name = "textBoxPages";
@@ -195,6 +196,7 @@
             // 
             // textBoxNationalityNameBook
             // 
+            textBoxNationalityNameBook.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             textBoxNationalityNameBook.Location = new System.Drawing.Point(83, 77);
             textBoxNationalityNameBook.Multiline = true;
             textBoxNationalityNameBook.Name = "textBoxNationalityNameBook";
@@ -214,6 +216,7 @@
             // 
             // textBoxLanguage
             // 
+            textBoxLanguage.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             textBoxLanguage.Location = new System.Drawing.Point(192, 372);
             textBoxLanguage.Multiline = true;
             textBoxLanguage.Name = "textBoxLanguage";
@@ -252,6 +255,7 @@
             // 
             // textBoxPublicationYear
             // 
+            textBoxPublicationYear.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             textBoxPublicationYear.Location = new System.Drawing.Point(192, 327);
             textBoxPublicationYear.Multiline = true;
             textBoxPublicationYear.Name = "textBoxPublicationYear";
@@ -260,6 +264,7 @@
             // 
             // textBoxISBN
             // 
+            textBoxISBN.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             textBoxISBN.Location = new System.Drawing.Point(192, 259);
             textBoxISBN.Multiline = true;
             textBoxISBN.Name = "textBoxISBN";
@@ -268,6 +273,7 @@
             // 
             // textBoxRating
             // 
+            textBoxRating.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             textBoxRating.Location = new System.Drawing.Point(192, 230);
             textBoxRating.Multiline = true;
             textBoxRating.Name = "textBoxRating";
@@ -276,6 +282,7 @@
             // 
             // textBoxPrice
             // 
+            textBoxPrice.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             textBoxPrice.Location = new System.Drawing.Point(192, 191);
             textBoxPrice.Multiline = true;
             textBoxPrice.Name = "textBoxPrice";
@@ -284,6 +291,7 @@
             // 
             // textBoxGenre
             // 
+            textBoxGenre.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             textBoxGenre.Location = new System.Drawing.Point(192, 154);
             textBoxGenre.Multiline = true;
             textBoxGenre.Name = "textBoxGenre";
@@ -292,6 +300,7 @@
             // 
             // textBoxPublishers
             // 
+            textBoxPublishers.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             textBoxPublishers.Location = new System.Drawing.Point(192, 116);
             textBoxPublishers.Multiline = true;
             textBoxPublishers.Name = "textBoxPublishers";
@@ -300,6 +309,7 @@
             // 
             // textBoxAuthor
             // 
+            textBoxAuthor.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             textBoxAuthor.Location = new System.Drawing.Point(192, 77);
             textBoxAuthor.Multiline = true;
             textBoxAuthor.Name = "textBoxAuthor";
@@ -308,6 +318,7 @@
             // 
             // textBoxTitle
             // 
+            textBoxTitle.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             textBoxTitle.Location = new System.Drawing.Point(192, 40);
             textBoxTitle.Multiline = true;
             textBoxTitle.Name = "textBoxTitle";
@@ -415,9 +426,9 @@
             groupBoxNationality.Controls.Add(textBoxNameNationality);
             groupBoxNationality.Controls.Add(label16);
             groupBoxNationality.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            groupBoxNationality.Location = new System.Drawing.Point(490, 105);
+            groupBoxNationality.Location = new System.Drawing.Point(473, 46);
             groupBoxNationality.Name = "groupBoxNationality";
-            groupBoxNationality.Size = new System.Drawing.Size(192, 46);
+            groupBoxNationality.Size = new System.Drawing.Size(201, 50);
             groupBoxNationality.TabIndex = 7;
             groupBoxNationality.TabStop = false;
             groupBoxNationality.Text = "Националности";
@@ -475,6 +486,7 @@
             // 
             // textBoxNameNationality
             // 
+            textBoxNameNationality.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             textBoxNameNationality.Location = new System.Drawing.Point(150, 67);
             textBoxNameNationality.Multiline = true;
             textBoxNameNationality.Name = "textBoxNameNationality";
@@ -514,9 +526,9 @@
             groupBoxGenre.Controls.Add(textBoxGenreName);
             groupBoxGenre.Controls.Add(label);
             groupBoxGenre.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            groupBoxGenre.Location = new System.Drawing.Point(745, 283);
+            groupBoxGenre.Location = new System.Drawing.Point(473, 203);
             groupBoxGenre.Name = "groupBoxGenre";
-            groupBoxGenre.Size = new System.Drawing.Size(131, 39);
+            groupBoxGenre.Size = new System.Drawing.Size(149, 53);
             groupBoxGenre.TabIndex = 3;
             groupBoxGenre.TabStop = false;
             groupBoxGenre.Text = "Жанрове";
@@ -574,6 +586,7 @@
             // 
             // textBoxGenreName
             // 
+            textBoxGenreName.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             textBoxGenreName.Location = new System.Drawing.Point(79, 52);
             textBoxGenreName.Multiline = true;
             textBoxGenreName.Name = "textBoxGenreName";
@@ -603,9 +616,9 @@
             groupBoxLanguage.Controls.Add(label11);
             groupBoxLanguage.Controls.Add(label10);
             groupBoxLanguage.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            groupBoxLanguage.Location = new System.Drawing.Point(686, 172);
+            groupBoxLanguage.Location = new System.Drawing.Point(473, 102);
             groupBoxLanguage.Name = "groupBoxLanguage";
-            groupBoxLanguage.Size = new System.Drawing.Size(149, 38);
+            groupBoxLanguage.Size = new System.Drawing.Size(93, 39);
             groupBoxLanguage.TabIndex = 4;
             groupBoxLanguage.TabStop = false;
             groupBoxLanguage.Text = "Езици";
@@ -663,6 +676,7 @@
             // 
             // textBoxCodeLanguage
             // 
+            textBoxCodeLanguage.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             textBoxCodeLanguage.Location = new System.Drawing.Point(140, 92);
             textBoxCodeLanguage.Multiline = true;
             textBoxCodeLanguage.Name = "textBoxCodeLanguage";
@@ -671,6 +685,7 @@
             // 
             // textBoxNameLanguage
             // 
+            textBoxNameLanguage.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             textBoxNameLanguage.Location = new System.Drawing.Point(79, 55);
             textBoxNameLanguage.Multiline = true;
             textBoxNameLanguage.Name = "textBoxNameLanguage";
@@ -708,9 +723,9 @@
             groupBoxPublisher.Controls.Add(textBoxNamePublisher);
             groupBoxPublisher.Controls.Add(label13);
             groupBoxPublisher.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            groupBoxPublisher.Location = new System.Drawing.Point(493, 227);
+            groupBoxPublisher.Location = new System.Drawing.Point(473, 147);
             groupBoxPublisher.Name = "groupBoxPublisher";
-            groupBoxPublisher.Size = new System.Drawing.Size(181, 41);
+            groupBoxPublisher.Size = new System.Drawing.Size(168, 50);
             groupBoxPublisher.TabIndex = 5;
             groupBoxPublisher.TabStop = false;
             groupBoxPublisher.Text = "Издателства";
@@ -768,6 +783,7 @@
             // 
             // textBoxNamePublisher
             // 
+            textBoxNamePublisher.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             textBoxNamePublisher.Location = new System.Drawing.Point(141, 73);
             textBoxNamePublisher.Multiline = true;
             textBoxNamePublisher.Name = "textBoxNamePublisher";
@@ -808,6 +824,7 @@
             // 
             // textBoxAuthorName
             // 
+            textBoxAuthorName.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             textBoxAuthorName.Location = new System.Drawing.Point(86, 54);
             textBoxAuthorName.Multiline = true;
             textBoxAuthorName.Name = "textBoxAuthorName";
@@ -876,6 +893,7 @@
             // 
             // textBoxAuthorNationality
             // 
+            textBoxAuthorNationality.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             textBoxAuthorNationality.Location = new System.Drawing.Point(150, 93);
             textBoxAuthorNationality.Multiline = true;
             textBoxAuthorNationality.Name = "textBoxAuthorNationality";
@@ -897,7 +915,7 @@
             groupBoxAuthors.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             groupBoxAuthors.Location = new System.Drawing.Point(473, 12);
             groupBoxAuthors.Name = "groupBoxAuthors";
-            groupBoxAuthors.Size = new System.Drawing.Size(101, 39);
+            groupBoxAuthors.Size = new System.Drawing.Size(108, 30);
             groupBoxAuthors.TabIndex = 10;
             groupBoxAuthors.TabStop = false;
             groupBoxAuthors.Text = "Автори";

@@ -827,7 +827,7 @@ namespace Display1
             Authors();
             Nationalities();
             Publishers();
-            BooksAuthors();
+            //BooksAuthors();
             Books();
             improveOurCatalog.UpdateGridGenre();
             improveOurCatalog.UpdateGridLanguage();
@@ -857,7 +857,7 @@ namespace Display1
         }
         private void Languages()
         {
-            Language languageOne = new Language("english",44);
+            Language languageOne = new Language("english", 44);
             languagesBusiness.Add(languageOne);
             Language languageTwo = new Language("russian", 7);
             languagesBusiness.Add(languageTwo);
@@ -870,7 +870,7 @@ namespace Display1
         }
         private void Authors()
         {
-            Author authorOne = new Author("Laini Taylor",1);
+            Author authorOne = new Author("Laini Taylor", 1);
             bussinessAuthors.Add(authorOne);
             Author authorTwo = new Author("Cassandra Clare", 1);
             bussinessAuthors.Add(authorTwo);
@@ -914,16 +914,17 @@ namespace Display1
         }
         private void BooksAuthors()
         {
-            BookAuthor bookAuthorOne = new BookAuthor(1,1);
+            BookAuthor bookAuthorOne = new BookAuthor(1, 1);
             booksAuthorsBusiness.AddBooksAuthors(bookAuthorOne);
-            BookAuthor bookAuthorTwo = new BookAuthor(2,2);
+            BookAuthor bookAuthorTwo = new BookAuthor(2, 2);
             booksAuthorsBusiness.AddBooksAuthors(bookAuthorTwo);
-            BookAuthor bookAuthorThree = new BookAuthor(3,3);
+            BookAuthor bookAuthorThree = new BookAuthor(3, 3);
             booksAuthorsBusiness.AddBooksAuthors(bookAuthorThree);
-            BookAuthor bookAuthorFour = new BookAuthor(4,4);
+            BookAuthor bookAuthorFour = new BookAuthor(4, 4);
             booksAuthorsBusiness.AddBooksAuthors(bookAuthorFour);
-            BookAuthor bookAuthorFive = new BookAuthor(5,5);
+            BookAuthor bookAuthorFive = new BookAuthor(5, 5);
             booksAuthorsBusiness.AddBooksAuthors(bookAuthorFive);
         }
+        
     }
 }

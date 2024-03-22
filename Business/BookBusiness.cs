@@ -173,8 +173,12 @@ namespace Business
 
             using (BookCatalogContext bookCatalogContext = new BookCatalogContext())
             {
-                bookCatalogContext.Books.Add(book1);
-                bookCatalogContext.SaveChanges();
+                bool bookExists = bookCatalogContext.Books.Any(b => b.ISBN == book1.ISBN);
+                if (!bookExists)
+                {
+                    bookCatalogContext.Books.Add(book1);
+                    bookCatalogContext.SaveChanges();
+                }
             }
         }
     }
