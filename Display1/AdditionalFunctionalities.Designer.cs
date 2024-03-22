@@ -30,7 +30,7 @@
         {
             button1 = new System.Windows.Forms.Button();
             groupBox1 = new System.Windows.Forms.GroupBox();
-            button2 = new System.Windows.Forms.Button();
+            buttonGetCheapestBook = new System.Windows.Forms.Button();
             dataGridView1 = new System.Windows.Forms.DataGridView();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -39,9 +39,9 @@
             // button1
             // 
             button1.BackColor = System.Drawing.Color.Lavender;
-            button1.Location = new System.Drawing.Point(12, 418);
+            button1.Location = new System.Drawing.Point(12, 406);
             button1.Name = "button1";
-            button1.Size = new System.Drawing.Size(776, 23);
+            button1.Size = new System.Drawing.Size(776, 35);
             button1.TabIndex = 0;
             button1.Text = "Върни се към главната форма";
             button1.UseVisualStyleBackColor = false;
@@ -49,7 +49,7 @@
             // groupBox1
             // 
             groupBox1.BackColor = System.Drawing.Color.White;
-            groupBox1.Controls.Add(button2);
+            groupBox1.Controls.Add(buttonGetCheapestBook);
             groupBox1.Location = new System.Drawing.Point(10, 13);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new System.Drawing.Size(320, 387);
@@ -57,15 +57,15 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Допълнителни функционалности";
             // 
-            // button2
+            // buttonGetCheapestBook
             // 
-            button2.Location = new System.Drawing.Point(6, 22);
-            button2.Name = "button2";
-            button2.Size = new System.Drawing.Size(296, 359);
-            button2.TabIndex = 0;
-            button2.Text = "Търси";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
+            buttonGetCheapestBook.Location = new System.Drawing.Point(6, 22);
+            buttonGetCheapestBook.Name = "buttonGetCheapestBook";
+            buttonGetCheapestBook.Size = new System.Drawing.Size(296, 46);
+            buttonGetCheapestBook.TabIndex = 0;
+            buttonGetCheapestBook.Text = "Намери най-евтината книга";
+            buttonGetCheapestBook.UseVisualStyleBackColor = true;
+            buttonGetCheapestBook.Click += button2_Click;
             // 
             // dataGridView1
             // 
@@ -96,7 +96,7 @@
 
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button buttonGetCheapestBook;
         private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
