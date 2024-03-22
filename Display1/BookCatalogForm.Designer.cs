@@ -92,6 +92,7 @@
             Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
             Name = "BookCatalogForm";
             Text = "BookCatalogForm";
+            Load += BookCatalogForm_Load_1;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();

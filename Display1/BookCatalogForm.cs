@@ -81,5 +81,10 @@ namespace Display1
             mainForm.Visible = true;
             Close();
         }
+
+        private void BookCatalogForm_Load_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

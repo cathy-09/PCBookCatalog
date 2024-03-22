@@ -12,12 +12,19 @@ namespace Display1
 {
     public partial class AdditionalFunctionalities : Form
     {
-        public AdditionalFunctionalities()
+        public MainForm mainForm;
+        public AdditionalFunctionalities(MainForm mainForm)
         {
             InitializeComponent();
+            this.mainForm = mainForm;
         }
 
         private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AdditionalFunctionalities_Load(object sender, EventArgs e)
         {
 
         }
