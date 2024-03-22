@@ -160,7 +160,7 @@ namespace Business
             Book book1 = new Book
             {
                 Name = "The Magicians' Guild",
-                Author = new Author { Name =  "Trudi Canavan (Australian)", Nationality = new Nationality { Name = "Australian" } },
+                Author = new Author { Name =  "Trudi Canavan", Nationality = new Nationality { Name = "Australian" } },
                 Genre = new Genre { GenreName = "Fantasy" },
                 Publisher = new Publisher { PublisherName = "MBG Books" },
                 Rating = 3.95,
