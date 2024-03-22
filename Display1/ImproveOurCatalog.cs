@@ -818,35 +818,35 @@ namespace Display1
 
         private void buttonInsertData_Click(object sender, EventArgs e)
         {
-            //TODO
+            //TODO.
         }
         private void Genres()
         { 
-            //TODO
+            //TODO.
         }
         private void Languages()
         {
-            //TODO
+            //TODO.
         }
         private void Authors()
         {
-            //TODO
+            //TODO.
         }
         private void Nationalities()
         {
-            //TODO
+            //TODO.
         }
         private void Publishers()
         {
-            //TODO
+            //TODO.
         }
         private void Books()
         {
-            //TODO
+            //TODO.
         }
         private void BooksAuthors()
         {
-            //TODO
+            //TODO.
         }
     }
 }
