@@ -815,5 +815,38 @@ namespace Display1
 
             return genre;
         }
+
+        private void buttonInsertData_Click(object sender, EventArgs e)
+        {
+            //TODO
+        }
+        private void Genres()
+        { 
+            //TODO
+        }
+        private void Languages()
+        {
+            //TODO
+        }
+        private void Authors()
+        {
+            //TODO
+        }
+        private void Nationalities()
+        {
+            //TODO
+        }
+        private void Publishers()
+        {
+            //TODO
+        }
+        private void Books()
+        {
+            //TODO
+        }
+        private void BooksAuthors()
+        {
+            //TODO
+        }
     }
 }
