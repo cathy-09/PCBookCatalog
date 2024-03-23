@@ -43,7 +43,7 @@ namespace TestProject
             publishersBusiness.AddPublishers(newPublisherTwo);
             int id = publishersBusiness.GetByName(newPublisherOne.PublisherName);
             Publisher result = publishersBusiness.GetPublishers(id);
-            Assert.AreEqual("LanguagesOne", result.PublisherName);
+            Assert.AreEqual("PublisherOne", result.PublisherName);
         }
         [Test]
         public void Update_UpdatesExistingLanguages()
