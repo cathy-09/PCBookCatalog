@@ -23,6 +23,12 @@ namespace Data
         public DbSet<BookAuthor> BooksAuthors { get; set; }
         public DbSet<Book> Books { get; set; }
         public DbSet<BookPlaceholder> BookPlaceholders { get; set; }
+
+        public IEnumerable<object> GetValidationErrors()
+        {
+            throw new NotImplementedException();
+        }
+
         protected override void OnConfiguring
             (DbContextOptionsBuilder dbContextOptionsBuilder)
         {

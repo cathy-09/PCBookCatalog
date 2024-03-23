@@ -29,6 +29,7 @@ namespace Display1
         private int editIdLanguage = 0;
         private int editIdGenre = 0;
         private int editIdPublisher = 0;
+
         private MainForm mainForm;
         public ImproveOurCatalog improveOurCatalog;
 
@@ -257,6 +258,7 @@ namespace Display1
             {
                 var item = dataGridViewTables.SelectedRows[0].Cells;
                 int id = int.Parse(item[0].Value.ToString());
+                editIdBook = id;
                 UpdateTextBoxes(id);
                 UpdateGridBook();
                 ResetSelect();
@@ -309,7 +311,7 @@ namespace Display1
 
 
             var name = textBoxTitle.Text;
-            book.Id = bookBusiness.GetAll().Where(x => x.Name == name).First().Id;
+            book.Id = editIdBook;
             var author = textBoxAuthor.Text;
             var publisher = textBoxPublishers.Text;
             var genre = textBoxGenre.Text;
@@ -321,11 +323,13 @@ namespace Display1
             var isbn = textBoxISBN.Text;
             int yearOfPublishing = 0;
             int.TryParse(textBoxPublicationYear.Text, out yearOfPublishing);
+            int pages = 0;
+            int.TryParse(textBoxPages.Text, out pages);
             var language = textBoxLanguage.Text;
             book.Name = name;
-            if (!(bussinessAuthors.GetAll().Where(x => x.Name == author) == null))
+            if (bussinessAuthors.GetAll().FirstOrDefault(x => x.Name == author) == null)
             {
-                if ((businessNationalities.GetAllNationalities().Where(x => x.Name == nationality) == null))
+                if (businessNationalities.GetAllNationalities().FirstOrDefault(x => x.Name == nationality) == null)
                 {
                     book.Author = new Author { Name = author, Nationality = new Nationality { Name = nationality } };
                 }
@@ -336,9 +340,17 @@ namespace Display1
             }
             else
             {
-                book.Author = bussinessAuthors.GetAll().Where(x => x.Name == author).First();
+                if (businessNationalities.GetAllNationalities().FirstOrDefault(x => x.Name == nationality) == null)
+                {
+                    book.Author = bussinessAuthors.GetAll().Where(x => x.Name == author).First();
+                    book.Author.Nationality = new Nationality { Name = nationality };
+                }
+                else
+                {
+                    book.Author = bussinessAuthors.GetAll().Where(x => x.Name == author).First();
+                }
             }
-            if (publishersBusiness.GetAllPublishers().Where(x => x.PublisherName == publisher).First() == null)
+            if (publishersBusiness.GetAllPublishers().FirstOrDefault(x => x.PublisherName == publisher) == null)
             {
                 book.Publisher = new Publisher { PublisherName = publisher };
             }
@@ -346,7 +358,7 @@ namespace Display1
             {
                 book.Publisher = publishersBusiness.GetAllPublishers().Where(x => x.PublisherName == publisher).First();
             }
-            if (genresBusiness.GetAll().Where(x => x.GenreName == genre).First() == null)
+            if (genresBusiness.GetAll().FirstOrDefault(x => x.GenreName == genre) == null)
             {
                 book.Genre = book.Genre = new Genre { GenreName = genre };
             }
@@ -354,7 +366,7 @@ namespace Display1
             {
                 book.Genre = genresBusiness.GetAll().Where(x => x.GenreName == genre).First();
             }
-            if (languagesBusiness.GetAll().Where(x => x.LanguageName == language).First() == null)
+            if (languagesBusiness.GetAll().FirstOrDefault(x => x.LanguageName == language) == null)
             {
                 book.Language = book.Language = new Language { LanguageName = language };
             }
@@ -363,6 +375,7 @@ namespace Display1
                 book.Language = languagesBusiness.GetAll().Where(x => x.LanguageName == language).First();
             }
             book.Price = price;
+            book.Pages = pages;
             book.Rating = rating;
             book.ISBN = isbn;
             book.PublicationYear = yearOfPublishing;

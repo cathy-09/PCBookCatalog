@@ -97,17 +97,32 @@ namespace Business
         {
             using (bookCatalogContext = new BookCatalogContext())
             {
-                Book temp = bookCatalogContext.Books
-                    .Where(x => x.Id == book.Id)
-                    .Include(book => book.Genre)
-                    .Include(book => book.Author)
-                        .ThenInclude(author => author.Nationality)
-                    .Include(book => book.Language)
-                    .Include(book => book.Publisher)
-                    .ToList().First();
+                var temp = bookCatalogContext.Books
+                .FirstOrDefault(x => x.Id == book.Id);
+
                 if (temp != null)
                 {
-                    bookCatalogContext.Entry(temp).CurrentValues.SetValues(book);
+                    // Detach the entity from the context
+                    bookCatalogContext.Entry(temp).State = EntityState.Detached;
+
+                    // Make changes to the detached entity
+                    temp.Author = book.Author;
+                    temp.Language = book.Language;
+                    temp.Publisher = book.Publisher;
+                    temp.Genre = book.Genre;
+                    temp.Price = book.Price;
+                    temp.Pages = book.Pages;
+                    temp.ISBN = book.ISBN;
+                    temp.Name = book.Name;
+                    temp.PublicationYear = book.PublicationYear;
+                    temp.Rating = book.Rating;
+                    // Update other properties as needed
+
+                    // Re-attach the entity and mark it as modified
+                    bookCatalogContext.Attach(temp);
+                    bookCatalogContext.Entry(temp).State = EntityState.Modified;
+
+                    // Save changes
                     bookCatalogContext.SaveChanges();
                 }
             }
