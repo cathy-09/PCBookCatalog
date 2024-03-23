@@ -66,11 +66,18 @@ namespace Business
             }
         }
 
-        public Book GetBook(int id)
+        public List<Book> GetBook(int id)
         {
             using (bookCatalogContext = new BookCatalogContext())
             {
-                return bookCatalogContext.Books.Find(id);
+                return bookCatalogContext.Books
+                    .Where(x => x.Id == id)
+                    .Include(book => book.Genre)
+                    .Include(book => book.Author)
+                        .ThenInclude(author => author.Nationality)
+                    .Include(book => book.Language)
+                    .Include(book => book.Publisher)
+                    .ToList();
             }
         }
 
@@ -90,7 +97,14 @@ namespace Business
         {
             using (bookCatalogContext = new BookCatalogContext())
             {
-                Book temp = bookCatalogContext.Books.Find(book.Id);
+                Book temp = bookCatalogContext.Books
+                    .Where(x => x.Id == book.Id)
+                    .Include(book => book.Genre)
+                    .Include(book => book.Author)
+                        .ThenInclude(author => author.Nationality)
+                    .Include(book => book.Language)
+                    .Include(book => book.Publisher)
+                    .ToList().First();
                 if (temp != null)
                 {
                     bookCatalogContext.Entry(temp).CurrentValues.SetValues(book);
