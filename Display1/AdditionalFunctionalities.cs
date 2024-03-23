@@ -40,7 +40,7 @@ namespace Display1
             Book cheapestBook = bookBusiness.GetCheapestBook();
             if (cheapestBook != null)
             {
-                listBoxBooksByAuthor.Items.Add(cheapestBook.Name);
+                listBoxCheapestBook.Items.Add(cheapestBook.Name);
             }
             else
             {

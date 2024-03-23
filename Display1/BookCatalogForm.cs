@@ -44,32 +44,18 @@ namespace Display1
             }
             else
             {
-                BubbleSortBookTitle();
-                UpdateGrid();
+                LoadBooksSortedByTitle();
+                //UpdateGrid();
             }
         }
-        private void BubbleSortBookTitle()
+        private void LoadBooksSortedByTitle()
         {
-            if (dataGridView1.DataSource is List<Book> books && books.Count > 0)
-            {
-                bool flag = true;
-                while (flag)
-                {
-                    flag = false;
-                    for (int i = 0; i < books.Count - 1; i++)
-                    {
-                        if (books[i].Name.CompareTo(books[i + 1].Name) > 0)
-                        {
-                            Book temp = books[i];
-                            books[i] = books[i + 1];
-                            books[i + 1] = temp;
-
-                            flag = true;
-                        }
-                    }
-                }
-                dataGridView1.DataSource = books;
-            }
+            BookBusiness bookBusiness = new BookBusiness();
+            List<BookPlaceholder> sortedBooks = bookBusiness.GetBooksSortedByTitle();
+            dataGridView1.DataSource = sortedBooks;
+            DataGridViewColumn sortedColumn = dataGridView1.Columns["Name"];
+            ListSortDirection sortDirection = ListSortDirection.Ascending;
+            dataGridView1.Sort(sortedColumn, sortDirection);
         }
         private void InsertInitialData()
         {

@@ -40,7 +40,7 @@ namespace Business
             }
         }
 
-        public BookPlaceholder toBookPlaceholder(Book book)
+        public BookPlaceholder ToBookPlaceholder(Book book)
         {
             using (bookCatalogContext = new BookCatalogContext())
             {
@@ -169,6 +169,34 @@ namespace Business
                 }
             }
         }
+
+        public List<BookPlaceholder> GetBooksSortedByTitle()
+        {
+            using (BookCatalogContext bookCatalogContext = new BookCatalogContext())
+            {
+                return bookCatalogContext.Books
+                    .OrderBy(b => b.Name)
+                    .Include(e => e.Genre)
+                    .Include(e => e.Publisher)
+                    .Include(e => e.Language)
+                    .Select(book => new BookPlaceholder
+                    {
+                        Id = book.Id,
+                        Name = book.Name,
+                        Author = book.Author.Name,
+                        Genre = book.Genre.GenreName,
+                        Publisher = book.Publisher.PublisherName,
+                        Rating = book.Rating,
+                        Pages = book.Pages,
+                        Price = book.Price,
+                        ISBN = book.ISBN,
+                        PublicationYear = book.PublicationYear,
+                        Language = book.Language.LanguageName
+                    })
+                    .ToList();
+            }
+        }
+
         public void InsertInitialData()
         {
             Book book1 = new Book
