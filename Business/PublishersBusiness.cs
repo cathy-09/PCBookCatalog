@@ -65,6 +65,18 @@ namespace Business
                 }
             }
         }
-
+        public int GetByName(string name)
+        {
+            List<Publisher> publishers = this.GetAllPublishers();
+            int id = 0;
+            foreach (Publisher publisher in publishers)
+            {
+                if (publisher.PublisherName == name)
+                {
+                    id = publisher.PublisherId;
+                }
+            }
+            return id;
+        }
     }
 }
