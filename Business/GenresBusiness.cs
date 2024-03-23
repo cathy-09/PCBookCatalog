@@ -33,8 +33,11 @@ namespace Business
         {
             using (bookCatalogContext = new BookCatalogContext())
             {
-                bookCatalogContext.Genres.Add(genres);
-                bookCatalogContext.SaveChanges();
+                if (bookCatalogContext.Genres.Where(x => x.GenreName == genres.GenreName) == null)
+                {
+                    bookCatalogContext.Genres.Add(genres);
+                    bookCatalogContext.SaveChanges();
+                }
             }
         }
 

@@ -32,8 +32,11 @@ namespace Business
         {
             using (bookCatalogContext = new BookCatalogContext())
             {
-                bookCatalogContext.Languages.Add(languages);
-                bookCatalogContext.SaveChanges();
+                if (bookCatalogContext.Languages.Where(x => x.LanguageName == languages.LanguageName) == null)
+                {
+                    bookCatalogContext.Languages.Add(languages);
+                    bookCatalogContext.SaveChanges();
+                }
             }
         }
 

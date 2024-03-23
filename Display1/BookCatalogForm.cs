@@ -24,15 +24,9 @@ namespace Display1
             this.mainForm = mainForm;
             mainForm.Visible = false;
         }
-
-        private void BookCatalogForm_Load(object sender, EventArgs e)
+        private void UpdateGrid(List<BookPlaceholder> dataSource)
         {
-            LoadComboBoxDataOnce();
-            UpdateGrid();
-        }
-        private void UpdateGrid()
-        {
-            dataGridView1.DataSource = bookBusiness.GetAll();
+            dataGridView1.DataSource = dataSource;
             dataGridView1.ReadOnly = true;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
@@ -41,34 +35,11 @@ namespace Display1
         {
             if (comboBoxChooseOption.SelectedIndex == 0)
             {
-                UpdateGrid();
+                UpdateGrid(bookBusiness.GetAll());
             }
             else if (comboBoxChooseOption.SelectedIndex == 1)
             {
-                LoadBooksSortedByTitle();
-                //UpdateGrid();
-            }
-        }
-        private void LoadBooksSortedByTitle()
-        {
-            BookBusiness bookBusiness = new BookBusiness();
-            List<BookPlaceholder> sortedBooks = bookBusiness.GetBooksSortedByTitle();
-            dataGridView1.DataSource = sortedBooks;
-            DataGridViewColumn sortedColumn = dataGridView1.Columns["Name"];
-            ListSortDirection sortDirection = ListSortDirection.Ascending;
-            dataGridView1.Sort(sortedColumn, sortDirection);
-        }
-        private bool comboBoxDataLoaded = false;
-
-        private void LoadComboBoxDataOnce()
-        {
-            if (!comboBoxDataLoaded)
-            {
-                comboBoxChooseOption.Items.Add("Списък на книги");
-                comboBoxChooseOption.Items.Add("Сортиране по заглавие");
-                comboBoxChooseOption.SelectedIndex = 0; 
-
-                comboBoxDataLoaded = true;
+                UpdateGrid(bookBusiness.GetBooksSortedByTitle());
             }
         }
         private void InsertInitialData()
@@ -84,7 +55,7 @@ namespace Display1
 
         private void BookCatalogForm_Load_1(object sender, EventArgs e)
         {
-
+            UpdateGrid(bookBusiness.GetAll());
         }
     }
 }

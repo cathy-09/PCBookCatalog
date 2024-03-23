@@ -13,7 +13,7 @@ namespace Business
     {
         private BookCatalogContext bookCatalogContext;
 
-        public List<BookPlaceholder> GetAll ()
+        public List<BookPlaceholder> GetAll()
         {
             using (bookCatalogContext = new BookCatalogContext())
             {
@@ -53,12 +53,12 @@ namespace Business
                 bookPlaceholder.Rating = book.Rating;
                 bookPlaceholder.Pages = book.Pages;
                 bookPlaceholder.Price = book.Price;
-                bookPlaceholder.Language = book.Language.LanguageName; 
+                bookPlaceholder.Language = book.Language.LanguageName;
                 return bookPlaceholder;
             }
         }
 
-        public BookPlaceholder GetBookPlaceholder (int id)
+        public BookPlaceholder GetBookPlaceholder(int id)
         {
             using (bookCatalogContext = new BookCatalogContext())
             {
@@ -81,11 +81,11 @@ namespace Business
             }
         }
 
-        public void Add (Book book)
+        public void Add(Book book)
         {
             using (bookCatalogContext = new BookCatalogContext())
             {
-                if (!bookCatalogContext.Books.Contains(book))
+                if (bookCatalogContext.Books.Where(x => x.ISBN == book.ISBN) == null)
                 {
                     bookCatalogContext.Books.Add(book);
                     bookCatalogContext.SaveChanges();
@@ -93,7 +93,7 @@ namespace Business
             }
         }
 
-        public void Update (Book book)
+        public void Update(Book book)
         {
             using (bookCatalogContext = new BookCatalogContext())
             {
@@ -128,7 +128,7 @@ namespace Business
             }
         }
 
-        public void Delete (int id)
+        public void Delete(int id)
         {
             using (bookCatalogContext = new BookCatalogContext())
             {
@@ -217,7 +217,7 @@ namespace Business
             Book book1 = new Book
             {
                 Name = "The Magicians' Guild",
-                Author = new Author { Name =  "Trudi Canavan (Australian)", Nationality = new Nationality { Name = "Australian" } },
+                Author = new Author { Name = "Trudi Canavan (Australian)", Nationality = new Nationality { Name = "Australian" } },
                 Genre = new Genre { GenreName = "Fantasy" },
                 Publisher = new Publisher { PublisherName = "MBG Books" },
                 Rating = 3.95,
@@ -314,15 +314,19 @@ namespace Business
 
             using (BookCatalogContext bookCatalogContext = new BookCatalogContext())
             {
-                bookCatalogContext.Books.Add(book1);
-                bookCatalogContext.Books.Add(book2);
-                bookCatalogContext.Books.Add(book3);
-                bookCatalogContext.Books.Add(book4);
-                bookCatalogContext.Books.Add(book5);
-                bookCatalogContext.Books.Add(book6);
-                bookCatalogContext.Books.Add(book7);
-                bookCatalogContext.SaveChanges();
+                if (bookCatalogContext.Books.Where(x => x.ISBN == book1.ISBN) == null)
+                {
+                    bookCatalogContext.Books.Add(book1);
+                    bookCatalogContext.Books.Add(book2);
+                    bookCatalogContext.Books.Add(book3);
+                    bookCatalogContext.Books.Add(book4);
+                    bookCatalogContext.Books.Add(book5);
+                    bookCatalogContext.Books.Add(book6);
+                    bookCatalogContext.Books.Add(book7);
+                    bookCatalogContext.SaveChanges();
+                }
             }
         }
     }
 }
+

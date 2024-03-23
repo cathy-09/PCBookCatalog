@@ -48,8 +48,11 @@ namespace Business
         {
             using (bookCatalogContext = new BookCatalogContext())
             {
-                bookCatalogContext.Authors.Add(authors);
-                bookCatalogContext.SaveChanges();
+                if (bookCatalogContext.Authors.Where(x => x.Name == authors.Name) == null)
+                {
+                    bookCatalogContext.Authors.Add(authors);
+                    bookCatalogContext.SaveChanges();
+                }
             }
         }
 
