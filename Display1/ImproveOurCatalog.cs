@@ -300,13 +300,16 @@ namespace Display1
             textBoxISBN.Text = "";
             textBoxPublicationYear.Text = "";
             textBoxLanguage.Text = "";
+            textBoxPages.Text = "";
+            textBoxNationalityNameBook.Text = "";
         }
         private Book GetEditedBook()
         {
             Book book = new Book();
-            book.Id = editIdBook;
+
 
             var name = textBoxTitle.Text;
+            book.Id = bookBusiness.GetAll().Where(x => x.Name == name).First().Id;
             var author = textBoxAuthor.Text;
             var publisher = textBoxPublishers.Text;
             var genre = textBoxGenre.Text;
@@ -322,7 +325,14 @@ namespace Display1
             book.Name = name;
             if (!(bussinessAuthors.GetAll().Where(x => x.Name == author) == null))
             {
-                book.Author = new Author { Name = author, Nationality = new Nationality { Name = nationality } };
+                if ((businessNationalities.GetAllNationalities().Where(x => x.Name == nationality) == null))
+                {
+                    book.Author = new Author { Name = author, Nationality = new Nationality { Name = nationality } };
+                }
+                else
+                {
+                    book.Author = new Author { Name = author, Nationality = businessNationalities.GetAllNationalities().Where(x => x.Name == nationality).First() };
+                }
             }
             else
             {
