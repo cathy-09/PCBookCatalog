@@ -40,6 +40,19 @@ namespace Business
             }
         }
 
+        public List<Book> GetAllBooks()
+        {
+            using (bookCatalogContext = new BookCatalogContext())
+            {
+                return bookCatalogContext.Books
+                    .Include(x => x.Genre)
+                    .Include(x => x.Author)
+                    .Include(x => x.Language)
+                    .Include(x => x.Publisher)
+                    .ToList();
+            }
+        }
+
         public BookPlaceholder ToBookPlaceholder(Book book)
         {
             using (bookCatalogContext = new BookCatalogContext())
@@ -71,12 +84,12 @@ namespace Business
             using (bookCatalogContext = new BookCatalogContext())
             {
                 return bookCatalogContext.Books
-                    .Where(x => x.Id == id)
                     .Include(book => book.Genre)
                     .Include(book => book.Author)
                         .ThenInclude(author => author.Nationality)
                     .Include(book => book.Language)
                     .Include(book => book.Publisher)
+                    .Where(x => x.Id == id)
                     .ToList();
             }
         }
@@ -85,7 +98,7 @@ namespace Business
         {
             using (bookCatalogContext = new BookCatalogContext())
             {
-                if (bookCatalogContext.Books.Where(x => x.ISBN == book.ISBN) == null)
+                if (!bookCatalogContext.Books.Where(x => x.ISBN == book.ISBN).Any())
                 {
                     bookCatalogContext.Books.Add(book);
                     bookCatalogContext.SaveChanges();
@@ -146,10 +159,11 @@ namespace Business
             using (BookCatalogContext bookCatalogContext = new BookCatalogContext())
             {
                 return bookCatalogContext.Books
-                    .Where(b => b.Author.Name == author)
                     .Include(e => e.Genre)
+                    .Include(e => e.Author)
                     .Include(e => e.Publisher)
                     .Include(e => e.Language)
+                    .Where(b => b.Author.Name == author)
                     .ToList();
             }
         }
@@ -159,10 +173,11 @@ namespace Business
             using (BookCatalogContext bookCatalogContext = new BookCatalogContext())
             {
                 return bookCatalogContext.Books
-                    .Where(b => b.Genre.GenreName == genre)
+                    .Include(e => e.Author)
                     .Include(e => e.Genre)
                     .Include(e => e.Publisher)
                     .Include(e => e.Language)
+                    .Where(b => b.Genre.GenreName == genre)
                     .ToList();
             }
         }
@@ -210,6 +225,20 @@ namespace Business
                     })
                     .ToList();
             }
+        }
+        public int GetByName(string name)
+        {
+            List<Book> books = this.GetAllBooks();
+            int id = 0;
+            foreach (Book bookPlaceholder in books)
+            {
+                if (bookPlaceholder.Name == name)
+                {
+                    id = bookPlaceholder.Id;
+                    break;
+                }
+            }
+            return id;
         }
 
         public void InsertInitialData()
@@ -323,14 +352,17 @@ namespace Business
 
             using (BookCatalogContext bookCatalogContext = new BookCatalogContext())
             {
-                bookCatalogContext.Books.Add(book1);
-                bookCatalogContext.Books.Add(book2);
-                bookCatalogContext.Books.Add(book3);
-                bookCatalogContext.Books.Add(book4);
-                bookCatalogContext.Books.Add(book5);
-                bookCatalogContext.Books.Add(book6);
-                bookCatalogContext.Books.Add(book7);
-                bookCatalogContext.SaveChanges();
+                if (!bookCatalogContext.Books.Where(x => x.ISBN == book1.ISBN).Any())
+                {
+                    bookCatalogContext.Books.Add(book1);
+                    bookCatalogContext.Books.Add(book2);
+                    bookCatalogContext.Books.Add(book3);
+                    bookCatalogContext.Books.Add(book4);
+                    bookCatalogContext.Books.Add(book5);
+                    bookCatalogContext.Books.Add(book6);
+                    bookCatalogContext.Books.Add(book7);
+                    bookCatalogContext.SaveChanges();
+                }
                 //foreach (var item in books)
                 //{
                 //    if (!bookCatalogContext.Books.Contains(item))

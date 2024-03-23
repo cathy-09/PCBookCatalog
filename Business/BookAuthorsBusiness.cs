@@ -21,11 +21,11 @@ namespace Business
             }
         }
 
-        public BookAuthor GetBooksAuthors(int id)
+        public BookAuthor GetBooksAuthors(int bookId, int authorId)
         {
             using (bookCatalogContext = new BookCatalogContext())
             {
-                return bookCatalogContext.BooksAuthors.Find(id);
+                return bookCatalogContext.BooksAuthors.Find(bookId, authorId);
             }
         }
 
@@ -33,11 +33,11 @@ namespace Business
         {
             using (bookCatalogContext = new BookCatalogContext())
             {
-                //if (bookCatalogContext.BooksAuthors.Where(x => x.AuthorId == booksAuthors.AuthorId && x.BookId == booksAuthors.BookId) == null)
-                //{
+                if (!bookCatalogContext.BooksAuthors.Where(x => x.AuthorId == booksAuthors.AuthorId && x.BookId == booksAuthors.BookId).Any())
+                {
                     bookCatalogContext.BooksAuthors.Add(booksAuthors);
                     bookCatalogContext.SaveChanges();
-                //}
+                }
             }
         }
 
@@ -54,11 +54,12 @@ namespace Business
             }
         }
 
-        public void DeleteBooksAuthors(int id)
+        public void DeleteBooksAuthors(int bookId, int authorId)
         {
             using (bookCatalogContext = new BookCatalogContext())
             {
-                BookAuthor booksAuthors = bookCatalogContext.BooksAuthors.Find(id);
+                BookAuthor booksAuthors = bookCatalogContext.BooksAuthors.
+                    FirstOrDefault(ba => ba.BookId == bookId && ba.AuthorId == authorId);
                 if (booksAuthors != null)
                 {
                     bookCatalogContext.BooksAuthors.Remove(booksAuthors);
@@ -66,6 +67,18 @@ namespace Business
                 }
             }
         }
-
+        public int GetBookIdByAuthorId(int authorId)
+        {
+            using (var bookCatalogContext = new BookCatalogContext())
+            {
+                BookAuthor bookAuthor = bookCatalogContext.BooksAuthors
+                    .FirstOrDefault(ba => ba.AuthorId == authorId);
+                if (bookAuthor != null)
+                {
+                    return bookAuthor.BookId;
+                }
+                return 0; 
+            }
+        }
     }
 }

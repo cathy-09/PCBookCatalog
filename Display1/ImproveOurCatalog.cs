@@ -864,13 +864,13 @@ namespace Display1
 
         private void buttonInsertData_Click(object sender, EventArgs e)
         {
-            /*Books();
+            //Books();
             Genres();
             Languages();
             Authors();
             Nationalities();
-            Publishers();*/
-            //BooksAuthors();
+            Publishers();
+            BooksAuthors();
             //UpdateGridGenre();
             //UpdateGridLanguage();
             //UpdateGridAuthor();

@@ -34,7 +34,7 @@ namespace TestProject
             Assert.AreEqual(id, result.PublisherId);
         }
         [Test]
-        public void Add_NewLanguages()
+        public void Add_NewPublishers()
         {
             PublishersBusiness publishersBusiness = new PublishersBusiness();
             Publisher newPublisherOne = new Publisher("PublisherOne");
@@ -46,7 +46,7 @@ namespace TestProject
             Assert.AreEqual("PublisherOne", result.PublisherName);
         }
         [Test]
-        public void Update_UpdatesExistingLanguages()
+        public void Update_UpdatesExistingPublishers()
         {
             PublishersBusiness publishersBusiness = new PublishersBusiness();
             int id = publishersBusiness.GetByName("PublisherTwo");
@@ -57,7 +57,7 @@ namespace TestProject
             Assert.AreEqual("Updated PublisherName", result.PublisherName);
         }
         [Test]
-        public void Delete_LanguagesById()
+        public void Delete_PublishersById()
         {
             PublishersBusiness publishersBusiness = new PublishersBusiness();
             int id = publishersBusiness.GetByName("PublisherOne");
