@@ -32,11 +32,11 @@ namespace Business
         {
             using (bookCatalogContext = new BookCatalogContext())
             {
-                if (bookCatalogContext.Publishers.Where(x => x.PublisherName == publishers.PublisherName) == null)
-                {
+                //if (bookCatalogContext.Publishers.Where(x => x.PublisherName == publishers.PublisherName) == null)
+                //{
                     bookCatalogContext.Publishers.Add(publishers);
                     bookCatalogContext.SaveChanges();
-                }
+                //}
             }
         }
 

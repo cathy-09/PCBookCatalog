@@ -313,23 +313,31 @@ namespace Business
                 Language = new Language { LanguageName = "English" }
             };
 
-            books.Add(book1);
-            books.Add(book2);
-            books.Add(book3);
-            books.Add(book4);
-            books.Add(book5);
-            books.Add(book6);
-            books.Add(book7);
+            //books.Add(book1);
+            //books.Add(book2);
+            //books.Add(book3);
+            //books.Add(book4);
+            //books.Add(book5);
+            //books.Add(book6);
+            //books.Add(book7);
 
             using (BookCatalogContext bookCatalogContext = new BookCatalogContext())
             {
-                foreach (var item in books)
-                {
-                    if (!bookCatalogContext.Books.Contains(item))
-                    {
-                        bookCatalogContext.Books.Add(item);
-                    }
-                }
+                bookCatalogContext.Books.Add(book1);
+                bookCatalogContext.Books.Add(book2);
+                bookCatalogContext.Books.Add(book3);
+                bookCatalogContext.Books.Add(book4);
+                bookCatalogContext.Books.Add(book5);
+                bookCatalogContext.Books.Add(book6);
+                bookCatalogContext.Books.Add(book7);
+                bookCatalogContext.SaveChanges();
+                //foreach (var item in books)
+                //{
+                //    if (!bookCatalogContext.Books.Contains(item))
+                //    {
+                //        bookCatalogContext.Books.Add(item);
+                //    }
+                //}
             }
         }
     }

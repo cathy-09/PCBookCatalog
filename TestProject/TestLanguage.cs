@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace TestProject
 {
-    public class LanguageTest
+    public class TestLanguage
     {
         private LanguagesBusiness languagesBusiness;
         [SetUp]
@@ -43,29 +43,29 @@ namespace TestProject
             Language newLanguagesTwo = new Language("LanguagesTwo", 321);
             languagesBusiness.Add(newLanguagesOne);
             languagesBusiness.Add(newLanguagesTwo);
-            //int id = languagesBusiness.GetByName(newLanguagesOne.LanguageName);
-            //Language result = languagesBusiness.Get(id);
-            //Assert.AreEqual("LanguagesOne", result.LanguageName);
+            int id = languagesBusiness.GetByName(newLanguagesOne.LanguageName);
+            Language result = languagesBusiness.Get(id);
+            Assert.AreEqual("LanguagesOne", result.LanguageName);
         }
         [Test]
         public void Update_UpdatesExistingLanguages()
         {
-            //GenresBusiness genresBusiness = new GenresBusiness();
-            //int id = genresBusiness.GetByName("GenreTwo");
-            //Genre genreToUpdate = genresBusiness.Get(id);
-            //genreToUpdate.GenreName = "Updated GenreName";
-            //genresBusiness.Update(genreToUpdate);
-            //var result = genresBusiness.Get(id);
-            //Assert.AreEqual("Updated GenreName", result.GenreName);
+            LanguagesBusiness languagesBusiness = new LanguagesBusiness();
+            int id = languagesBusiness.GetByName("LanguagesTwo");
+            Language languageToUpdate = languagesBusiness.Get(id);
+            languageToUpdate.LanguageName = "Updated LanguageName";
+            languagesBusiness.Update(languageToUpdate);
+            var result = languagesBusiness.Get(id);
+            Assert.AreEqual("Updated LanguageName", result.LanguageName);
         }
         [Test]
         public void Delete_LanguagesById()
         {
-            //GenresBusiness genresBusiness = new GenresBusiness();
-            //int id = genresBusiness.GetByName("GenreOne");
-            //genresBusiness.Delete(id);
-            //Genre result = genresBusiness.Get(id);
-            //Assert.Null(result);
+            LanguagesBusiness languagesBusiness = new LanguagesBusiness();
+            int id = languagesBusiness.GetByName("LanguagesOne");
+            languagesBusiness.Delete(id);
+            Language result = languagesBusiness.Get(id);
+            Assert.Null(result);
         }
     }
 }

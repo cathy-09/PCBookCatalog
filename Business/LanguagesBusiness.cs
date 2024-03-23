@@ -32,11 +32,11 @@ namespace Business
         {
             using (bookCatalogContext = new BookCatalogContext())
             {
-                if (bookCatalogContext.Languages.Where(x => x.LanguageName == languages.LanguageName) == null)
-                {
+                //if (bookCatalogContext.Languages.Where(x => x.LanguageName == languages.LanguageName) == null)
+                //{
                     bookCatalogContext.Languages.Add(languages);
                     bookCatalogContext.SaveChanges();
-                }
+                //}
             }
         }
 
@@ -65,6 +65,18 @@ namespace Business
                 }
             }
         }
-
+        public int GetByName(string name)
+        {
+            List<Language> landuages = this.GetAll();
+            int id = 0;
+            foreach (Language language in landuages)
+            {
+                if (language.LanguageName == name)
+                {
+                    id = language.LanguageId;
+                }
+            }
+            return id;
+        }
     }
 }
