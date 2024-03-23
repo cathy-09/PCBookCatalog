@@ -111,6 +111,7 @@
             Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
             Name = "MainForm";
             Text = "MainForm";
+            Load += MainForm_Load_1;
             ResumeLayout(false);
             PerformLayout();
         }

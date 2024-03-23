@@ -15,9 +15,11 @@ namespace Display1
 {
     public partial class MainForm : Form
     {
+        private BookBusiness bookBusiness = new BookBusiness();
         public MainForm()
         {
             InitializeComponent();
+            bookBusiness.InsertInitialData();
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -45,6 +47,11 @@ namespace Display1
         {
             AdditionalFunctionalities additionalFunctionalities = new AdditionalFunctionalities(this);
             additionalFunctionalities.Show();
+        }
+
+        private void MainForm_Load_1(object sender, EventArgs e)
+        {
+            
         }
     }
 }
