@@ -89,5 +89,19 @@ namespace Business
                 }
             }
         }
+
+        public int GetByName(string name)
+        {
+            List<Nationality> nationalities = this.GetAllNationalities();
+            int id = 0;
+            foreach (Nationality nationality in nationalities)
+            {
+                if (nationality.Name == name)
+                {
+                    id = nationality.NationalityId;
+                }
+            }
+            return id;
+        }
     }
 }
