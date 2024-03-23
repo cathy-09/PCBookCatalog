@@ -46,6 +46,7 @@ namespace Business
             using (bookCatalogContext = new BookCatalogContext())
             {
                 BookAuthor item = bookCatalogContext.BooksAuthors.Find(booksAuthors.BookId, booksAuthors.AuthorId);
+
                 if (item != null)
                 {
                     bookCatalogContext.Entry(item).CurrentValues.SetValues(booksAuthors);
@@ -60,6 +61,7 @@ namespace Business
             {
                 BookAuthor booksAuthors = bookCatalogContext.BooksAuthors.
                     FirstOrDefault(ba => ba.BookId == bookId && ba.AuthorId == authorId);
+
                 if (booksAuthors != null)
                 {
                     bookCatalogContext.BooksAuthors.Remove(booksAuthors);
@@ -73,6 +75,7 @@ namespace Business
             {
                 BookAuthor bookAuthor = bookCatalogContext.BooksAuthors
                     .FirstOrDefault(ba => ba.AuthorId == authorId);
+
                 if (bookAuthor != null)
                 {
                     return bookAuthor.BookId;

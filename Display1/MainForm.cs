@@ -22,10 +22,6 @@ namespace Display1
             bookBusiness.InsertInitialData();
         }
 
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-        }
-
         private void btnCatalogNavigaton_Click_1(object sender, EventArgs e)
         {
             BookCatalogForm bookForm = new BookCatalogForm(this);
@@ -51,7 +47,7 @@ namespace Display1
 
         private void MainForm_Load_1(object sender, EventArgs e)
         {
-            
+            //Load Main Form
         }
     }
 }

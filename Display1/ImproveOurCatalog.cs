@@ -161,49 +161,9 @@ namespace Display1
             }
         }
 
-        private void dataGridViewTables_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void ImproveOurCatalog_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBoxBook_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnInsert_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnUpdate_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void buttonUpdateGenre_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void ImproveOurCatalog_Load_1(object sender, EventArgs e)
         {
-
+            //Form Load
         }
 
         private void btnGoBackToMainForm_Click(object sender, EventArgs e)
@@ -211,12 +171,14 @@ namespace Display1
             mainForm.Visible = true;
             Close();
         }
+
         private void UpdateGridBook()
         {
             dataGridViewTables.DataSource = bookBusiness.GetAll();
             dataGridViewTables.ReadOnly = true;
             dataGridViewTables.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
+
         private void btnDeleteBook_Click(object sender, EventArgs e)
         {
             if (dataGridViewTables.SelectedRows.Count > 0)
@@ -228,6 +190,7 @@ namespace Display1
                 ResetSelect();
             }
         }
+
         private void DisableSelect()
         {
             dataGridViewTables.Enabled = false;
@@ -238,6 +201,7 @@ namespace Display1
             dataGridViewTables.ClearSelection();
             dataGridViewTables.Enabled = true;
         }
+
         private void ToggleSaveUpdateBook()
         {
             if (buttonUpdateBook.Visible)
@@ -291,6 +255,7 @@ namespace Display1
             ToggleSaveUpdateBook();
             ClearTextBoxes();
         }
+
         private void ClearTextBoxes()
         {
             textBoxTitle.Text = "";
@@ -305,10 +270,10 @@ namespace Display1
             textBoxPages.Text = "";
             textBoxNationalityNameBook.Text = "";
         }
+
         private Book GetEditedBook()
         {
             Book book = new Book();
-
 
             var name = textBoxTitle.Text;
             book.Id = editIdBook;
@@ -327,6 +292,7 @@ namespace Display1
             int.TryParse(textBoxPages.Text, out pages);
             var language = textBoxLanguage.Text;
             book.Name = name;
+
             if (bussinessAuthors.GetAll().FirstOrDefault(x => x.Name == author) == null)
             {
                 if (businessNationalities.GetAllNationalities().FirstOrDefault(x => x.Name == nationality) == null)
@@ -338,6 +304,7 @@ namespace Display1
                     book.Author = new Author { Name = author, Nationality = businessNationalities.GetAllNationalities().Where(x => x.Name == nationality).First() };
                 }
             }
+
             else
             {
                 if (businessNationalities.GetAllNationalities().FirstOrDefault(x => x.Name == nationality) == null)
@@ -350,35 +317,43 @@ namespace Display1
                     book.Author = bussinessAuthors.GetAll().Where(x => x.Name == author).First();
                 }
             }
+
             if (publishersBusiness.GetAllPublishers().FirstOrDefault(x => x.PublisherName == publisher) == null)
             {
                 book.Publisher = new Publisher { PublisherName = publisher };
             }
+
             else
             {
                 book.Publisher = publishersBusiness.GetAllPublishers().Where(x => x.PublisherName == publisher).First();
             }
+
             if (genresBusiness.GetAll().FirstOrDefault(x => x.GenreName == genre) == null)
             {
                 book.Genre = book.Genre = new Genre { GenreName = genre };
             }
+
             else
             {
                 book.Genre = genresBusiness.GetAll().Where(x => x.GenreName == genre).First();
             }
+
             if (languagesBusiness.GetAll().FirstOrDefault(x => x.LanguageName == language) == null)
             {
                 book.Language = book.Language = new Language { LanguageName = language };
             }
+
             else
             {
                 book.Language = languagesBusiness.GetAll().Where(x => x.LanguageName == language).First();
             }
+
             book.Price = price;
             book.Pages = pages;
             book.Rating = rating;
             book.ISBN = isbn;
             book.PublicationYear = yearOfPublishing;
+
             return book;
         }
 
@@ -415,11 +390,6 @@ namespace Display1
             ClearTextBoxes();
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void buttonDeleteNationality_Click(object sender, EventArgs e)
         {
             if (dataGridViewTables.SelectedRows.Count > 0)
@@ -454,23 +424,27 @@ namespace Display1
 
             businessNationalities.AddNationality(nationality);
             UpdateGridNationality();
-            ClearTextBoxes();
+            ClearTextBoxesNationality();
         }
+
         private void ClearTextBoxesNationality()
         {
             textBoxNameNationality.Text = "";
         }
+
         private void UpdateGridNationality()
         {
             dataGridViewTables.DataSource = businessNationalities.GetAllNationalities();
             dataGridViewTables.ReadOnly = true;
             dataGridViewTables.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
+
         private void UpdateTextboxesNationality(int id)
         {
             Nationality update = businessNationalities.GetNationaly(id);
             textBoxNameNationality.Text = update.Name;
         }
+
         private void ToggleSaveUpdateNationality()
         {
             if (buttonUpdateNationality.Visible)
@@ -553,11 +527,13 @@ namespace Display1
             ResetSelect();
             ToggleSaveUpdateAuthor();
         }
+
         private void ClearTextBoxesAuthor()
         {
             textBoxAuthorName.Text = "";
             textBoxAuthorNationality.Text = "";
         }
+
         private void UpdateGridAuthor()
         {
             dataGridViewTables.DataSource = bussinessAuthors.GetAll();
@@ -565,12 +541,14 @@ namespace Display1
             dataGridViewTables.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewTables.Columns.Remove("Nationality");
         }
+
         private void UpdateTextboxesAuthor(int id)
         {
             Author update = bussinessAuthors.Get(id);
             textBoxAuthorName.Text = update.Name;
             textBoxAuthorNationality.Text = update.NationalityId.ToString();
         }
+
         private void ToggleSaveUpdateAuthor()
         {
             if (buttonUpdateAuthor.Visible)
@@ -647,23 +625,27 @@ namespace Display1
             UpdateGridLanguage();
             ClearTextBoxesLanguage();
         }
+
         private void ClearTextBoxesLanguage()
         {
             textBoxNameLanguage.Text = "";
             textBoxCodeLanguage.Text = "";
         }
+
         private void UpdateGridLanguage()
         {
             dataGridViewTables.DataSource = languagesBusiness.GetAll();
             dataGridViewTables.ReadOnly = true;
             dataGridViewTables.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
+
         private void UpdateTextboxesLanguage(int id)
         {
             Language update = languagesBusiness.Get(id);
             textBoxNameLanguage.Text = update.LanguageName;
             textBoxCodeLanguage.Text = update.LanguageCode.ToString();
         }
+
         private void ToggleSaveUpdateLanguage()
         {
             if (buttonUpdateLanguage.Visible)
@@ -737,21 +719,25 @@ namespace Display1
             UpdateGridPublisher();
             ClearTextBoxesPublisher();
         }
+
         private void ClearTextBoxesPublisher()
         {
             textBoxNamePublisher.Text = "";
         }
+
         private void UpdateGridPublisher()
         {
             dataGridViewTables.DataSource = publishersBusiness.GetAllPublishers();
             dataGridViewTables.ReadOnly = true;
             dataGridViewTables.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
+
         private void UpdateTextboxesPublisher(int id)
         {
             Publisher update = publishersBusiness.GetPublishers(id);
             textBoxNamePublisher.Text = update.PublisherName;
         }
+
         private void ToggleSaveUpdatePublisher()
         {
             if (buttonUpdatePublisher.Visible)
@@ -822,21 +808,25 @@ namespace Display1
             UpdateGridGenre();
             ClearTextBoxesGenre();
         }
+
         private void ClearTextBoxesGenre()
         {
             textBoxGenreName.Text = "";
         }
+
         private void UpdateGridGenre()
         {
             dataGridViewTables.DataSource = genresBusiness.GetAll();
             dataGridViewTables.ReadOnly = true;
             dataGridViewTables.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
+
         private void UpdateTextboxesGenre(int id)
         {
             Genre update = genresBusiness.Get(id);
             textBoxGenreName.Text = update.GenreName;
         }
+
         private void ToggleSaveUpdateGenre()
         {
             if (buttonUpdateGenre.Visible)
@@ -864,20 +854,14 @@ namespace Display1
 
         private void buttonInsertData_Click(object sender, EventArgs e)
         {
-            //Books();
             Genres();
             Languages();
             Authors();
             Nationalities();
             Publishers();
             BooksAuthors();
-            //UpdateGridGenre();
-            //UpdateGridLanguage();
-            //UpdateGridAuthor();
-            //UpdateGridNationality();
-            //UpdateGridPublisher();
-            //UpdateGridBook();
         }
+
         private void Genres()
         {
             Genre genreOne = new Genre("classic");
@@ -897,6 +881,7 @@ namespace Display1
             Genre genreEight = new Genre("fragmentary novel");
             genresBusiness.Add(genreEight);
         }
+
         private void Languages()
         {
             Language languageOne = new Language("english", 44);
@@ -910,6 +895,7 @@ namespace Display1
             Language languageFive = new Language("germany", 49);
             languagesBusiness.Add(languageFive);
         }
+
         private void Authors()
         {
             Author authorOne = new Author("Laini Taylor", 1);
@@ -925,20 +911,21 @@ namespace Display1
             Author authorSix = new Author("Yordan Radichkov", 1);
             bussinessAuthors.Add(authorSix);
         }
+
         private void Nationalities()
         {
-            Nationality nationalitieOne = new Nationality("American");
-            businessNationalities.AddNationality(nationalitieOne);
-            Nationality nationalitieTwo = new Nationality("Bulgarian");
-            businessNationalities.AddNationality(nationalitieTwo);
-            Nationality nationalitieThree = new Nationality("New Zealand");
-            businessNationalities.AddNationality(nationalitieThree);
-            Nationality nationalitieFour = new Nationality("Iranian");
-            businessNationalities.AddNationality(nationalitieFour);
-            Nationality nationalitieFive = new Nationality("Russian");
-            businessNationalities.AddNationality(nationalitieFive);
-
+            Nationality nationalityOne = new Nationality("American");
+            businessNationalities.AddNationality(nationalityOne);
+            Nationality nationalityTwo = new Nationality("Bulgarian");
+            businessNationalities.AddNationality(nationalityTwo);
+            Nationality nationalityThree = new Nationality("New Zealand");
+            businessNationalities.AddNationality(nationalityThree);
+            Nationality nationalityFour = new Nationality("Iranian");
+            businessNationalities.AddNationality(nationalityFour);
+            Nationality nationalityFive = new Nationality("Russian");
+            businessNationalities.AddNationality(nationalityFive);
         }
+
         private void Publishers()
         {
             Publisher publisherOne = new Publisher("LiterNet");
@@ -950,10 +937,7 @@ namespace Display1
             Publisher publisherFour = new Publisher("Alexsoft");
             publishersBusiness.AddPublishers(publisherFour);
         }
-        private void Books()
-        {
-            bookBusiness.InsertInitialData();
-        }
+
         private void BooksAuthors()
         {
             BookAuthor bookAuthorOne = new BookAuthor(1, 2);

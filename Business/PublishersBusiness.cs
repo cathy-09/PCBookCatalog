@@ -45,6 +45,7 @@ namespace Business
             using (bookCatalogContext = new BookCatalogContext())
             {
                 Publisher item = bookCatalogContext.Publishers.Find(publishers.PublisherId);
+
                 if (item != null)
                 {
                     bookCatalogContext.Entry(item).CurrentValues.SetValues(publishers);
@@ -58,6 +59,7 @@ namespace Business
             using (bookCatalogContext = new BookCatalogContext())
             {
                 Publisher publishers = bookCatalogContext.Publishers.Find(id);
+
                 if (publishers != null)
                 {
                     bookCatalogContext.Publishers.Remove(publishers);
@@ -69,6 +71,7 @@ namespace Business
         {
             List<Publisher> publishers = this.GetAllPublishers();
             int id = 0;
+
             foreach (Publisher publisher in publishers)
             {
                 if (publisher.PublisherName == name)

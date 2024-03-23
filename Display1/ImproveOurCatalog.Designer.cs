@@ -202,7 +202,6 @@
             textBoxNationalityNameBook.Name = "textBoxNationalityNameBook";
             textBoxNationalityNameBook.Size = new System.Drawing.Size(103, 23);
             textBoxNationalityNameBook.TabIndex = 19;
-            textBoxNationalityNameBook.TextChanged += textBox1_TextChanged;
             // 
             // buttonDeleteBook
             // 

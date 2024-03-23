@@ -46,6 +46,7 @@ namespace Business
             using (bookCatalogContext = new BookCatalogContext())
             {
                 Genre item = bookCatalogContext.Genres.Find(genres.GenreId);
+
                 if (item != null)
                 {
                     bookCatalogContext.Entry(item).CurrentValues.SetValues(genres);
@@ -60,6 +61,7 @@ namespace Business
             using (bookCatalogContext = new BookCatalogContext())
             {
                 Genre genres = bookCatalogContext.Genres.Find(id);
+
                 if (genres != null)
                 {
                     bookCatalogContext.Genres.Remove(genres);
@@ -71,6 +73,7 @@ namespace Business
         {
             List<Genre> genres = this.GetAll();
             int id = 0;
+
             foreach (Genre genre in genres)
             {
                 if (genre.GenreName == name)

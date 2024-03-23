@@ -9,16 +9,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Business
 {
-    /// <summary>
-    /// Represents the set of functionality of the GUI elements at program startup
-    /// </summary>
     public class BussinessAuthors
     {
         private BookCatalogContext bookCatalogContext;
-
-        /// <summary>
-        /// Gets all authors from database
-        /// </summary>
 
         public List<Author> GetAll()
         {
@@ -28,10 +21,6 @@ namespace Business
             }
         }
 
-        /// <summary>
-        /// Gets an author by id from database
-        /// </summary>
-
         public Author Get(int id)
         {
             using (bookCatalogContext = new BookCatalogContext())
@@ -39,10 +28,6 @@ namespace Business
                 return bookCatalogContext.Authors.Find(id);
             }
         }
-
-        /// <summary>
-        /// Adds an author to the current context
-        /// </summary>
 
         public void Add(Author authors)
         {
@@ -56,15 +41,12 @@ namespace Business
             }
         }
 
-        /// <summary>
-        /// Updates an author to the current context
-        /// </summary>
-
         public void Update(Author authors)
         {
             using (bookCatalogContext = new BookCatalogContext())
             {
                 Author item = bookCatalogContext.Authors.Find(authors.AuthorId);
+
                 if (item != null)
                 {
                     bookCatalogContext.Entry(item).CurrentValues.SetValues(authors);
@@ -73,15 +55,12 @@ namespace Business
             }
         }
 
-        /// <summary>
-        /// Deletes an author to the current context
-        /// </summary>
-
         public void Delete(int id)
         {
             using (bookCatalogContext = new BookCatalogContext())
             {
                 Author authors = bookCatalogContext.Authors.Find(id);
+
                 if (authors != null)
                 {
                     bookCatalogContext.Authors.Remove(authors);
@@ -93,6 +72,7 @@ namespace Business
         {
             List<Author> authors = this.GetAll();
             int id = 0;
+
             foreach (Author author in authors)
             {
                 if (author.Name == name)

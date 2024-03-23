@@ -45,6 +45,7 @@ namespace Business
             using (bookCatalogContext = new BookCatalogContext())
             {
                 Language item = bookCatalogContext.Languages.Find(languages.LanguageId);
+
                 if (item != null)
                 {
                     bookCatalogContext.Entry(item).CurrentValues.SetValues(languages);
@@ -58,6 +59,7 @@ namespace Business
             using (bookCatalogContext = new BookCatalogContext())
             {
                 Language languages = bookCatalogContext.Languages.Find(id);
+
                 if (languages != null)
                 {
                     bookCatalogContext.Languages.Remove(languages);
@@ -69,6 +71,7 @@ namespace Business
         {
             List<Language> landuages = this.GetAll();
             int id = 0;
+
             foreach (Language language in landuages)
             {
                 if (language.LanguageName == name)

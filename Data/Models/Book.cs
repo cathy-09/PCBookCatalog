@@ -19,13 +19,10 @@ namespace Data.Models
         private int authorId;
         public int AuthorId { set { authorId = value; } }
         public Author Author { get; set; }
-        //public string AuthorName => Author.Name;
         public Genre Genre { get; set; }
-        //public string GenreName => Genre.GenreName;
         private int publisherId;
         public int PublisherId { set { publisherId = value; } }
         public Publisher Publisher { get; set; }
-        //public string PublisherName => Publisher.PublisherName;
         public double Rating { get; set; }
         public int Pages { get; set; }
         public decimal Price { get; set; }
@@ -34,8 +31,6 @@ namespace Data.Models
         private int languageId;
         public int LanguageId { set { languageId = value; } }
         public Language Language { get; set; }
-        //public string LanguageName => Language.LanguageName;
-        //public BookAuthor BookAuthor { get; set; }
         public ICollection<BookAuthor> BookAuthors { set { BookAuthors = value; } }
     }
 }

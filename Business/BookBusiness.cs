@@ -115,10 +115,8 @@ namespace Business
 
                 if (temp != null)
                 {
-                    // Detach the entity from the context
                     bookCatalogContext.Entry(temp).State = EntityState.Detached;
 
-                    // Make changes to the detached entity
                     temp.Author = book.Author;
                     temp.Language = book.Language;
                     temp.Publisher = book.Publisher;
@@ -129,13 +127,10 @@ namespace Business
                     temp.Name = book.Name;
                     temp.PublicationYear = book.PublicationYear;
                     temp.Rating = book.Rating;
-                    // Update other properties as needed
 
-                    // Re-attach the entity and mark it as modified
                     bookCatalogContext.Attach(temp);
                     bookCatalogContext.Entry(temp).State = EntityState.Modified;
 
-                    // Save changes
                     bookCatalogContext.SaveChanges();
                 }
             }
@@ -189,6 +184,7 @@ namespace Business
                 Book cheapestBook = bookCatalogContext.Books
                     .OrderBy(b => b.Price)
                     .FirstOrDefault();
+
                 if (cheapestBook != null)
                 {
                     return cheapestBook;
@@ -230,6 +226,7 @@ namespace Business
         {
             List<Book> books = this.GetAllBooks();
             int id = 0;
+
             foreach (Book bookPlaceholder in books)
             {
                 if (bookPlaceholder.Name == name)
@@ -243,7 +240,6 @@ namespace Business
 
         public void InsertInitialData()
         {
-            List<Book> books = new List<Book>();
             Book book1 = new Book
             {
                 Name = "The Magicians' Guild",
@@ -342,14 +338,6 @@ namespace Business
                 Language = new Language { LanguageName = "English" }
             };
 
-            //books.Add(book1);
-            //books.Add(book2);
-            //books.Add(book3);
-            //books.Add(book4);
-            //books.Add(book5);
-            //books.Add(book6);
-            //books.Add(book7);
-
             using (BookCatalogContext bookCatalogContext = new BookCatalogContext())
             {
                 if (!bookCatalogContext.Books.Where(x => x.ISBN == book1.ISBN).Any())
@@ -363,13 +351,6 @@ namespace Business
                     bookCatalogContext.Books.Add(book7);
                     bookCatalogContext.SaveChanges();
                 }
-                //foreach (var item in books)
-                //{
-                //    if (!bookCatalogContext.Books.Contains(item))
-                //    {
-                //        bookCatalogContext.Books.Add(item);
-                //    }
-                //}
             }
         }
     }
