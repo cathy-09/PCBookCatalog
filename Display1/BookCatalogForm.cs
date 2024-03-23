@@ -27,6 +27,7 @@ namespace Display1
 
         private void BookCatalogForm_Load(object sender, EventArgs e)
         {
+            LoadComboBoxDataOnce();
             UpdateGrid();
         }
         private void UpdateGrid()
@@ -38,11 +39,11 @@ namespace Display1
 
         private void comboBoxChooseOption_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-            if (comboBoxChooseOption.Text.Equals("Списък на книги"))
+            if (comboBoxChooseOption.SelectedIndex == 0)
             {
                 UpdateGrid();
             }
-            else
+            else if (comboBoxChooseOption.SelectedIndex == 1)
             {
                 LoadBooksSortedByTitle();
                 //UpdateGrid();
@@ -56,6 +57,19 @@ namespace Display1
             DataGridViewColumn sortedColumn = dataGridView1.Columns["Name"];
             ListSortDirection sortDirection = ListSortDirection.Ascending;
             dataGridView1.Sort(sortedColumn, sortDirection);
+        }
+        private bool comboBoxDataLoaded = false;
+
+        private void LoadComboBoxDataOnce()
+        {
+            if (!comboBoxDataLoaded)
+            {
+                comboBoxChooseOption.Items.Add("Списък на книги");
+                comboBoxChooseOption.Items.Add("Сортиране по заглавие");
+                comboBoxChooseOption.SelectedIndex = 0; 
+
+                comboBoxDataLoaded = true;
+            }
         }
         private void InsertInitialData()
         {
