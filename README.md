@@ -7,6 +7,8 @@ Main Form
 
 ![image](https://github.com/cathy-09/PCBookCatalog/assets/158329994/82dbfaed-c78b-4fc1-804e-28ca70ef7659)
 
+BookCatalogForm
+
 ![image](https://github.com/cathy-09/PCBookCatalog/assets/158329994/066c6687-ccc2-4048-a854-665e50a71717)
 
 ImproveOurCatalog
