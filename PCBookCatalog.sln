@@ -27,7 +27,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestBookAuthors", "TestBook
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Display1", "Display1\Display1.csproj", "{E38CD33E-ED50-45D8-8B29-8090BB102151}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestAuthor", "UnitTestAuthor\UnitTestAuthor.csproj", "{31128D59-4375-4A5E-8BAE-7FC7C76FE622}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTestAuthor\UnitTests.csproj", "{31128D59-4375-4A5E-8BAE-7FC7C76FE622}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
