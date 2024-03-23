@@ -64,6 +64,18 @@ namespace Business
                 }
             }
         }
-
+        public int GetByName(string name)
+        {
+            List<Genre> genres = this.GetAll();
+            int id = 0;
+            foreach (Genre genre in genres)
+            {
+                if (genre.GenreName == name)
+                {
+                    id = genre.GenreId;
+                }
+            }
+            return id;
+        }
     }
 }

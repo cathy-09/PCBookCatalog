@@ -22,7 +22,7 @@ namespace TestProject
             bussinessAuthors = new BussinessAuthors();
         }
         [Test]
-        public void GetAll_ReturnsAllAuthors()
+        public void GetAll_AllAuthors()
         {
             BussinessAuthors bussinessAuthors = new BussinessAuthors();
             List<Author> result = bussinessAuthors.GetAll();
@@ -53,12 +53,12 @@ namespace TestProject
         public void Update_UpdatesExistingAuthor()
         {
             BussinessAuthors bussinessAuthors = new BussinessAuthors();
-            int id = bussinessAuthors.GetByName("NameOne");
-            var genreToUpdate = bussinessAuthors.Get(id);
-            genreToUpdate.Name = "Updated NameOne";
+            int id = bussinessAuthors.GetByName("NameTwo");
+            Author genreToUpdate = bussinessAuthors.Get(id);
+            genreToUpdate.Name = "Updated AuthorName";
             bussinessAuthors.Update(genreToUpdate);
-            var result = bussinessAuthors.Get(id);
-            Assert.AreEqual("Updated NameOne", result.Name);
+            Author result = bussinessAuthors.Get(id);
+            Assert.AreEqual("Updated AuthorName", result.Name);
         }
         [Test]
         public void Delete_ActorById() 
